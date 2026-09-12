@@ -1,3 +1,6 @@
+# Enable bash completion for Python argcomplete
+fpath=(/usr/lib/python3/dist-packages/argcomplete/bash_completion.d $fpath)
+
 # fnm
 FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then

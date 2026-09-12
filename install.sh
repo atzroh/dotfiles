@@ -22,6 +22,7 @@ PACKAGES=(
   htop    # System monitor
   xsel    # Clipboard manager
   unzip   # Extract ZIP files
+  chafa   # Image-to-Terminal converter
 
   # Development Tools
   build-essential # Essential packages for building software

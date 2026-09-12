@@ -43,7 +43,5 @@ alias xtree='eza -a --tree --color=auto --git-ignore -I ".git|node_modules" | xs
 # stow alias
 alias stow='stow -v'
 
-# npm alias
-alias cna='npx create-next-app@latest'
-alias nrd='npm run dev'
-alias nrb='npm run build'
+# icat alias
+alias icat='chafa -f kitty'
