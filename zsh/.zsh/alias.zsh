@@ -22,7 +22,6 @@ alias ~='cd ~/'
 # mv and cp alias
 alias mv='mv -i'
 alias cp='cp -ir'
-alias rm='rm -r'
 
 # fd alias
 alias fd='fdfind'
