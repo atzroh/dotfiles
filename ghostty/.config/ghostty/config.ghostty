@@ -35,8 +35,8 @@ keybind = ctrl+shift+h=resize_split:left,30
 keybind = ctrl+shift+l=resize_split:right,30
 
 # Pane splitting
-keybind = alt+v=new_split:right
-keybind = alt+h=new_split:down
+keybind = super+alt+v=new_split:right
+keybind = super+alt+h=new_split:down
 
 # Pane navigation
 keybind = alt+h=goto_split:left
