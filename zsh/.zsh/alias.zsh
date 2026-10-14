@@ -44,3 +44,6 @@ alias stow='stow -v'
 
 # icat alias
 alias icat='chafa -f kitty'
+
+# password alias
+alias genpw='openssl rand -base64 18 | xsel -bi && xsel -bo'
