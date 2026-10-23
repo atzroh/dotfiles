@@ -16,7 +16,7 @@ Ubuntu 26.04 を前提とする。導入後は Neovim で `:checkhealth` を実�
 
 | 名前 | 用途 | 状態 | 導入方法 | 確認 |
 |---|---|---|---|---|
-| wl-clipboard | OS クリップボード連携 (Wayland) | 予定 | `sudo apt install wl-clipboard` | `wl-copy --version` |
+| wl-clipboard | OS クリップボード連携 (Wayland)。無い場合は xsel / xclip (XWayland 経由) が使われる | 使用中 | `sudo apt install wl-clipboard` | `:checkhealth vim.provider` の Clipboard 欄 |
 | ripgrep | picker の grep | 予定 | `sudo apt install ripgrep` | `rg --version` |
 | fd-find | picker のファイル検索 | 予定 | `sudo apt install fd-find` | `fdfind --version` |
 | gcc, make | Treesitter パーサーのビルド | 予定 | `sudo apt install build-essential` | `gcc --version` |
