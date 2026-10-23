@@ -8,6 +8,9 @@ opt.cursorline = true
 opt.scrolloff = 8
 opt.winborder = "rounded"
 
+-- Start with all folds open (folds are defined by Treesitter)
+opt.foldlevelstart = 99
+
 -- Indentation
 opt.expandtab = true
 opt.shiftwidth = 4

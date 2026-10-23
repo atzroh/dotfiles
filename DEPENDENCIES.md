@@ -19,8 +19,8 @@ Ubuntu 26.04 を前提とする。導入後は Neovim で `:checkhealth` を実�
 | wl-clipboard | OS クリップボード連携 (Wayland)。無い場合は xsel / xclip (XWayland 経由) が使われる | 使用中 | `sudo apt install wl-clipboard` | `:checkhealth vim.provider` の Clipboard 欄 |
 | ripgrep | picker の grep | 予定 | `sudo apt install ripgrep` | `rg --version` |
 | fd-find | picker のファイル検索 | 予定 | `sudo apt install fd-find` | `fdfind --version` |
-| gcc, make | Treesitter パーサーのビルド | 予定 | `sudo apt install build-essential` | `gcc --version` |
-| curl, unzip, tar, gzip | Mason のダウンロード・展開 | 使用中 | `sudo apt install curl unzip tar gzip` | `:checkhealth mason` |
+| gcc (C コンパイラ) | Treesitter パーサーのビルド | 使用中 | `sudo apt install build-essential` | `:checkhealth nvim-treesitter` |
+| curl, unzip, tar, gzip | Mason のダウンロード・展開、Treesitter パーサーの取得 | 使用中 | `sudo apt install curl unzip tar gzip` | `:checkhealth mason` |
 
 ## 実行環境 (Mason が LSP サーバー等を入れるときに使う)
 
@@ -43,6 +43,17 @@ Ubuntu 26.04 を前提とする。導入後は Neovim で `:checkhealth` を実�
 | vtsls | JavaScript / TypeScript | npm |
 | html, cssls | HTML / CSS | npm |
 | marksman | Markdown | GitHub Releases |
+
+LSP 以外のツールは `lua/plugins/mason.lua` の `tools` に書き、起動時に自動で導入される。
+
+| ツール | 用途 | 取得元 |
+|---|---|---|
+| tree-sitter-cli | Treesitter パーサーのビルド (0.26.1 以上が必要。apt 版は 0.25 で古い) | GitHub Releases |
+
+## Treesitter パーサー (手作業は不要)
+
+`lua/plugins/treesitter.lua` の `parsers` に書いたものは、tree-sitter-cli が使えるようになった時点で自動で導入される。
+導入先は `~/.local/share/nvim/site/parser/`。新しい PC では、初回起動で Mason が tree-sitter-cli を入れ、続けてパーサーがビルドされる。
 
 ## その他
 

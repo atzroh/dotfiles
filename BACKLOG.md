@@ -35,7 +35,7 @@
   - YAML: yamlls + SchemaStore.nvim (GitHub Actions、docker-compose など)
   - TOML: taplo (`pyproject.toml`、`Cargo.toml` など)
 - 検討すべき問題:
-  1. **LSP 以外のツールの自動導入方法**: shellcheck は mason-lspconfig の `ensure_installed` では入らない。mason-registry を使う自前のループか、mason-tool-installer.nvim か。段階 6 の整形ツール (stylua、shfmt など) と合わせて決める
+  1. ~~**LSP 以外のツールの自動導入方法**~~: 段階 4 で決定。`lua/plugins/mason.lua` の `tools` に書けば自動で入る (mason-registry を使う自前のループ)。shellcheck はそこに足せばよい
   2. **yamlls: 隠しフォルダの下ではスキーマが自動で割り当てられない**: SchemaStore の fileMatch (`**/.github/workflows/*.yml`) の `**` が、`~/.config` のような隠しフォルダを含むパスに一致しない (yaml-language-server 2.0.0 で確認)。dotfiles を `~/.dotfiles` のような隠しフォルダに置くと影響する。回避策はファイル先頭に `# yaml-language-server: $schema=<URL>` を書くこと
   3. **taplo: SchemaStore のカタログを読めない**: taplo 自身のカタログ取得が形式の不一致で失敗する (`failed to fetch catalog`)。SchemaStore.nvim の TOML 用エントリ (186 件) を taplo の `associations` (正規表現) に変換すれば動くことは確認済み。ただし、変換処理を自前で持つことになる
   4. **起動時間**: JSON ファイルを開いたときの起動時間が約 80 ms (Python は約 65 ms)。SchemaStore.nvim の読み込み分

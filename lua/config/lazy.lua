@@ -15,6 +15,11 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Keep Debian's <prefix>/lib/<arch>/nvim (bundled parsers) in rtp
+local bundled = vim.tbl_filter(function(path)
+  return path:match("/lib/[^/]+/nvim$") ~= nil
+end, vim.opt.rtp:get())
+
 require("lazy").setup({
   -- Load every spec file in lua/plugins/
   spec = { { import = "plugins" } },
@@ -22,4 +27,5 @@ require("lazy").setup({
   install = { colorscheme = { "monokai-pro", "habamax" } },
   -- No plugin here needs luarocks
   rocks = { enabled = false },
+  performance = { rtp = { paths = bundled } },
 })

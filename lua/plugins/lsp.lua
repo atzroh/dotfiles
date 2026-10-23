@@ -11,12 +11,6 @@ local servers = {
 
 return {
   {
-    "mason-org/mason.nvim",
-    cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUpdate", "MasonLog" },
-    opts = {},
-  },
-
-  {
     "mason-org/mason-lspconfig.nvim",
     -- Load when a file is opened, before its FileType is set
     event = { "BufReadPre", "BufNewFile" },
