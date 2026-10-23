@@ -10,7 +10,7 @@ Ubuntu 26.04 を前提とする。導入後は Neovim で `:checkhealth` を実�
 | 名前 | 用途 | 状態 | 導入方法 | 確認 |
 |---|---|---|---|---|
 | Neovim >= 0.12 | 本体 | 使用中 | `sudo add-apt-repository ppa:neovim-ppa/unstable && sudo apt install neovim` | `nvim --version` |
-| git | lazy.nvim によるプラグイン取得 | 予定 | `sudo apt install git` | `git --version` |
+| git | lazy.nvim によるプラグイン取得 (初回起動時に lazy.nvim 自体も clone する) | 使用中 | `sudo apt install git` | `git --version` |
 
 ## システムパッケージ
 
