@@ -6,6 +6,7 @@ opt.relativenumber = true
 opt.signcolumn = "yes"
 opt.cursorline = true
 opt.scrolloff = 8
+opt.winborder = "rounded"
 
 -- Indentation
 opt.expandtab = true
@@ -30,7 +31,7 @@ opt.clipboard = "unnamedplus"
 vim.diagnostic.config({
   severity_sort = true,
   virtual_text = true,
-  float = { border = "rounded", source = true },
+  float = { source = true },
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = "E",

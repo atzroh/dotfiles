@@ -20,14 +20,29 @@ Ubuntu 26.04 を前提とする。導入後は Neovim で `:checkhealth` を実�
 | ripgrep | picker の grep | 予定 | `sudo apt install ripgrep` | `rg --version` |
 | fd-find | picker のファイル検索 | 予定 | `sudo apt install fd-find` | `fdfind --version` |
 | gcc, make | Treesitter パーサーのビルド | 予定 | `sudo apt install build-essential` | `gcc --version` |
-| curl, unzip, tar, gzip | Mason のダウンロード・展開 | 予定 | `sudo apt install curl unzip tar gzip` | - |
+| curl, unzip, tar, gzip | Mason のダウンロード・展開 | 使用中 | `sudo apt install curl unzip tar gzip` | `:checkhealth mason` |
 
 ## 実行環境 (Mason が LSP サーバー等を入れるときに使う)
 
 | 名前 | 用途 | 状態 | 導入方法 | 確認 |
 |---|---|---|---|---|
-| Node.js + npm | npm 製のサーバー (vtsls, html, cssls など) | 予定 | `fnm install --lts` | `node --version` |
-| python3 + venv | pip 製のツール | 予定 | `sudo apt install python3 python3-venv` | `python3 -m venv --help` |
+| Node.js + npm | npm 製のサーバー (vtsls, html-lsp, css-lsp) | 使用中 | `fnm install --lts` | `node --version` |
+| python3 + venv | pip 製のサーバー (basedpyright) | 使用中 | `sudo apt install python3 python3-venv` | `python3 -m venv --help` |
+
+## Mason が自動で入れるもの (手作業は不要)
+
+`lua/plugins/lsp.lua` の `servers` に書いたものは、初回にファイルを開いたとき自動で導入される。
+導入先は `~/.local/share/nvim/mason/`。状態は `:Mason` で確認できる。
+
+| サーバー | 言語 | 取得元 |
+|---|---|---|
+| lua_ls | Lua | GitHub Releases |
+| basedpyright | Python (型チェック、補完) | PyPI |
+| ruff | Python (lint) | GitHub Releases |
+| clangd | C / C++ | GitHub Releases |
+| vtsls | JavaScript / TypeScript | npm |
+| html, cssls | HTML / CSS | npm |
+| marksman | Markdown | GitHub Releases |
 
 ## その他
 
