@@ -17,6 +17,33 @@
 - 現在は最小限 + Neovim 標準キーのみ。LazyVim 互換の候補を後でまとめる
 - 候補: ウィンドウ移動 (`<C-h/j/k/l>`), バッファ切替 (`<S-h>`/`<S-l>`), 行移動 (`<A-j>`/`<A-k>`), LSP 系 (`<leader>c*`)
 
+### snacks.nvim の他の機能
+- 段階 7 では picker だけを有効にした。どれも `lua/plugins/snacks.lua` の `opts` に `<名前> = { enabled = true }` を足せば使える
+- 他の段階と関係するもの:
+  - lazygit: 段階 11 で試用予定
+  - terminal: 段階 9 の claudecode.nvim が Claude Code を開くのに使う
+  - notifier (通知の浮動表示)、input (`grn` などの入力欄の浮動表示): 段階 15 の noice / ui2 の比較で一緒に試す
+  - toggle (設定の on/off キー): 段階 13 の which-key と合わせて検討
+- おすすめ (試用候補):
+  - indent: インデントの縦線と、今いるブロックの強調
+  - words: カーソル下の変数の参照箇所を強調し、`]]` / `[[` で移動
+  - bigfile: 巨大なファイルを開いたとき重い機能を自動で止める (普段は見えない保険)
+- その他の候補:
+  - scope: 今いるブロックをテキストオブジェクト (`ii` / `ai`) として扱う
+  - dashboard: 起動画面
+  - statuscolumn: 行番号・記号欄・折りたたみ表示を整える
+  - scroll: スクロールを滑らかにする
+  - quickfile: `nvim ファイル名` でプラグインより先にファイルを表示する
+  - bufdelete: ウィンドウの配置を崩さずにバッファを閉じる
+  - scratch: 使い捨てのメモ用バッファ
+  - zen / dim: 集中モード / 今いるブロック以外を暗くする
+  - gitbrowse: 今のファイルや行を GitHub などでブラウザに開く
+  - gh: GitHub CLI 連携 (Issue や PR を Neovim 内で見る)
+  - rename: ファイル名の変更を LSP 経由で import などに反映
+  - image: 画像を Neovim 内に表示 (Ghostty は対応。PNG 以外は ImageMagick が必要)
+  - profiler: Lua 処理の遅い箇所を調べる
+- 対象外: explorer (ファイル操作は oil.nvim を選んだため)
+
 ### その他の候補
 - Copilot インライン補完 (0.12 のネイティブ LSP inline completion)
 - codecompanion.nvim
