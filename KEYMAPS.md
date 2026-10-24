@@ -74,6 +74,25 @@ oil の画面の中で使うキー:
 | `<C-c>` | 閉じる |
 | `g?` | この画面のキー一覧 |
 
+## Git (gitsigns.nvim)
+
+Git 管理のファイルでは、左端に変更の記号が出る (`┃` 追加・変更、`▁` 削除)。変更のまとまりを hunk と呼ぶ。
+
+| キー | モード | 動作 | 出どころ |
+|---|---|---|---|
+| `]c` / `[c` | ノーマル | 次 / 前の hunk へ移動 (差分画面では本来の `]c` / `[c`) | 設定 (README) |
+| `<leader>hp` | ノーマル | hunk の変更前後を浮動ウィンドウで表示 | 設定 (README) |
+| `<leader>hi` | ノーマル | hunk の変更前をその場に重ねて表示 | 設定 (README) |
+| `<leader>hs` | ノーマル / ビジュアル | hunk (ビジュアルでは選んだ行) を stage | 設定 (README) |
+| `<leader>hr` | ノーマル / ビジュアル | hunk (ビジュアルでは選んだ行) の変更を取り消す | 設定 (README) |
+| `<leader>hS` / `<leader>hR` | ノーマル | ファイル全体を stage / ファイル全体の変更を取り消す | 設定 (README) |
+| `<leader>hb` | ノーマル | カーソル行を最後に変更したコミット (blame) を表示 | 設定 (README) |
+| `<leader>hd` / `<leader>hD` | ノーマル | stage 済みの内容 / 直前のコミットとの差分画面 | 設定 (README) |
+| `<leader>hq` / `<leader>hQ` | ノーマル | このファイル / 全ファイルの hunk を quickfix リストへ | 設定 (README) |
+| `<leader>tb` | ノーマル | 各行の末尾に blame を常に表示する / しない | 設定 (README) |
+| `<leader>tw` | ノーマル | 行内の変更された単語の強調を切り替え | 設定 (README) |
+| `ih` | オペレーター / ビジュアル | hunk を選択 (例: `dih` で hunk を削除、`vih` で選択) | 設定 (README) |
+
 ## Claude Code (claudecode.nvim)
 
 Neovim の右側に Claude Code を開き、VS Code 拡張と同じ仕組みで連携する。Claude Code が提案した変更は、Neovim の差分画面で確認してから反映できる。
