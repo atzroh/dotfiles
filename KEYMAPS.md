@@ -74,6 +74,25 @@ oil の画面の中で使うキー:
 | `<C-c>` | 閉じる |
 | `g?` | この画面のキー一覧 |
 
+## Claude Code (claudecode.nvim)
+
+Neovim の右側に Claude Code を開き、VS Code 拡張と同じ仕組みで連携する。Claude Code が提案した変更は、Neovim の差分画面で確認してから反映できる。
+
+| キー | モード | 動作 | 出どころ |
+|---|---|---|---|
+| `<leader>ac` | ノーマル | Claude Code を開く / 閉じる | 設定 (README) |
+| `<leader>af` | ノーマル | Claude Code の画面に移動 (なければ開く) | 設定 (README) |
+| `<leader>ar` | ノーマル | 過去の会話を選んで再開 (`--resume`) | 設定 (README) |
+| `<leader>aC` | ノーマル | 直前の会話を続ける (`--continue`) | 設定 (README) |
+| `<leader>am` | ノーマル | モデルを選んで開く | 設定 (README) |
+| `<leader>ab` | ノーマル | 今のファイルを Claude Code の文脈に追加 | 設定 (README) |
+| `<leader>as` | ビジュアル | 選んだ範囲を Claude Code に送る | 設定 (README) |
+| `<leader>as` | ノーマル (oil の中) | カーソル行のファイルを文脈に追加 | 設定 (README) |
+| `<leader>aa` | ノーマル | 差分画面で、提案された変更を承認 | 設定 (README) |
+| `<leader>ad` | ノーマル | 差分画面で、提案された変更を却下 | 設定 (README) |
+
+Claude Code の画面 (端末) の中では、`<C-\><C-n>` でノーマルモードに戻り、`<C-w>h` などで他のウィンドウへ移動できる。
+
 ## LSP
 
 ファイルに LSP サーバーが接続しているときに使える。

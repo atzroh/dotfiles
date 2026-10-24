@@ -68,4 +68,4 @@ Python の整形には、LSP サーバーとして入れた ruff をそのまま
 |---|---|---|---|---|
 | Nerd Font | アイコン表示 (oil.nvim、snacks.picker など。mini.icons が使う) | 使用中 | JetBrainsMono Nerd Font を `~/.local/share/fonts` に置き `fc-cache -f`、端末のフォントに設定 | `fc-list \| grep -i nerd` |
 | lazygit | lazygit 連携 (試用) | 予定 | GitHub Releases のバイナリを `/usr/local/bin` に置く | `lazygit --version` |
-| Claude Code | claudecode.nvim | 予定 | `curl -fsSL https://claude.ai/install.sh \| bash` | `claude --version` |
+| Claude Code | claudecode.nvim (`~/.local/bin/claude` を使う。初回は `claude` を実行してログインが必要) | 使用中 | `curl -fsSL https://claude.ai/install.sh \| bash` (公式ドキュメントで確認済み) | `claude --version` |
