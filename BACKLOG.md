@@ -81,4 +81,7 @@
 
 ## 試用して外したもの
 
-(なし)
+### diffview-plus.nvim (段階 12)
+- 元の diffview.nvim (2024-06 で更新停止) の保守されている派生版。codediff.nvim と比べて、codediff を残した
+- 外した理由: codediff の方が、Claude Code が変更している最中も差分が更新される点、文字単位の強調、stage や履歴まで 1 画面で扱える点で優れていたため
+- 戻すなら: `{ "dlyongemallo/diffview-plus.nvim", version = "*", cmd = { "DiffviewOpen", "DiffviewFileHistory" } }`。バイナリのダウンロードが不要な点は diffview-plus の利点

@@ -20,7 +20,7 @@ Ubuntu 26.04 を前提とする。導入後は Neovim で `:checkhealth` を実�
 | ripgrep | snacks.picker の grep (`<leader>/`) | 使用中 | `sudo apt install ripgrep` | `:checkhealth snacks` |
 | fd-find | snacks.picker のファイル検索 (`<leader>ff`)。`fdfind` の名前のままで認識される | 使用中 | `sudo apt install fd-find` | `:checkhealth snacks` |
 | gcc (C コンパイラ) | Treesitter パーサーのビルド | 使用中 | `sudo apt install build-essential` | `:checkhealth nvim-treesitter` |
-| curl, unzip, tar, gzip | Mason のダウンロード・展開、Treesitter パーサーの取得、blink.cmp のビルド済みバイナリの取得 | 使用中 | `sudo apt install curl unzip tar gzip` | `:checkhealth mason` |
+| curl, unzip, tar, gzip | Mason のダウンロード・展開、Treesitter パーサーの取得、blink.cmp / codediff.nvim のビルド済みバイナリの取得 | 使用中 | `sudo apt install curl unzip tar gzip` | `:checkhealth mason` |
 
 ## 実行環境 (Mason が LSP サーバー等を入れるときに使う)
 

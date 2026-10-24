@@ -113,6 +113,33 @@ lazygit の中の主なキー (lazygit 自体の操作):
 | `e` | ファイルをこの Neovim で開く (lazygit は閉じる) |
 | `<Tab>` / 数字キー | パネルを移動 |
 
+### 差分画面 (codediff.nvim)
+
+新しいタブで開く。Claude Code などが変更している最中も、差分がその場で更新される。
+
+| キー / コマンド | 動作 | 出どころ |
+|---|---|---|
+| `<leader>gd` | 作業中の変更を一覧と差分で表示 (`:CodeDiff`) | 設定 |
+| `<leader>gh` | 今のファイルの履歴を差分付きでたどる (`:CodeDiff history %`) | 設定 |
+| `:CodeDiff main` | ブランチ main との比較 (`:CodeDiff main HEAD` で 2 つのリビジョン同士) | codediff |
+| `:CodeDiff --staged` | stage 済みの変更だけを表示 | codediff |
+| `:CodeDiff history` | リポジトリ全体の履歴 | codediff |
+
+画面の中の主なキー:
+
+| キー | 動作 |
+|---|---|
+| `]f` / `[f` | 次 / 前のファイル |
+| `]c` / `[c` | 次 / 前の変更箇所 |
+| `-` | ファイルを stage / unstage |
+| `<leader>hs` / `<leader>hu` / `<leader>hr` | カーソル位置の変更を stage / unstage / 取り消し |
+| `do` / `dp` | 反対側から変更を取り込む / 反対側へ送る |
+| `t` | 横並び / 1 画面の切り替え |
+| `gc` | 変更のない部分を折りたたむ |
+| `<leader>e` / `<leader>b` | 一覧へ移動 / 一覧の表示切り替え |
+| `q` | 閉じる |
+| `g?` | キー一覧 |
+
 ## Claude Code (claudecode.nvim)
 
 Neovim の右側に Claude Code を開き、VS Code 拡張と同じ仕組みで連携する。Claude Code が提案した変更は、Neovim の差分画面で確認してから反映できる。
