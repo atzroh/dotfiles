@@ -17,6 +17,8 @@ return {
     dependencies = {
       "mason-org/mason.nvim",
       "neovim/nvim-lspconfig",
+      -- Load first so its completion capabilities reach every server
+      "saghen/blink.cmp",
     },
     opts = {
       -- Install these, and enable only these (other Mason packages stay off)
@@ -24,6 +26,13 @@ return {
       automatic_enable = servers,
     },
     config = function(_, opts)
+      -- Workaround: blink.cmp ignores applyKind merge (see BACKLOG.md)
+      vim.lsp.config("*", {
+        capabilities = {
+          textDocument = { completion = { completionList = { applyKindSupport = false } } },
+        },
+      })
+
       -- basedpyright checks types only; Ruff handles imports and lint
       vim.lsp.config("basedpyright", {
         settings = {

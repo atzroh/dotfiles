@@ -44,6 +44,14 @@
   7. **シェルの整形**: shfmt は段階 3 で残骸として削除した。シェルスクリプトを整形したい場合は段階 6 で入れ直す
 - 試用サンプルは `playground/lsp/` に残してある (`sample.sh`、`package.json`、`.github/workflows/ci.yml`、`pyproject.toml`)
 
+## 回避策 (上流の修正待ち)
+
+### blink.cmp が LSP の itemDefaults.data を合成しない
+- 症状: basedpyright の補完候補で説明 (ドキュメント) が表示されない。ホバー (`K`) では表示される
+- 原因: Neovim が `applyKindSupport` を有効にしているため、basedpyright は候補に共通の `data` (uri、position) を `itemDefaults` にまとめ、「各候補に合成する」指定 (applyKind) で送る。blink.cmp (v1.10.2、main も同じ) は候補に `data` があると合成せずに上書きしないため、resolve に必要な uri が欠け、説明が返らない
+- 回避策: `lua/plugins/lsp.lua` で全サーバーに `applyKindSupport = false` を伝え、`data` を候補ごとに付けさせている
+- 外す条件: blink.cmp が applyKind (merge) に対応したら、この設定を消して basedpyright の補完で説明が出るか確認する
+
 ## 試用して外したもの
 
 (なし)
