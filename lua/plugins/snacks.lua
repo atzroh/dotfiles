@@ -7,6 +7,8 @@ return {
   opts = {
     -- Also replaces vim.ui.select (e.g. the gra code action menu)
     picker = { enabled = true },
+    -- Theme follows the colorscheme; "e" in lazygit opens files in this Neovim
+    lazygit = { enabled = true },
   },
   keys = {
     {
@@ -36,6 +38,27 @@ return {
         Snacks.picker.help()
       end,
       desc = "Help pages",
+    },
+    {
+      "<leader>gg",
+      function()
+        Snacks.lazygit()
+      end,
+      desc = "Lazygit",
+    },
+    {
+      "<leader>gl",
+      function()
+        Snacks.lazygit.log()
+      end,
+      desc = "Lazygit log",
+    },
+    {
+      "<leader>gf",
+      function()
+        Snacks.lazygit.log_file()
+      end,
+      desc = "Lazygit current file history",
     },
   },
 }

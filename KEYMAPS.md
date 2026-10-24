@@ -93,6 +93,26 @@ Git 管理のファイルでは、左端に変更の記号が出る (`┃` 追�
 | `<leader>tw` | ノーマル | 行内の変更された単語の強調を切り替え | 設定 (README) |
 | `ih` | オペレーター / ビジュアル | hunk を選択 (例: `dih` で hunk を削除、`vih` で選択) | 設定 (README) |
 
+### lazygit (snacks.lazygit)
+
+| キー | 動作 | 出どころ |
+|---|---|---|
+| `<leader>gg` | lazygit を浮動ウィンドウで開く | 設定 |
+| `<leader>gl` | lazygit をコミット履歴の画面で開く | 設定 |
+| `<leader>gf` | 今のファイルの変更履歴を lazygit で開く | 設定 |
+
+lazygit の中の主なキー (lazygit 自体の操作):
+
+| キー | 動作 |
+|---|---|
+| `q` | 閉じて Neovim に戻る |
+| `?` | その画面で使えるキーの一覧 |
+| `<Space>` | ファイルを stage / unstage |
+| `c` | コミット (メッセージを入力して Enter) |
+| `P` / `p` | push / pull |
+| `e` | ファイルをこの Neovim で開く (lazygit は閉じる) |
+| `<Tab>` / 数字キー | パネルを移動 |
+
 ## Claude Code (claudecode.nvim)
 
 Neovim の右側に Claude Code を開き、VS Code 拡張と同じ仕組みで連携する。Claude Code が提案した変更は、Neovim の差分画面で確認してから反映できる。

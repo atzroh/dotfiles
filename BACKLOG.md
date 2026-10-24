@@ -20,7 +20,7 @@
 ### snacks.nvim の他の機能
 - 段階 7 では picker だけを有効にした。どれも `lua/plugins/snacks.lua` の `opts` に `<名前> = { enabled = true }` を足せば使える
 - 他の段階と関係するもの:
-  - lazygit: 段階 11 で試用予定
+  - lazygit: 段階 11 で試用
   - terminal: 段階 9 の claudecode.nvim が Claude Code を開くのに使う
   - notifier (通知の浮動表示)、input (`grn` などの入力欄の浮動表示): 段階 15 の noice / ui2 の比較で一緒に試す
   - toggle (設定の on/off キー): 段階 13 の which-key と合わせて検討
