@@ -49,6 +49,13 @@ LSP 以外のツールは `lua/plugins/mason.lua` の `tools` に書き、起動
 | ツール | 用途 | 取得元 |
 |---|---|---|
 | tree-sitter-cli | Treesitter パーサーのビルド (0.26.1 以上が必要。apt 版は 0.25 で古い) | GitHub Releases |
+| stylua | Lua の整形 (設定は `.stylua.toml`) | GitHub Releases |
+| clang-format | C / C++ の整形 | PyPI |
+| prettierd | JS / TS / HTML / CSS / JSON / YAML / Markdown の整形 | npm |
+| shfmt | シェルスクリプトの整形 | GitHub Releases |
+| taplo | TOML の整形 | GitHub Releases |
+
+Python の整形には、LSP サーバーとして入れた ruff をそのまま使う。
 
 ## Treesitter パーサー (手作業は不要)
 

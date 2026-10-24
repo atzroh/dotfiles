@@ -1,6 +1,12 @@
 -- Non-LSP tools installed automatically (LSP servers are listed in lsp.lua)
 local tools = {
   "tree-sitter-cli", -- builds Treesitter parsers
+  -- Formatters used by conform.nvim (ruff comes with the LSP server)
+  "stylua",
+  "clang-format",
+  "prettierd",
+  "shfmt",
+  "taplo",
 }
 
 return {

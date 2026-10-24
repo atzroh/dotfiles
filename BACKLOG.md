@@ -41,7 +41,7 @@
   4. **起動時間**: JSON ファイルを開いたときの起動時間が約 80 ms (Python は約 65 ms)。SchemaStore.nvim の読み込み分
   5. **ネットワーク依存**: スキーマは各サーバーがネットワーク経由で取得するため、オフラインでは検証が効かない
   6. **Mason 導入時の npm の警告**: npm から「install scripts blocked because they are not covered by allowScripts」と出た。導入されたサーバーは動いたが、どのパッケージで何が省かれたかは未確認
-  7. **シェルの整形**: shfmt は段階 3 で残骸として削除した。シェルスクリプトを整形したい場合は段階 6 で入れ直す
+  7. ~~**シェルの整形**~~: 段階 6 で shfmt を入れ直し、conform で整形するようにした (TOML も taplo で整形済み)
 - 試用サンプルは `playground/lsp/` に残してある (`sample.sh`、`package.json`、`.github/workflows/ci.yml`、`pyproject.toml`)
 
 ## 回避策 (上流の修正待ち)
