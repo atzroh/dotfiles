@@ -6,6 +6,18 @@
 - leader キーは `Space`、localleader は `\`
 - 実際の割り当ては `:nmap <キー>` で確認できる。`:verbose nmap <キー>` なら、定義した場所も表示される
 
+## キーの案内 (which-key.nvim)
+
+キーを押しかけて少し待つと、続けて押せるキーと説明が画面下に出る (例: `Space`、`g`、`z`、`]`、`"`)。
+
+| キー | 動作 | 出どころ |
+|---|---|---|
+| `<leader>?` | このバッファだけで使えるキーの一覧 | 設定 (README) |
+| 一覧が出ている間に `<BS>` | 1 つ前の段階に戻る | which-key |
+| 一覧が出ている間に `<Esc>` | 閉じる | which-key |
+
+`<leader>` の下のまとまり: `a` AI (Claude Code) / `c` Code / `f` Find / `g` Git / `h` Hunk (gitsigns) / `s` Search / `t` Toggle
+
 ## 基本
 
 | キー | モード | 動作 | 出どころ |
