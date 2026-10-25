@@ -2,6 +2,8 @@ return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   opts = {
+    -- Floating window at the bottom right, as in LazyVim
+    preset = "helix",
     -- Names shown for <leader> prefixes
     spec = {
       { "<leader>a", group = "AI (Claude Code)" },
@@ -13,6 +15,11 @@ return {
       { "<leader>t", group = "Toggle" },
     },
   },
+  config = function(_, opts)
+    require("which-key").setup(opts)
+    -- monokai-pro resets this on load and skips its override (colorscheme.lua)
+    vim.api.nvim_set_hl(0, "WhichKeyBorder", { link = "FloatBorder" })
+  end,
   keys = {
     {
       "<leader>?",
