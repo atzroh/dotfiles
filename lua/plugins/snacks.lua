@@ -9,8 +9,19 @@ return {
     picker = { enabled = true },
     -- Theme follows the colorscheme; "e" in lazygit opens files in this Neovim
     lazygit = { enabled = true },
+    -- vim.notify as toasts at the top right
+    notifier = { enabled = true },
+    -- vim.ui.input (e.g. grn rename) in a floating window
+    input = { enabled = true },
   },
   keys = {
+    {
+      "<leader>n",
+      function()
+        Snacks.notifier.show_history()
+      end,
+      desc = "Notification history",
+    },
     {
       "<leader>ff",
       function()

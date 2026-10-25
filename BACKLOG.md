@@ -20,9 +20,9 @@
 ### snacks.nvim の他の機能
 - 段階 7 では picker だけを有効にした。どれも `lua/plugins/snacks.lua` の `opts` に `<名前> = { enabled = true }` を足せば使える
 - 他の段階と関係するもの:
-  - lazygit: 段階 11 で試用
+  - lazygit: 段階 11 で導入済み
   - terminal: 段階 9 の claudecode.nvim が Claude Code を開くのに使う
-  - notifier (通知の浮動表示)、input (`grn` などの入力欄の浮動表示): 段階 15 の noice / ui2 の比較で一緒に試す
+  - notifier (通知の浮動表示)、input (`grn` などの入力欄の浮動表示): 段階 15 で導入済み (noice の通知の表示役も snacks)
   - toggle (設定の on/off キー): 段階 13 の which-key と合わせて検討
 - おすすめ (試用候補):
   - indent: インデントの縦線と、今いるブロックの強調
@@ -78,6 +78,26 @@
 - 原因: Neovim が `applyKindSupport` を有効にしているため、basedpyright は候補に共通の `data` (uri、position) を `itemDefaults` にまとめ、「各候補に合成する」指定 (applyKind) で送る。blink.cmp (v1.10.2、main も同じ) は候補に `data` があると合成せずに上書きしないため、resolve に必要な uri が欠け、説明が返らない
 - 回避策: `lua/plugins/lsp.lua` で全サーバーに `applyKindSupport = false` を伝え、`data` を候補ごとに付けさせている
 - 外す条件: blink.cmp が applyKind (merge) に対応したら、この設定を消して basedpyright の補完で説明が出るか確認する
+
+## 将来の乗り換え
+
+### noice.nvim から組み込みの ui2 へ (段階 15 で決定、2026-10-25)
+- 今は noice.nvim (`lua/plugins/noice.lua`) を使い、将来 Neovim 組み込みの ui2 に乗り換える
+- noice を選んだ理由: LazyVim と同じ見た目と動き (`:` を中央に浮かせる、`:echo` などを右上の通知に出す、長い出力を分割ウィンドウに出す) が設定数行で手に入るため。ui2 で同じことをすると、ui2 の内部に頼る自作コードが増える
+- 乗り換える理由: noice は 2025-11 から更新がなく、2026 年の不具合報告の多くが「対応しない」で閉じられている (Neovim 0.12.1 で `:` を押すと落ちる報告なども含む)。Neovim はメッセージ表示を ui2 へ作り直している最中で、ui2 が今後の標準になる
+- 乗り換えのきっかけ (どれか 1 つで検討する):
+  - Neovim の更新後に noice が壊れた (`:` で落ちる、メッセージが出ないなど)
+  - ui2 が実験的な機能でなくなった、または Neovim の標準で有効になった
+  - ui2 の公式の設定だけで、`:` のコマンドラインを浮かせられるようになった
+- 乗り換え方 (段階 15 で試して分かったこと):
+  - noice と ui2 は同時に使えない。`lua/plugins/noice.lua` を消し、`:Lazy clean` で noice と nui.nvim を消す
+  - `lua/config/options.lua` で `require("vim._core.ui2").enable({ msg = { targets = { default = "msg", typed_cmd = "cmd" } } })` を呼ぶ。`default = "msg"` でプラグインなどからのメッセージが右下の枠付きウィンドウに出る。`typed_cmd = "cmd"` で、自分で打ったコマンドの出力は画面下に出る (`"msg"` にすると右下の枠に出るが、長い出力が画面の半分で切れる)
+  - `cmdheight = 0` にすると、コマンドラインの行を普段は隠せる。その場合、マクロ記録中の表示は lualine の `recording @q` で補う (設定済み)
+  - `:` のコマンドラインを浮かせるには、CmdlineEnter / CmdlineLeave の autocmd で `require("vim._core.ui2").wins.cmd` のウィンドウ設定 (`relative = "editor"`、枠、見出し) を変え、抜けたら `relative = "laststatus"`、`row = 1`、`col = 0`、`width = 10000` に戻す。blink.cmp の候補一覧を枠の下に出すには `vim.g.ui_cmdline_pos = { 枠の行 + 3, 枠の列 + 1 }` を設定する。ui2 の内部に頼るので、乗り換え時点の ui2 の作りを確認すること
+  - ui2 は画面がつながっていないと有効にならないため、headless では確認できない。疑似端末 (`script`) で画面付きの Neovim を起動して確かめる
+  - snacks の notifier / input はそのまま使える (通知は右上、入力欄は浮動ウィンドウ)
+  - `K` の説明表示と引数の説明は、noice に任せず Neovim 標準 / blink.cmp にしてあるので、乗り換えても変わらない
+- 乗り換えたら、Neovim を更新するたびに `:h news` の ui2 の項目を確認する (0.13 で `pager_char` などが `'messagesopt'` に移ったように、設定の書き方が変わることがある)
 
 ## 試用して外したもの
 

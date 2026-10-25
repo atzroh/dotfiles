@@ -21,6 +21,20 @@ return {
         },
         "diagnostics",
       },
+      lualine_x = {
+        -- Show "recording @q" (noice takes over the cmdline area)
+        {
+          function()
+            return "recording @" .. vim.fn.reg_recording()
+          end,
+          cond = function()
+            return vim.fn.reg_recording() ~= ""
+          end,
+        },
+        "encoding",
+        "fileformat",
+        "filetype",
+      },
     },
     -- Simpler statusline in these special buffers
     extensions = { "lazy", "mason", "oil", "quickfix", "man" },
