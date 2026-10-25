@@ -39,7 +39,7 @@ return {
           basedpyright = {
             disableOrganizeImports = true,
             analysis = {
-              typeCheckingMode = "recommended",
+              typeCheckingMode = "standard",
               -- Already reported by Ruff
               diagnosticSeverityOverrides = {
                 reportUndefinedVariable = "none",
