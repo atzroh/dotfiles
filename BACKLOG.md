@@ -44,6 +44,22 @@
   - profiler: Lua 処理の遅い箇所を調べる
 - 対象外: explorer (ファイル操作は oil.nvim を選んだため)
 
+### flash.nvim (段階 16 で途中まで試用)
+- ラベルで画面内の好きな場所へ移動するプラグイン。途中まで試して後回しにした (2026-10-25)
+- 試した設定 (README のまま): `s` 移動、`S` Treesitter の構文のまとまりを選択、`r` (オペレーター) 離れた場所を操作して戻る、`R` 検索した文字を含むまとまりを選択、`<C-s>` (`/` 検索中) 検索にラベルを付ける / 外す。`f` / `t` も行をまたぐようになる
+- 分かったこと:
+  - `S` と `R` は Treesitter のパーサーがあるファイル (Python など) でだけ動く。`.txt` では何も起きない
+  - `<C-s>` は押した直後にラベルが描かれず、次のキーで表示される (Neovim 0.13-dev で確認)。`toggle()` のあとに `vim.schedule(function() vim.cmd.redraw() end)` を足すと直る
+  - `<C-s>` のオン / オフは以後の `/` 検索すべてに引き継がれる
+  - Vim 標準の `s` / `S` は `cl` / `cc` で代用する
+- 戻すなら: mini.surround を入れるときは `gs` 始まりにすれば `s` と衝突しない。試用サンプルは `playground/flash/` (`sample.txt`、`sample.py`)
+
+### mini.surround (段階 17 で途中まで試用)
+- 括弧、引用符、タグ、関数呼び出しなどの囲みを付ける / 外す / 取り替えるプラグイン (vim-surround と同じ考え方)。途中まで試して後回しにした (2026-10-25)
+- 試した設定: `nvim-mini/mini.surround` を `keys` で遅延読み込みし、`opts.mappings` で LazyVim と同じ `gs` 始まりに割り当てた (`gsa` 付ける、`gsd` 外す、`gsr` 取り替える、`gsf` / `gsF` 右 / 左の囲みへ移動、`gsh` 強調、`gsn` 探す行数の変更)。which-key に `{ "gs", group = "Surround" }` を足した
+- 自動検証で動いたもの: `gsr"'`、`gsd'`、`gsaiw"`、`gsd(` (内側の空白も消える)、`gsdf` (関数名と括弧を外す)、ビジュアル選択からの `gsa)`、`gsdn}` (次の囲み)
+- 試用サンプルは `playground/surround/` (`sample.py`、`sample.html`)
+
 ### その他の候補
 - Copilot インライン補完 (0.12 のネイティブ LSP inline completion)
 - codecompanion.nvim

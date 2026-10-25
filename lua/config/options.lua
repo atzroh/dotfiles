@@ -16,6 +16,15 @@ opt.expandtab = true
 opt.shiftwidth = 4
 opt.tabstop = 4
 
+-- Python: indent inside brackets by one level and put the closing bracket
+-- at the line start, as ruff format does (defaults: two levels, aligned)
+vim.g.python_indent = {
+  open_paren = "shiftwidth()",
+  nested_paren = "shiftwidth()",
+  continue = "shiftwidth()",
+  closed_paren_align_last_line = false,
+}
+
 -- Search: case-insensitive unless the pattern has uppercase
 opt.ignorecase = true
 opt.smartcase = true
