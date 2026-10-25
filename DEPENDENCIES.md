@@ -3,31 +3,29 @@
 この設定を別の環境で使うときに、設定ファイルとは別に導入が必要なもの。
 Ubuntu 26.04 を前提とする。導入後は Neovim で `:checkhealth` を実行して確認する。
 
-状態: 使用中 = 現在の設定で使う / 予定 = 今後の段階で使う予定 (段階が進んだら更新)
-
 ## 本体
 
-| 名前 | 用途 | 状態 | 導入方法 | 確認 |
-|---|---|---|---|---|
-| Neovim >= 0.12 | 本体 | 使用中 | `sudo add-apt-repository ppa:neovim-ppa/unstable && sudo apt install neovim` | `nvim --version` |
-| git | lazy.nvim によるプラグイン取得 (初回起動時に lazy.nvim 自体も clone する)、gitsigns.nvim | 使用中 | `sudo apt install git` | `git --version` |
+| 名前 | 用途 | 導入方法 | 確認 |
+|---|---|---|---|
+| Neovim >= 0.12 | 本体 | `sudo add-apt-repository ppa:neovim-ppa/unstable && sudo apt install neovim` | `nvim --version` |
+| git | lazy.nvim によるプラグイン取得 (初回起動時に lazy.nvim 自体も clone する)、gitsigns.nvim | `sudo apt install git` | `git --version` |
 
 ## システムパッケージ
 
-| 名前 | 用途 | 状態 | 導入方法 | 確認 |
-|---|---|---|---|---|
-| wl-clipboard | OS クリップボード連携 (Wayland)。無い場合は xsel / xclip (XWayland 経由) が使われる | 使用中 | `sudo apt install wl-clipboard` | `:checkhealth vim.provider` の Clipboard 欄 |
-| ripgrep | snacks.picker の grep (`<leader>/`) | 使用中 | `sudo apt install ripgrep` | `:checkhealth snacks` |
-| fd-find | snacks.picker のファイル検索 (`<leader>ff`)。`fdfind` の名前のままで認識される | 使用中 | `sudo apt install fd-find` | `:checkhealth snacks` |
-| gcc (C コンパイラ) | Treesitter パーサーのビルド | 使用中 | `sudo apt install build-essential` | `:checkhealth nvim-treesitter` |
-| curl, unzip, tar, gzip | Mason のダウンロード・展開、Treesitter パーサーの取得、blink.cmp / codediff.nvim のビルド済みバイナリの取得 | 使用中 | `sudo apt install curl unzip tar gzip` | `:checkhealth mason` |
+| 名前 | 用途 | 導入方法 | 確認 |
+|---|---|---|---|
+| wl-clipboard | OS クリップボード連携 (Wayland)。無い場合は xsel / xclip (XWayland 経由) が使われる | `sudo apt install wl-clipboard` | `:checkhealth vim.provider` の Clipboard 欄 |
+| ripgrep | snacks.picker の grep (`<leader>/`) | `sudo apt install ripgrep` | `:checkhealth snacks` |
+| fd-find | snacks.picker のファイル検索 (`<leader>ff`)。`fdfind` の名前のままで認識される | `sudo apt install fd-find` | `:checkhealth snacks` |
+| gcc (C コンパイラ) | Treesitter パーサーのビルド | `sudo apt install build-essential` | `:checkhealth nvim-treesitter` |
+| curl, unzip, tar, gzip | Mason のダウンロード・展開、Treesitter パーサーの取得、blink.cmp / codediff.nvim のビルド済みバイナリの取得 | `sudo apt install curl unzip tar gzip` | `:checkhealth mason` |
 
 ## 実行環境 (Mason が LSP サーバー等を入れるときに使う)
 
-| 名前 | 用途 | 状態 | 導入方法 | 確認 |
-|---|---|---|---|---|
-| Node.js + npm | npm 製のサーバー (vtsls, html-lsp, css-lsp) | 使用中 | `fnm install --lts` | `node --version` |
-| python3 + venv | pip 製のサーバー (basedpyright) | 使用中 | `sudo apt install python3 python3-venv` | `python3 -m venv --help` |
+| 名前 | 用途 | 導入方法 | 確認 |
+|---|---|---|---|
+| Node.js + npm | npm 製のサーバー (vtsls, html-lsp, css-lsp) | `fnm install --lts` | `node --version` |
+| python3 + venv | pip 製のサーバー (basedpyright) | `sudo apt install python3 python3-venv` | `python3 -m venv --help` |
 
 ## Mason が自動で入れるもの (手作業は不要)
 
@@ -64,8 +62,8 @@ Python の整形には、LSP サーバーとして入れた ruff をそのまま
 
 ## その他
 
-| 名前 | 用途 | 状態 | 導入方法 | 確認 |
-|---|---|---|---|---|
-| Nerd Font | アイコン表示 (oil.nvim、snacks.picker など。mini.icons が使う) と lualine の区切り記号 | 使用中 | JetBrainsMono Nerd Font を `~/.local/share/fonts` に置き `fc-cache -f`、端末のフォントに設定 | `fc-list \| grep -i nerd` |
-| lazygit | lazygit 連携 (`<leader>gg`)。配色は Neovim に合わせて `~/.cache/nvim/lazygit-theme.yml` に自動生成される | 使用中 | GitHub Releases のバイナリを `/usr/local/bin` に置く | `lazygit --version` |
-| Claude Code | claudecode.nvim (`~/.local/bin/claude` を使う。初回は `claude` を実行してログインが必要) | 使用中 | `curl -fsSL https://claude.ai/install.sh \| bash` (公式ドキュメントで確認済み) | `claude --version` |
+| 名前 | 用途 | 導入方法 | 確認 |
+|---|---|---|---|
+| Nerd Font | アイコン表示 (oil.nvim、snacks.picker など。mini.icons が使う) と lualine の区切り記号 | JetBrainsMono Nerd Font を `~/.local/share/fonts` に置き `fc-cache -f`、端末のフォントに設定 | `fc-list \| grep -i nerd` |
+| lazygit | lazygit 連携 (`<leader>gg`)。配色は Neovim に合わせて `~/.cache/nvim/lazygit-theme.yml` に自動生成される | GitHub Releases のバイナリを `/usr/local/bin` に置く | `lazygit --version` |
+| Claude Code | claudecode.nvim (`~/.local/bin/claude` を使う。初回は `claude` を実行してログインが必要) | `curl -fsSL https://claude.ai/install.sh \| bash` (公式ドキュメントで確認済み) | `claude --version` |

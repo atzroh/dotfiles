@@ -2,47 +2,7 @@
 
 後回しにした機能と、試用して外したものの記録。
 
-## 後回し
-
-### LaTeX
-- 構成案: VimTeX + Okular (保存で自動コンパイル、ソースと PDF の相互ジャンプ)
-- 補完・診断は texlab (Mason)
-- 必要なもの: TeX Live (latexmk)。Okular は導入済み
-
-### デバッガ (DAP)
-- 構成案: nvim-dap + nvim-dap-view
-- アダプタ: debugpy (Python), codelldb (C/C++)。どちらも Mason で導入可
-
-### おすすめキーマップ
-- 現在は最小限 + Neovim 標準キーのみ。LazyVim 互換の候補を後でまとめる
-- 候補: ウィンドウ移動 (`<C-h/j/k/l>`), バッファ切替 (`<S-h>`/`<S-l>`), 行移動 (`<A-j>`/`<A-k>`), LSP 系 (`<leader>c*`)
-
-### snacks.nvim の他の機能
-- 段階 7 では picker だけを有効にした。どれも `lua/plugins/snacks.lua` の `opts` に `<名前> = { enabled = true }` を足せば使える
-- 他の段階と関係するもの:
-  - lazygit: 段階 11 で導入済み
-  - terminal: 段階 9 の claudecode.nvim が Claude Code を開くのに使う
-  - notifier (通知の浮動表示)、input (`grn` などの入力欄の浮動表示): 段階 15 で導入済み (noice の通知の表示役も snacks)
-  - toggle (設定の on/off キー): 段階 13 の which-key と合わせて検討
-- おすすめ (試用候補):
-  - indent: インデントの縦線と、今いるブロックの強調
-  - words: カーソル下の変数の参照箇所を強調し、`]]` / `[[` で移動
-  - bigfile: 巨大なファイルを開いたとき重い機能を自動で止める (普段は見えない保険)
-- その他の候補:
-  - scope: 今いるブロックをテキストオブジェクト (`ii` / `ai`) として扱う
-  - dashboard: 起動画面
-  - statuscolumn: 行番号・記号欄・折りたたみ表示を整える
-  - scroll: スクロールを滑らかにする
-  - quickfile: `nvim ファイル名` でプラグインより先にファイルを表示する
-  - bufdelete: ウィンドウの配置を崩さずにバッファを閉じる
-  - scratch: 使い捨てのメモ用バッファ
-  - zen / dim: 集中モード / 今いるブロック以外を暗くする
-  - gitbrowse: 今のファイルや行を GitHub などでブラウザに開く
-  - gh: GitHub CLI 連携 (Issue や PR を Neovim 内で見る)
-  - rename: ファイル名の変更を LSP 経由で import などに反映
-  - image: 画像を Neovim 内に表示 (Ghostty は対応。PNG 以外は ImageMagick が必要)
-  - profiler: Lua 処理の遅い箇所を調べる
-- 対象外: explorer (ファイル操作は oil.nvim を選んだため)
+## 後回し (途中まで試したもの)
 
 ### flash.nvim (段階 16 で途中まで試用)
 - ラベルで画面内の好きな場所へ移動するプラグイン。途中まで試して後回しにした (2026-10-25)
@@ -52,23 +12,29 @@
   - `<C-s>` は押した直後にラベルが描かれず、次のキーで表示される (Neovim 0.13-dev で確認)。`toggle()` のあとに `vim.schedule(function() vim.cmd.redraw() end)` を足すと直る
   - `<C-s>` のオン / オフは以後の `/` 検索すべてに引き継がれる
   - Vim 標準の `s` / `S` は `cl` / `cc` で代用する
-- 戻すなら: mini.surround を入れるときは `gs` 始まりにすれば `s` と衝突しない。試用サンプルは `playground/flash/` (`sample.txt`、`sample.py`)
+- 戻すなら: mini.surround を入れるときは `gs` 始まりにすれば `s` と衝突しない
 
 ### mini.surround (段階 17 で途中まで試用)
 - 括弧、引用符、タグ、関数呼び出しなどの囲みを付ける / 外す / 取り替えるプラグイン (vim-surround と同じ考え方)。途中まで試して後回しにした (2026-10-25)
 - 試した設定: `nvim-mini/mini.surround` を `keys` で遅延読み込みし、`opts.mappings` で LazyVim と同じ `gs` 始まりに割り当てた (`gsa` 付ける、`gsd` 外す、`gsr` 取り替える、`gsf` / `gsF` 右 / 左の囲みへ移動、`gsh` 強調、`gsn` 探す行数の変更)。which-key に `{ "gs", group = "Surround" }` を足した
 - 自動検証で動いたもの: `gsr"'`、`gsd'`、`gsaiw"`、`gsd(` (内側の空白も消える)、`gsdf` (関数名と括弧を外す)、ビジュアル選択からの `gsa)`、`gsdn}` (次の囲み)
-- 試用サンプルは `playground/surround/` (`sample.py`、`sample.html`)
 
-### その他の候補
-- Copilot インライン補完 (0.12 のネイティブ LSP inline completion)
-- codecompanion.nvim
-- neogit
-- nvim-lint
-- trouble.nvim
-- render-markdown.nvim
-- vim.pack への移行
-- Makefile 用 LSP (autotools_ls): 少数派なので見送り
+### mini.ai (段階 19 で説明まで)
+- `ci(` や `da"` のような a / i の範囲指定を広げるプラグイン。導入前に後回しにした (2026-10-26)
+- できること:
+  - カーソルが対象の中になくても、同じ行や近くの行から次の対象を探す (`print("hello")` の行頭で `ci"` が効く)
+  - 対象が増える: `af` / `if` 関数呼び出し、`aa` / `ia` 引数 1 つ、`ab` / `ib` 一番近い括弧、`aq` / `iq` 一番近い引用符、`a?` / `i?` 区切り文字をその場で指定
+- 決めること:
+  - `an` / `in`: mini.ai の標準 (「次の〇〇」) は、Neovim 0.12 から組み込まれた「ビジュアルモードで構文の範囲を広げる / 狭める」(`an` / `in`) を上書きする。案は、組み込みを残して `opts.mappings` の `around_next` / `inside_next` を `''` にする (`al` / `il` は使える)
+  - 関数定義やクラス: 選ぶには nvim-treesitter-textobjects (main ブランチ、2026-09 更新) の範囲定義が必要。プラグイン自体のキーは使わず、`MiniAi.gen_spec.treesitter()` で使う。案は `aF` / `iF` 関数定義、`ac` / `ic` クラス (`af` は標準どおり関数呼び出し)
+
+### Markdown のブラウザプレビュー (段階 20 で計画まで)
+- 計画を立てたところで後回しにした (2026-10-26)
+- 推奨: live-preview.nvim (`brianhuster/live-preview.nvim`)。v0.9.7 (2026-09) で更新が続いている。Lua だけで動き (Node / Deno 不要)、KaTeX / Mermaid、コードの色分け、スクロール同期に対応。Markdown は保存しなくても更新される
+- 設定案: `cmd = "LivePreview"` で遅延読み込み。Markdown のバッファで `<leader>cp` を押すと、`require("livepreview").is_running()` を見て `:LivePreview start` / `:LivePreview close` を切り替える。設定は標準のまま (ブラウザは OS の標準、`127.0.0.1:5500`)。確認は `:checkhealth livepreview`
+- 比較した他の候補 (2026-10 時点):
+  - markdown-preview.nvim: 最後のコミットが 2023-10。Node でのビルドが必要
+  - peek.nvim: 2024-08 で更新が止まっている。Deno が必要
 
 ### シェル / JSON / YAML / TOML の LSP
 - 一度実装して動作を確認したが、検討事項が多いため取り消して後回しにした (2026-10-23)
@@ -85,7 +51,55 @@
   5. **ネットワーク依存**: スキーマは各サーバーがネットワーク経由で取得するため、オフラインでは検証が効かない
   6. **Mason 導入時の npm の警告**: npm から「install scripts blocked because they are not covered by allowScripts」と出た。導入されたサーバーは動いたが、どのパッケージで何が省かれたかは未確認
   7. ~~**シェルの整形**~~: 段階 6 で shfmt を入れ直し、conform で整形するようにした (TOML も taplo で整形済み)
-- 試用サンプルは `playground/lsp/` に残してある (`sample.sh`、`package.json`、`.github/workflows/ci.yml`、`pyproject.toml`)
+
+## 後回し (未着手)
+
+### LaTeX
+- 構成案: VimTeX + Okular (保存で自動コンパイル、ソースと PDF の相互ジャンプ)
+- 補完・診断は texlab (Mason)
+- 必要なもの: TeX Live (latexmk)。Okular は導入済み
+
+### デバッガ (DAP)
+- 構成案: nvim-dap + nvim-dap-view
+- アダプタ: debugpy (Python), codelldb (C/C++)。どちらも Mason で導入可
+
+### おすすめキーマップ
+- 現在は最小限 + Neovim 標準キーのみ。LazyVim 互換の候補を後でまとめる
+- 候補: ウィンドウ移動 (`<C-h/j/k/l>`), バッファ切替 (`<S-h>`/`<S-l>`), 行移動 (`<A-j>`/`<A-k>`), LSP 系 (`<leader>c*`)
+
+### snacks.nvim の他の機能
+- 有効にしているのは picker、lazygit、notifier、input。どれも `lua/plugins/snacks.lua` の `opts` に `<名前> = { enabled = true }` を足せば使える
+- terminal は claudecode.nvim が Claude Code を開くのに使っている
+- おすすめ (試用候補):
+  - indent: インデントの縦線と、今いるブロックの強調
+  - words: カーソル下の変数の参照箇所を強調し、`]]` / `[[` で移動
+  - bigfile: 巨大なファイルを開いたとき重い機能を自動で止める (普段は見えない保険)
+- その他の候補:
+  - toggle: 設定の on/off キー (which-key に状態が表示される)
+  - scope: 今いるブロックをテキストオブジェクト (`ii` / `ai`) として扱う
+  - dashboard: 起動画面
+  - statuscolumn: 行番号・記号欄・折りたたみ表示を整える
+  - scroll: スクロールを滑らかにする
+  - quickfile: `nvim ファイル名` でプラグインより先にファイルを表示する
+  - bufdelete: ウィンドウの配置を崩さずにバッファを閉じる
+  - scratch: 使い捨てのメモ用バッファ
+  - zen / dim: 集中モード / 今いるブロック以外を暗くする
+  - gitbrowse: 今のファイルや行を GitHub などでブラウザに開く
+  - gh: GitHub CLI 連携 (Issue や PR を Neovim 内で見る)
+  - rename: ファイル名の変更を LSP 経由で import などに反映
+  - image: 画像を Neovim 内に表示 (Ghostty は対応。PNG 以外は ImageMagick が必要)
+  - profiler: Lua 処理の遅い箇所を調べる
+- 対象外: explorer (ファイル操作は oil.nvim を選んだため)
+
+### その他の候補
+- Copilot インライン補完 (0.12 のネイティブ LSP inline completion)
+- codecompanion.nvim
+- neogit
+- nvim-lint
+- trouble.nvim
+- render-markdown.nvim
+- vim.pack への移行
+- Makefile 用 LSP (autotools_ls): 少数派なので見送り
 
 ## 回避策 (上流の修正待ち)
 
