@@ -16,6 +16,7 @@ confirm-close-surface = false
 
 # --- Window ---
 window-decoration = auto
+window-padding-balance = true
 maximize = true
 
 # --- Keybindings ---
