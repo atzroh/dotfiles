@@ -24,7 +24,8 @@
 - 補完: blink.cmp (`completion.lua`)
 - 整形: conform.nvim、保存時に自動 (`format.lua`)
 - snacks.nvim: picker、lazygit、notifier、input (`snacks.lua`)
-- oil.nvim (`oil.lua`)、claudecode.nvim (`claudecode.lua`)
+- ファイラー: neo-tree.nvim (`neo-tree.lua`)。アイコンは mini.icons (`icons.lua`、nvim-web-devicons の代わりも兼ねる)
+- claudecode.nvim (`claudecode.lua`)
 - Git: gitsigns.nvim (`gitsigns.lua`)、codediff.nvim (`codediff.lua`)
 - UI: which-key.nvim (`which-key.lua`)、lualine.nvim (`lualine.lua`)、noice.nvim (`noice.lua`)
 - 編集: mini.pairs (`pairs.lua`)。Python の括弧内インデントは `options.lua` の `vim.g.python_indent`

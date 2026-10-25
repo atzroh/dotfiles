@@ -89,7 +89,7 @@
   - rename: ファイル名の変更を LSP 経由で import などに反映
   - image: 画像を Neovim 内に表示 (Ghostty は対応。PNG 以外は ImageMagick が必要)
   - profiler: Lua 処理の遅い箇所を調べる
-- 対象外: explorer (ファイル操作は oil.nvim を選んだため)
+- 対象外: explorer (ファイラーは neo-tree.nvim を選んだため)
 
 ### その他の候補
 - Copilot インライン補完 (0.12 のネイティブ LSP inline completion)
@@ -130,6 +130,13 @@
 - 乗り換えたら、Neovim を更新するたびに `:h news` の ui2 の項目を確認する (0.13 で `pager_char` などが `'messagesopt'` に移ったように、設定の書き方が変わることがある)
 
 ## 試用して外したもの
+
+### oil.nvim
+- フォルダをバッファとして開き、編集して `:w` で確定するファイラー。neo-tree.nvim に置き換えた (2026-10-26)
+- 外した理由: 一度に 1 つのフォルダしか見えず、Git の状態も出せないため。木構造で全体を見渡し、Git の状態を見たかった
+- 利点 (戻すときの判断材料): 名前の変更や移動を Vim の編集操作でまとめて行える、ゴミ箱に送る、サイドバーを持たない
+- Git の状態を出す拡張: malewicz1337/oil-git.nvim (ファイル名の色分け、2026-10 更新、star 48) と refractalize/oil-git-status.nvim (`git status --short` の 2 文字を記号欄に表示、2026-02 更新、star 158)
+- 戻すなら: `{ "stevearc/oil.nvim", lazy = false, keys = { { "-", "<Cmd>Oil<CR>" } }, opts = { delete_to_trash = true, view_options = { show_hidden = true } } }`。lualine の extensions に `"oil"` を戻す
 
 ### diffview-plus.nvim (段階 12)
 - 元の diffview.nvim (2024-06 で更新停止) の保守されている派生版。codediff.nvim と比べて、codediff を残した
