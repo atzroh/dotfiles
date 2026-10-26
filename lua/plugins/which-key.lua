@@ -7,12 +7,15 @@ return {
     -- Names shown for <leader> prefixes
     spec = {
       { "<leader>a", group = "AI (Claude Code)" },
+      { "<leader>b", group = "Buffer" },
       { "<leader>c", group = "Code" },
       { "<leader>f", group = "Find" },
       { "<leader>g", group = "Git" },
       { "<leader>h", group = "Hunk (gitsigns)" },
+      { "<leader>q", group = "Quit" },
       { "<leader>s", group = "Search" },
       { "<leader>t", group = "Toggle" },
+      { "<leader>w", group = "Window" },
     },
   },
   config = function(_, opts)

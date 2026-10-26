@@ -67,6 +67,24 @@ return {
         end,
       })
 
+      -- LazyVim-style keys; other buffers keep the builtin gd / gD
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("lsp_keymaps", { clear = true }),
+        callback = function(args)
+          local function map(mode, lhs, rhs, desc)
+            vim.keymap.set(mode, lhs, rhs, { buffer = args.buf, desc = desc })
+          end
+          map("n", "gd", function()
+            Snacks.picker.lsp_definitions()
+          end, "Goto definition")
+          map("n", "gD", function()
+            Snacks.picker.lsp_declarations()
+          end, "Goto declaration")
+          map({ "n", "x" }, "<leader>ca", vim.lsp.buf.code_action, "Code action")
+          map("n", "<leader>cr", vim.lsp.buf.rename, "Rename")
+        end,
+      })
+
       require("mason-lspconfig").setup(opts)
     end,
   },

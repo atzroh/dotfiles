@@ -9,7 +9,7 @@
 
 ## 構成
 - `init.lua`: `lua/config/` を順に読み込む
-- `lua/config/`: `options.lua` (基本設定)、`keymaps.lua` (最小限のキー)、`autocmds.lua`、`lazy.lua` (lazy.nvim の bootstrap と setup)
+- `lua/config/`: `options.lua` (基本設定)、`keymaps.lua` (プラグインに依存しない基本キー、LazyVim 互換)、`autocmds.lua`、`lazy.lua` (lazy.nvim の bootstrap と setup)
 - `lua/plugins/`: 1 機能 1 ファイル。外すときはファイルを消して `Lazy! clean`
 - `lazy-lock.json`: git で管理する
 - 資料 (日本語):
@@ -29,6 +29,7 @@
 - Git: gitsigns.nvim (`gitsigns.lua`)、codediff.nvim (`codediff.lua`)
 - UI: which-key.nvim (`which-key.lua`)、lualine.nvim (`lualine.lua`)、noice.nvim (`noice.lua`)
 - 編集: mini.pairs (`pairs.lua`)。Python の括弧内インデントは `options.lua` の `vim.g.python_indent`
+- キー: LazyVim 互換の基本キー (`keymaps.lua`)。Snacks を使うキーは `snacks.lua`、LSP のキー (`gd` など) は `lsp.lua` の LspAttach でバッファローカルに
 
 ## 作業の決まり
 - 機能は 1 つずつ足す。流れは次のとおり
@@ -61,5 +62,5 @@
   - push 先と、dotfiles への合流方法をユーザーと決める
 - `BACKLOG.md` の候補から、ユーザーが選んだものを上の流れで 1 つずつ進める。詳しい調査結果と設定案は各節にある
   - 途中まで試したもの: flash.nvim、mini.surround、mini.ai、Markdown のブラウザプレビュー (live-preview.nvim 推奨)、シェル / JSON / YAML / TOML の LSP
-  - 未着手: LaTeX、DAP、おすすめキーマップ、snacks.nvim の他の機能、その他の候補
+  - 未着手: LaTeX、DAP、snacks.nvim の他の機能、その他の候補
   - 将来の乗り換え: noice.nvim から ui2 (きっかけの条件は BACKLOG に記載)

@@ -63,10 +63,6 @@
 - 構成案: nvim-dap + nvim-dap-view
 - アダプタ: debugpy (Python), codelldb (C/C++)。どちらも Mason で導入可
 
-### おすすめキーマップ
-- 現在は最小限 + Neovim 標準キーのみ。LazyVim 互換の候補を後でまとめる
-- 候補: ウィンドウ移動 (`<C-h/j/k/l>`), バッファ切替 (`<S-h>`/`<S-l>`), 行移動 (`<A-j>`/`<A-k>`), LSP 系 (`<leader>c*`)
-
 ### snacks.nvim の他の機能
 - 有効にしているのは picker、lazygit、notifier、input、dashboard。どれも `lua/plugins/snacks.lua` の `opts` に `<名前> = { enabled = true }` を足せば使える (dashboard は設定が長いので `lua/plugins/dashboard.lua` に分けた)
 - terminal は claudecode.nvim が Claude Code を開くのに使っている

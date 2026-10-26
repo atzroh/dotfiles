@@ -51,6 +51,35 @@ return {
       desc = "Help pages",
     },
     {
+      "<leader>ss",
+      function()
+        Snacks.picker.lsp_symbols()
+      end,
+      desc = "LSP symbols",
+    },
+    {
+      "<leader>sS",
+      function()
+        Snacks.picker.lsp_workspace_symbols()
+      end,
+      desc = "LSP workspace symbols",
+    },
+    -- Delete buffers without closing their windows
+    {
+      "<leader>bd",
+      function()
+        Snacks.bufdelete()
+      end,
+      desc = "Delete buffer",
+    },
+    {
+      "<leader>bo",
+      function()
+        Snacks.bufdelete.other()
+      end,
+      desc = "Delete other buffers",
+    },
+    {
       "<leader>gg",
       function()
         Snacks.lazygit()
