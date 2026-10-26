@@ -12,6 +12,7 @@
   - `<C-s>` は押した直後にラベルが描かれず、次のキーで表示される (Neovim 0.13-dev で確認)。`toggle()` のあとに `vim.schedule(function() vim.cmd.redraw() end)` を足すと直る
   - `<C-s>` のオン / オフは以後の `/` 検索すべてに引き継がれる
   - Vim 標準の `s` / `S` は `cl` / `cc` で代用する
+  - 保存の `<C-s>` (`keymaps.lua`) は n / i / x / s モードだけなので、`/` 検索中 (コマンドラインモード) の `<C-s>` とは衝突しない
 - 戻すなら: mini.surround を入れるときは `gs` 始まりにすれば `s` と衝突しない
 
 ### mini.surround (段階 17 で途中まで試用)
@@ -66,6 +67,7 @@
 ### snacks.nvim の他の機能
 - 有効にしているのは picker、lazygit、notifier、input、dashboard。どれも `lua/plugins/snacks.lua` の `opts` に `<名前> = { enabled = true }` を足せば使える (dashboard は設定が長いので `lua/plugins/dashboard.lua` に分けた)
 - terminal は claudecode.nvim が Claude Code を開くのに使っている
+- bufdelete は有効にしなくても関数として呼べるので、`<leader>bd` / `<leader>bo` で使っている
 - dashboard で分かったこと:
   - 試して採らなかった構成: キー一覧を縦に並べる既定の形、最近のファイル / プロジェクト / git status を右の列に出す 2 列の形 (横幅 124 列以上が必要)。今は「ロゴ + 1 行のキー案内」にしている。公式の例は snacks の `docs/dashboard.md` の Examples
   - monokai-pro は `NonText` の文字色を背景色にしている。snacks の `dir` (最近のファイル一覧のディレクトリ部分) はこれを参照するので見えなくなる。一覧を出すときは `SnacksDashboardDir` の色を指定する
@@ -81,7 +83,6 @@
   - statuscolumn: 行番号・記号欄・折りたたみ表示を整える
   - scroll: スクロールを滑らかにする
   - quickfile: `nvim ファイル名` でプラグインより先にファイルを表示する
-  - bufdelete: ウィンドウの配置を崩さずにバッファを閉じる
   - scratch: 使い捨てのメモ用バッファ
   - zen / dim: 集中モード / 今いるブロック以外を暗くする
   - gitbrowse: 今のファイルや行を GitHub などでブラウザに開く
@@ -92,14 +93,29 @@
 - 対象外: explorer (ファイラーは neo-tree.nvim を選んだため)
 
 ### その他の候補
-- Copilot インライン補完 (0.12 のネイティブ LSP inline completion)
-- codecompanion.nvim
-- neogit
-- nvim-lint
-- trouble.nvim
-- render-markdown.nvim
-- vim.pack への移行
-- Makefile 用 LSP (autotools_ls): 少数派なので見送り
+- 用途ごとに分けた。括弧内は LazyVim での扱いと、GitHub の最終更新 (2026-10-26 時点)
+- 編集
+  - grug-far.nvim: プロジェクト全体の検索・置換 (LazyVim 標準、2026-10)
+  - nvim-ts-autotag: HTML / JSX のタグを自動で閉じ、開きタグの名前の変更を閉じタグにも反映 (LazyVim の extra、2026-10)
+  - ts-comments.nvim: JSX などで `gc` のコメントの書き方を位置に合わせる (LazyVim 標準、2026-06)
+- 表示
+  - bufferline.nvim: バッファを上部にタブのように並べる (LazyVim 標準、2025-01 から更新なし)
+  - todo-comments.nvim: `TODO` / `FIXME` などの色分けと一覧 (LazyVim 標準、2025-11)
+  - render-markdown.nvim: Markdown を Neovim 内で整えて表示 (2026-10)
+- 診断
+  - trouble.nvim: 診断や参照箇所の一覧 (LazyVim 標準、2025-10)
+  - nvim-lint: LSP 以外の linter を動かす (LazyVim 標準、2026-10)
+- セッション
+  - persistence.nvim: 開いていたバッファとウィンドウの配置を、次に開いたとき元に戻す (LazyVim 標準、2025-10)
+- Git
+  - neogit: Git 操作の画面 (2026-10)
+- AI
+  - Copilot インライン補完 (0.12 のネイティブ LSP inline completion)
+  - codecompanion.nvim (2026-10)
+- その他
+  - vim.pack への移行
+- 見送り
+  - Makefile 用 LSP (autotools_ls): 少数派なので見送り
 
 ## 回避策 (上流の修正待ち)
 

@@ -62,5 +62,6 @@
   - push 先と、dotfiles への合流方法をユーザーと決める
 - `BACKLOG.md` の候補から、ユーザーが選んだものを上の流れで 1 つずつ進める。詳しい調査結果と設定案は各節にある
   - 途中まで試したもの: flash.nvim、mini.surround、mini.ai、Markdown のブラウザプレビュー (live-preview.nvim 推奨)、シェル / JSON / YAML / TOML の LSP
-  - 未着手: LaTeX、DAP、snacks.nvim の他の機能、その他の候補
+  - 未着手: LaTeX、DAP、snacks.nvim の他の機能、その他の候補 (編集、表示、診断、セッション、Git、AI)
+  - おすすめ順: snacks の indent / words / bigfile → mini.ai / mini.surround → nvim-ts-autotag
   - 将来の乗り換え: noice.nvim から ui2 (きっかけの条件は BACKLOG に記載)
