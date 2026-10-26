@@ -18,7 +18,7 @@
   - `DEPENDENCIES.md`: 設定の外で導入が必要なもの (apt、Node、フォントなど) と、Mason や Treesitter が自動で入れるもの
 
 ## 現状 (導入済み)
-- 配色: monokai-pro (`colorscheme.lua`)
+- 配色: monokai-pro (`colorscheme.lua`)。背景は透明 (端末の背景が透ける)
 - LSP: mason + nvim-lspconfig + mason-lspconfig + lazydev (`mason.lua`、`lsp.lua`)。サーバーは lua_ls、basedpyright、ruff、clangd、vtsls、html、cssls、marksman
 - Treesitter: nvim-treesitter main ブランチ (`treesitter.lua`)。折りたたみも Treesitter
 - 補完: blink.cmp (`completion.lua`)

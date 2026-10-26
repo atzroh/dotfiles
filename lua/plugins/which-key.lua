@@ -18,11 +18,6 @@ return {
       { "<leader>w", group = "Window" },
     },
   },
-  config = function(_, opts)
-    require("which-key").setup(opts)
-    -- monokai-pro resets this on load and skips its override (colorscheme.lua)
-    vim.api.nvim_set_hl(0, "WhichKeyBorder", { link = "FloatBorder" })
-  end,
   keys = {
     {
       "<leader>?",

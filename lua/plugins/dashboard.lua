@@ -1,15 +1,15 @@
 -- NVIM in the style of the built-in intro logo (:intro)
 local logo = {
-  "│ ╲ ││ ╲╲   ╱╱ ││ │╲  ╱│",
-  "││╲╲││  ╲╲ ╱╱  ││ ││╲╱││",
-  "││ ╲ │   ╲╲╱   ││ ││  ││",
+  "│ ╲ ││ ╲╲   ╱╱ ││ ││╲ ╱╱│",
+  "││╲╲││  ╲╲ ╱╱  ││ ││╲╲╱││",
+  "││ ╲ │   ╲╲╱   ││ ││   ││",
 }
 
 -- Color of each logo character at the same position: b = blue, p = purple
 local colors = {
-  "b p pp bb   pp bp bb  pp",
-  "bbbppp  bb pp  bp bbbppp",
-  "bb b p   bbp   bp bb  pp",
+  "b p pp bb   pp bp bbb ppp",
+  "bbbppp  bb pp  bp bbbbppp",
+  "bb b p   bbp   bp bb   pp",
 }
 
 -- Same actions as the snacks default keys
