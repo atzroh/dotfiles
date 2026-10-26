@@ -59,13 +59,13 @@ git clone
 │              ├── colorscheme.lua
 │              ├── completion.lua
 │              ├── dashboard.lua
+│              ├── explorer.lua
 │              ├── format.lua
 │              ├── gitsigns.lua
 │              ├── icons.lua
 │              ├── lsp.lua
 │              ├── lualine.lua
 │              ├── mason.lua
-│              ├── neo-tree.lua
 │              ├── noice.lua
 │              ├── pairs.lua
 │              ├── snacks.lua

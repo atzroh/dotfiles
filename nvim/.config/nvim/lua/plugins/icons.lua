@@ -1,10 +1,10 @@
--- File icons for which-key, snacks.picker and neo-tree
+-- File icons for which-key and snacks.picker
 return {
   "nvim-mini/mini.icons",
   lazy = true,
   opts = {},
   init = function()
-    -- Serve plugins that require nvim-web-devicons (neo-tree, lualine)
+    -- Serve plugins that require nvim-web-devicons (lualine)
     package.preload["nvim-web-devicons"] = function()
       require("mini.icons").mock_nvim_web_devicons()
       return package.loaded["nvim-web-devicons"]

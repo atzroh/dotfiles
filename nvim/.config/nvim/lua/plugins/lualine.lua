@@ -37,6 +37,6 @@ return {
       },
     },
     -- Simpler statusline in these special buffers
-    extensions = { "lazy", "mason", "neo-tree", "quickfix", "man" },
+    extensions = { "lazy", "mason", "quickfix", "man" },
   },
 }

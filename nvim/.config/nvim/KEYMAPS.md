@@ -80,7 +80,6 @@ Keymaps available in this config.
 | `<leader>bo` | Delete other buffers | Config (snacks.bufdelete) |
 
 - Built-in `H` / `L` (top / bottom of screen) are replaced by buffer switching.
-- `<S-l>` in neo-tree keeps the tree and shows the next buffer in the right window.
 
 ## Editing
 
@@ -140,39 +139,41 @@ Inside the picker (input starts in insert mode):
 | `<Esc>` `<Esc>` (or `q`) | Normal mode, then close (`<C-c>` closes at once) |
 | `?` | Picker keymaps |
 
-## File explorer (neo-tree.nvim)
+## File explorer (snacks.explorer)
 
-- Sidebar tree with Git status; refreshes on external changes.
+- Sidebar tree with Git status and diagnostics; refreshes on external changes.
 
 | Key | Action | Source |
 |---|---|---|
 | `-` / `<leader>e` | Toggle sidebar and reveal the current file | Config |
-| `<leader>ge` | Git-changed files in a float | Config |
-| `nvim .` | Open neo-tree | neo-tree |
+| `nvim .` | Open the explorer | snacks |
 
-- Built-in `-` (0.13: open parent dir) is replaced by neo-tree.
+- Built-in `-` (0.13: open parent dir) is replaced by the explorer.
 
 Inside the sidebar:
 
 | Key | Action |
 |---|---|
-| `<CR>` | Open file / toggle folder |
-| `<Space>` | Toggle folder (wait for leader hints) |
-| `s` / `S` / `t` | Open in vsplit / split / tab |
+| `<CR>` / `l` | Open file / toggle folder |
+| `h` | Close folder |
+| `<C-v>` / `<C-s>` | Open in vsplit / split |
 | `P` | Toggle preview |
-| `a` / `A` | Add file (`name/` for folder) / add folder |
-| `r` / `b` | Rename / rename basename |
-| `d` | Move to trash (Config; default deletes) |
-| `u` / `U` | Undo last trash / restore from trash |
-| `c` / `m` | Copy / move to a path |
-| `y` / `x` / `p` | Copy / cut / paste |
-| `H` | Toggle hidden and gitignored files (dotfiles shown by default) |
+| `a` | Add file (`name/` for folder) |
+| `r` | Rename |
+| `d` | Move to the system trash (asks first) |
+| `<Tab>` | Select (for `c` / `m` / `d` / `y`) |
+| `c` / `m` | Copy / move selection here (no selection: copy as / rename) |
+| `y` / `p` | Yank paths / paste (copy) here |
+| `o` | Open with the system app |
+| `H` / `I` | Toggle hidden / gitignored files (dotfiles shown by default) |
 | `/` | Filter by name |
 | `<BS>` / `.` | Root to parent / root to folder under cursor |
 | `]g` / `[g` | Next / previous Git-changed file |
-| `C` / `z` | Close folder / close all |
-| `<` / `>` | Switch source (files / buffers / Git status) |
-| `R` | Refresh |
+| `]d` / `[d` | Next / previous diagnostic |
+| `Z` | Close all folders |
+| `u` | Refresh |
+| `<leader>/` | Grep in the folder |
+| `<C-t>` | Terminal in the folder |
 | `q` | Close |
 | `?` | Sidebar keymaps |
 
@@ -256,7 +257,7 @@ Inside the diff view:
 | `<leader>am` | n | Select model and open | Config (README) |
 | `<leader>ab` | n | Add current buffer to context | Config (README) |
 | `<leader>as` | v | Send selection | Config (README) |
-| `<leader>as` | n (neo-tree) | Add file under cursor to context | Config (README) |
+| `<leader>as` | n (explorer) | Add file under cursor to context | Config (README) |
 | `<leader>aa` | n | Accept diff | Config (README) |
 | `<leader>ad` | n | Deny diff | Config (README) |
 
