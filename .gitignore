@@ -27,10 +27,6 @@
 !/ssh/
 !/ssh/**
 
-# fastfetch
-!/fastfetch/
-!/fastfetch/**
-
 #screenshots
 !/img/
 !/img/**

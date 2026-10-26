@@ -27,14 +27,6 @@ git clone
 ```txt
 .
 ├── .gitignore
-├── bin
-│  ├── init_env.sh
-│  ├── install.sh
-│  └── stow.sh
-├── fastfetch
-│  └── .config
-│     └── fastfetch
-│        └── config.jsonc
 ├── ghostty
 │  └── .config
 │     └── ghostty
@@ -45,6 +37,7 @@ git clone
 │  ├── fastfetch.png
 │  ├── neovim_dashboard.png
 │  └── neovim_editor.png
+├── install.sh
 ├── nvim
 │  └── .config
 │     └── nvim
