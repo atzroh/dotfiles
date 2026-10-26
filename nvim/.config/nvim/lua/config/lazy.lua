@@ -24,7 +24,7 @@ require("lazy").setup({
   -- Load every spec file in lua/plugins/
   spec = { { import = "plugins" } },
   -- Colorscheme used while installing plugins on first launch
-  install = { colorscheme = { "monokai-pro", "habamax" } },
+  install = { colorscheme = { "catppuccin", "habamax" } },
   -- No plugin here needs luarocks
   rocks = { enabled = false },
   performance = { rtp = { paths = bundled } },

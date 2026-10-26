@@ -23,21 +23,12 @@ local keys = {
   { key = "q", hint = "quit", action = ":qa" },
 }
 
--- Logo in the theme's blue and purple, plus version and date
+-- Logo in blue and purple, plus version and date
 local function header()
-  local ok, palette = pcall(function()
-    return require("monokai-pro.palette").load(require("monokai-pro.config").get().filter)
-  end)
-  local blue, purple = "Special", "String"
-  if ok then
-    blue, purple = "SnacksDashboardLogoBlue", "SnacksDashboardLogoPurple"
-    vim.api.nvim_set_hl(0, blue, { fg = palette.accent5, bold = true })
-    vim.api.nvim_set_hl(0, purple, { fg = palette.accent6, bold = true })
-  end
   local text = {}
   for row, line in ipairs(logo) do
     for col, char in ipairs(vim.fn.split(line, "\\zs")) do
-      text[#text + 1] = { char, hl = colors[row]:sub(col, col) == "p" and purple or blue }
+      text[#text + 1] = { char, hl = colors[row]:sub(col, col) == "p" and "Keyword" or "header" }
     end
     text[#text + 1] = { "\n" }
   end
