@@ -9,28 +9,28 @@ echo "[*] Updating and upgrading system packages..."
 sudo apt-get update && sudo apt-get upgrade -y
 
 PACKAGES=(
-  # CLI Tools
-  curl    # Data transfer tool
-  wget    # Network downloader
-  git     # Version control system
-  gnupg   # GNU privacy guard
-  stow    # Symlink manager
-  ripgrep # Search tool
-  fd-find # File finder
-  eza     # Modern ls replacement
-  bat     # Modern cat replacement
-  htop    # System monitor
-  xsel    # Clipboard manager
-  unzip   # Extract ZIP files
-  chafa   # Image-to-Terminal converter
+    # CLI Tools
+    curl         # Data transfer tool
+    wget         # Network downloader
+    git          # Version control system
+    gnupg        # GNU privacy guard
+    stow         # Symlink manager
+    ripgrep      # Search tool
+    fd-find      # File finder
+    eza          # Modern ls replacement
+    bat          # Modern cat replacement
+    htop         # System monitor
+    wl-clipboard # Clipboard manager
+    unzip        # Extract ZIP files
+    chafa        # Image-to-Terminal converter
 
-  # Development Tools
-  build-essential # Essential packages for building software
-  tar             # Archiving utility
+    # Development Tools
+    build-essential # Essential packages for building software
+    tar             # Archiving utility
 
-  # Languages & Interpreters
-  zsh  # Shell
-  pipx # Python package installer
+    # Languages & Interpreters
+    zsh  # Shell
+    pipx # Python package installer
 )
 
 echo "[*] Installing core packages..."
@@ -39,12 +39,12 @@ sudo apt-get install -y "${PACKAGES[@]}"
 # Install packages from PPAs
 echo "[*] Installing packages from PPAs..."
 PPAS=(
-  ppa:neovim-ppa/stable
-  ppa:mkasberg/ghostty-ubuntu
-  ppa:zhangsongcui3371/fastfetch
+    ppa:neovim-ppa/stable
+    ppa:mkasberg/ghostty-ubuntu
+    ppa:zhangsongcui3371/fastfetch
 )
 for ppa in "${PPAS[@]}"; do
-  sudo add-apt-repository -y "$ppa" >/dev/null
+    sudo add-apt-repository -y "$ppa" >/dev/null
 done
 sudo apt-get update
 sudo apt-get install -y neovim ghostty fastfetch
@@ -101,9 +101,9 @@ sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 echo \
-  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+    "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" |
-  sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
+    sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 sudo apt-get update && sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo usermod -aG docker "$USER" # add current user to docker group to use docker without sudo
 
@@ -112,12 +112,12 @@ sudo usermod -aG docker "$USER" # add current user to docker group to use docker
 # ==============================================================================
 
 DOTFILES=(
-  zsh
-  git
-  ghostty
-  nvim
-  ssh
-  fastfetch
+    zsh
+    git
+    ghostty
+    nvim
+    ssh
+    fastfetch
 )
 echo "[*] Setting up dotfiles with stow..."
 cd "$HOME/dotfiles" && stow -v --adopt "${DOTFILES[@]}" && git checkout -q -- .
@@ -129,7 +129,7 @@ cd "$HOME/dotfiles" && stow -v --adopt "${DOTFILES[@]}" && git checkout -q -- .
 echo "[*] Installing JetBrains Mono Nerd Font..."
 mkdir -p "$HOME/.local/share/fonts/JetBrainsMono/"
 curl -fLo "/tmp/JetBrainsMono.zip" \
-  https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+    https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
 unzip -o "/tmp/JetBrainsMono.zip" -d "$HOME/.local/share/fonts/JetBrainsMono/"
 fc-cache -fv
 rm /tmp/JetBrainsMono.zip

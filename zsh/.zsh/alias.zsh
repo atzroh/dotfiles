@@ -28,16 +28,14 @@ alias fd='fdfind'
 alias fa='fdfind -IH'
 alias fdir='fdfind -H --type d'
 
-# xsel alias
-alias xin='xsel -bi'
-alias xout='xsel -bo'
-alias xw='xsel -bo >>'
-alias xx='xsel -bo | zsh'
+# wl-clipboard alias
+alias wlc='wl-copy'
+alias wlp='wl-paste'
+alias wlx='wl-paste | bash'
 
 # tree alias
 alias tree='eza --tree --icons --color=auto --git-ignore -I ".git|node_modules"'
 alias atree='eza -a --tree --icons --color=auto --git-ignore -I ".git|node_modules"'
-alias xtree='eza -a --tree --color=auto --git-ignore -I ".git|node_modules" | xsel -bi'
 
 # stow alias
 alias stow='stow -v'
@@ -46,4 +44,4 @@ alias stow='stow -v'
 alias icat='chafa -f kitty'
 
 # password alias
-alias genpw='openssl rand -base64 18 | xsel -bi && xsel -bo'
+alias genpw='openssl rand -base64 18 | wl-copy && wl-paste'
