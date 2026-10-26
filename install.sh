@@ -33,8 +33,9 @@ PACKAGES=(
     ghostty # Terminal emulator
 
     # Languages & Interpreters
-    zsh  # Shell
-    pipx # Python package installer
+    zsh          # Shell
+    pipx         # Python package installer
+    python3-venv # Python virtual environment (for Mason)
 )
 
 echo "[*] Installing core packages..."
@@ -42,7 +43,7 @@ sudo apt-get install -y "${PACKAGES[@]}"
 
 # Install packages from PPAs
 echo "[*] Installing Neovim..."
-sudo add-apt-repository -y ppa:neovim-ppa/stable >/dev/null
+sudo add-apt-repository -y ppa:neovim-ppa/unstable >/dev/null
 sudo apt-get update
 sudo apt-get install -y neovim
 
@@ -73,11 +74,6 @@ pipx install uv     # Fast Python dev environment manager
 # ==============================================================================
 # GIT REPOSITORIES
 # ==============================================================================
-
-echo "[*] Installing LazyVim (Neovim starter configuration)..."
-mkdir -p "$HOME/.config"
-git clone -q https://github.com/LazyVim/starter "$HOME/.config/nvim/"
-rm -rf "$HOME/.config/nvim/.git"
 
 echo "[*] Installing fzf (Fuzzy finder)..."
 git clone -q --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"

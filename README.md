@@ -20,6 +20,7 @@ git clone
 - shell: zsh
 - terminal emulator: ghostty
 - editor: neovim
+  - dependencies: [nvim/.config/nvim/DEPENDENCIES.md](./nvim/.config/nvim/DEPENDENCIES.md)
 
 ## directory tree
 
@@ -47,22 +48,39 @@ git clone
 ├── nvim
 │  └── .config
 │     └── nvim
-│        ├── .neoconf.json
+│        ├── .gitignore
+│        ├── .stylua.toml
+│        ├── BACKLOG.md
+│        ├── CLAUDE.md
+│        ├── DEPENDENCIES.md
+│        ├── KEYMAPS.md
 │        ├── init.lua
 │        ├── lazy-lock.json
-│        ├── lua
-│        │  ├── config
-│        │  │  ├── autocmds.lua
-│        │  │  ├── keymaps.lua
-│        │  │  ├── lazy.lua
-│        │  │  └── options.lua
-│        │  └── plugins
-│        │     ├── colortheme.lua
-│        │     ├── dashboard.lua
-│        │     ├── example.lua
-│        │     ├── explorer.lua
-│        │     └── markdown.lua
-│        └── stylua.toml
+│        └── lua
+│           ├── config
+│           │  ├── autocmds.lua
+│           │  ├── keymaps.lua
+│           │  ├── lazy.lua
+│           │  └── options.lua
+│           └── plugins
+│              ├── claudecode.lua
+│              ├── codediff.lua
+│              ├── colorscheme.lua
+│              ├── completion.lua
+│              ├── dashboard.lua
+│              ├── format.lua
+│              ├── gitsigns.lua
+│              ├── icons.lua
+│              ├── lsp.lua
+│              ├── lualine.lua
+│              ├── mason.lua
+│              ├── neo-tree.lua
+│              ├── noice.lua
+│              ├── pairs.lua
+│              ├── snacks.lua
+│              ├── terminal.lua
+│              ├── treesitter.lua
+│              └── which-key.lua
 ├── README.md
 ├── ssh
 │  └── .ssh
