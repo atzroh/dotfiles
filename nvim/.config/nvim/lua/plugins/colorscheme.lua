@@ -9,7 +9,15 @@ return {
       -- Show the terminal background (Ghostty's opacity) through Neovim
       transparent_background = true,
       float = { transparent = true },
-      -- Ghostty's 0x96f palette; colors it lacks are filled with close ones
+      integrations = {
+        -- Statusline middle keeps a background (transparent_background clears it)
+        lualine = {
+          all = function(colors)
+            return { normal = { c = { bg = colors.mantle } } }
+          end,
+        },
+      },
+      -- Color palette
       color_overrides = {
         mocha = {
           rosewater = "#fcfcfa",
