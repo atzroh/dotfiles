@@ -1,49 +1,27 @@
 # --- Appearance ---
+# Matches monokai-pro.nvim (filter = pro, transparent background)
 theme = Monokai Pro
 font-family = JetBrainsMono Nerd Font
 font-size = 12
 background-opacity = 0.90
 
-# --- Cursor ---
-cursor-style = block
-cursor-style-blink = true
-
 # --- Behavior ---
 mouse-hide-while-typing = true
-shell-integration = detect
 shell-integration-features = no-cursor
-confirm-close-surface = false
 
 # --- Window ---
-window-decoration = auto
 window-padding-balance = true
 maximize = true
 
 # --- Keybindings ---
+# Alt and plain Ctrl are left to Neovim and the shell.
+# Other pane/tab keys use the defaults (ghostty +list-keybinds --default)
 
-# Breakline
-keybind = shift+enter=text:\x1b\r
+# Pane navigation (pairs with <C-hjkl> in Neovim)
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+j=goto_split:down
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+l=goto_split:right
 
-# Word by word deletion
-keybind = shift+backspace=text:\x1b\x7f
-
-# Scroll up/down
-keybind = ctrl+shift+k=scroll_page_lines:-3
-keybind = ctrl+shift+j=scroll_page_lines:3
-
-# Resize pane
-keybind = ctrl+shift+h=resize_split:left,30
-keybind = ctrl+shift+l=resize_split:right,30
-
-# Pane splitting
-keybind = super+alt+v=new_split:right
-keybind = super+alt+h=new_split:down
-
-# Pane navigation
-keybind = alt+h=goto_split:left
-keybind = alt+j=goto_split:down
-keybind = alt+k=goto_split:up
-keybind = alt+l=goto_split:right
-
-# Close pane
-keybind = alt+x=close_surface
+# Close pane (closes the tab when it is the last pane)
+keybind = ctrl+shift+w=close_surface
