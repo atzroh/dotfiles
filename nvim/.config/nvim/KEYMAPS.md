@@ -1,370 +1,369 @@
 # KEYMAPS
 
-この設定で使えるキー操作の一覧 (復習用)。段階を追加するたびに更新する。
+Keymaps available in this config.
 
-- 出どころ: **設定** = このリポジトリで定義 / **標準** = Neovim に最初からある / **blink** = blink.cmp の標準
-- leader キーは `Space`、localleader は `\`
-- 実際の割り当ては `:nmap <キー>` で確認できる。`:verbose nmap <キー>` なら、定義した場所も表示される
+- Source: **Config** = defined here (LazyVim / README = copied from there), **Built-in** = Neovim default, plugin name = plugin default.
+- Mode: `n` normal, `i` insert, `v` visual, `o` operator-pending, `t` terminal, `c` cmdline.
+- Leader: `Space`; localleader: `\`.
+- Check a mapping with `:nmap <key>`; `:verbose nmap <key>` also shows where it is defined.
 
-## キーの案内 (which-key.nvim)
+## Key hints (which-key.nvim)
 
-キーを押しかけて少し待つと、続けて押せるキーと説明が画面右下に枠付きで浮かぶ (例: `Space`、`g`、`z`、`]`、`"`)。
+- Pause after a prefix key (`Space`, `g`, `z`, `]`, `"`, ...) to see the next keys at the bottom right.
 
-| キー | 動作 | 出どころ |
+| Key | Action | Source |
 |---|---|---|
-| `<leader>?` | このバッファだけで使えるキーの一覧 | 設定 (README) |
-| 一覧が出ている間に `<BS>` | 1 つ前の段階に戻る | which-key |
-| 一覧が出ている間に `<Esc>` | 閉じる | which-key |
+| `<leader>?` | Buffer-local keymaps | Config (README) |
+| `<BS>` (popup open) | Go up one level | which-key |
+| `<Esc>` (popup open) | Close | which-key |
 
-`<leader>` の下のまとまり: `a` AI (Claude Code) / `b` Buffer / `c` Code / `f` Find / `g` Git / `h` Hunk (gitsigns) / `q` Quit / `s` Search / `t` Toggle / `w` Window
+- Leader groups: `a` AI, `b` Buffer, `c` Code, `f` Find, `g` Git, `h` Hunk, `q` Quit, `s` Search, `t` Toggle, `w` Window.
 
-## メッセージと通知 (noice.nvim + snacks.nvim)
+## Messages and notifications (noice.nvim + snacks.nvim)
 
-LazyVim と同じ動き。
+- Same behavior as LazyVim.
+- The cmdline row is hidden by default.
+- `:` opens a floating cmdline at the top center; `/` and `?` stay at the bottom.
+- `:echo` output, errors, and warnings show as notifications at the top right.
+- Write / undo info (`10L, 200B written`) shows small at the bottom right.
+- Messages with 20+ lines open in a split.
+- Macro recording shows `recording @q` in lualine.
 
-- コマンドラインの行は普段は隠れている
-- `:` を押すと、画面上部の中央に枠付きのコマンドラインが浮かぶ (補完の候補はその下に出る)。検索 (`/`、`?`) は画面下に出る
-- `:echo` の結果やエラー、警告などのメッセージは、右上に通知 (トースト) として出て、しばらくすると消える
-- ファイル保存や undo の情報 (`10L, 200B written` など) は右下に小さく出る
-- 1 つのメッセージが長いとき (20 行以上) は分割ウィンドウで開く
-- マクロの記録中は lualine に `recording @q` と出る
-
-| キー / コマンド | 動作 | 出どころ |
+| Key / Command | Action | Source |
 |---|---|---|
-| `<leader>n` | 通知の履歴を開く | 設定 |
-| `:Noice` | noice のメッセージの履歴を開く | noice |
-| `:Noice dismiss` | 表示中の通知をすべて消す | noice |
-| `:messages` | メッセージの履歴を開く | 標準 |
+| `<leader>n` | Notification history | Config |
+| `:Noice` | noice message history | noice |
+| `:Noice dismiss` | Dismiss all notifications | noice |
+| `:messages` | Message history | Built-in |
 
-## 起動画面 (snacks.dashboard)
+## Dashboard (snacks.dashboard)
 
-引数なしの `nvim` で、ロゴ、バージョンと日付、キーの案内、起動時間を中央に表示する (`lua/plugins/dashboard.lua`)。ロゴの形は `logo`、色は同じ形の `colors` (`b` = 青、`p` = 紫) で決める。
+- `nvim` without arguments shows logo, version, date, key hints, and startup time.
+- Defined in `lua/plugins/dashboard.lua`; `logo` sets the shape, `colors` the color (`b` blue, `p` purple).
 
-| キー | 動作 | 出どころ |
+| Key | Action | Source |
 |---|---|---|
-| `f` | ファイル名で検索 | 設定 |
-| `n` | 新しいファイル (挿入モードで始まる) | 設定 |
-| `g` | ファイルの中身を検索 (grep) | 設定 |
-| `r` | 最近開いたファイル | 設定 |
-| `c` | この設定のファイルを検索 | 設定 |
-| `L` | lazy.nvim の画面 | 設定 |
-| `q` | Neovim を終了 (`:qa`) | 設定 |
-| `:lua Snacks.dashboard()` | 作業中に起動画面を開く (`<Esc>` で閉じる。`q` は終了なので注意) | snacks |
+| `f` | Find files | Config |
+| `n` | New file (starts in insert mode) | Config |
+| `g` | Grep | Config |
+| `r` | Recent files | Config |
+| `c` | Find config files | Config |
+| `L` | lazy.nvim | Config |
+| `q` | Quit (`:qa`) | Config |
+| `:lua Snacks.dashboard()` | Open the dashboard later (close with `<Esc>`; `q` quits Neovim) | snacks |
 
-## 基本
+## Basics
 
-| キー | モード | 動作 | 出どころ |
+| Key | Mode | Action | Source |
 |---|---|---|---|
-| `<Esc>` | ノーマル | 検索ハイライトを一時的に消す | 設定 |
-| `<C-s>` | ノーマル / 挿入 / ビジュアル | 保存してノーマルモードに戻る | 設定 (LazyVim) |
-| `"_d` | ノーマル | クリップボードを上書きせずに削除 (ブラックホールレジスタ) | 標準 |
-| `<leader>fn` | ノーマル | 新しい空のバッファ | 設定 (LazyVim) |
-| `<leader>l` | ノーマル | lazy.nvim の画面 | 設定 (LazyVim) |
-| `<leader>qq` | ノーマル | すべて閉じて終了 (`:qa`) | 設定 (LazyVim) |
+| `<Esc>` | n | Clear search highlight | Config |
+| `<C-s>` | n / i / v | Save and return to normal mode | Config (LazyVim) |
+| `"_d` | n | Delete without touching the clipboard | Built-in |
+| `<leader>fn` | n | New empty buffer | Config (LazyVim) |
+| `<leader>l` | n | lazy.nvim | Config (LazyVim) |
+| `<leader>qq` | n | Quit all (`:qa`) | Config (LazyVim) |
 
-`yy` や `p` は OS のクリップボードと共有される (`clipboard=unnamedplus`)。
+- Yank and put share the system clipboard (`clipboard=unnamedplus`).
+- Built-in `<C-l>` (clear and redraw) is replaced by window navigation.
+- Built-in insert `<C-s>` (signature help) is replaced by save; signature help opens on `(` and with blink `<C-k>`.
 
-標準の `<C-l>` (ハイライト消去 + 再描画) はウィンドウ移動に、挿入モードの `<C-s>` (関数の引数の説明) は保存に置き換えている。引数の説明は `(` を打つと自動で出て、blink の `<C-k>` で出し直せる。
+## Windows and buffers
 
-## ウィンドウとバッファ
-
-| キー | 動作 | 出どころ |
+| Key | Action | Source |
 |---|---|---|
-| `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` | 左 / 下 / 上 / 右のウィンドウへ移動 | 設定 (LazyVim) |
-| `<leader>-` / `<leader>\|` | 横 / 縦に分割 | 設定 (LazyVim) |
-| `<leader>wd` | ウィンドウを閉じる | 設定 (LazyVim) |
-| `<S-h>` / `<S-l>` | 前 / 次のバッファ (標準の `[b` / `]b` と同じ) | 設定 (LazyVim) |
-| `<leader>bb` | 直前のバッファへ戻る | 設定 (LazyVim) |
-| `<leader>bd` | ウィンドウを残したままバッファを閉じる | 設定 (snacks.bufdelete) |
-| `<leader>bo` | 今のバッファ以外をすべて閉じる | 設定 (snacks.bufdelete) |
+| `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` | Go to left / lower / upper / right window | Config (LazyVim) |
+| `<leader>-` / `<leader>\|` | Split below / right | Config (LazyVim) |
+| `<leader>wd` | Close window | Config (LazyVim) |
+| `<S-h>` / `<S-l>` | Previous / next buffer (same as `[b` / `]b`) | Config (LazyVim) |
+| `<leader>bb` | Alternate buffer | Config (LazyVim) |
+| `<leader>bd` | Delete buffer, keep window | Config (snacks.bufdelete) |
+| `<leader>bo` | Delete other buffers | Config (snacks.bufdelete) |
 
-- 標準の `H` / `L` (画面の上端 / 下端へ移動) は、バッファ切替に置き換えている
-- neo-tree の中で `<S-l>` を押すと、neo-tree は残り、右のウィンドウに次のバッファが出る
+- Built-in `H` / `L` (top / bottom of screen) are replaced by buffer switching.
+- `<S-l>` in neo-tree keeps the tree and shows the next buffer in the right window.
 
-## 編集
+## Editing
 
-| キー | モード | 動作 | 出どころ |
+| Key | Mode | Action | Source |
 |---|---|---|---|
-| `<A-j>` / `<A-k>` | ノーマル / 挿入 / ビジュアル | 行 (ビジュアルでは選んだ行) を下 / 上へ移動し、インデントを合わせる。`2<A-j>` で 2 行分 | 設定 (LazyVim) |
-| `<` / `>` | ビジュアル | インデントを 1 段ずらし、選択を保つ (続けて押せる) | 設定 (LazyVim) |
-| `j` / `k` | ノーマル / ビジュアル | 折り返した行では画面上の 1 行ずつ動く。回数付き (`5j`) は本当の行で数える | 設定 (LazyVim) |
-| `n` / `N` | ノーマル / ビジュアル / オペレーター | `n` は常に下、`N` は常に上へ検索 (`?` や `#` のあとも同じ)。行き先の折りたたみを開く | 設定 (LazyVim) |
+| `<A-j>` / `<A-k>` | n / i / v | Move line(s) down / up and reindent (`2<A-j>` moves 2 lines) | Config (LazyVim) |
+| `<` / `>` | v | Indent and keep the selection | Config (LazyVim) |
+| `j` / `k` | n / v | Move by screen line on wrapped lines; counts (`5j`) use real lines | Config (LazyVim) |
+| `n` / `N` | n / v / o | Always search forward / backward (even after `?` or `#`), open folds | Config (LazyVim) |
 
-`<A-j>` などの Alt キーは、端末 (Ghostty など) で別の操作に割り当てていると Neovim に届かない。
+- Alt keys do not reach Neovim if the terminal (Ghostty, etc.) binds them.
 
-## ターミナル (snacks.terminal)
+## Terminal (snacks.terminal)
 
-画面下の分割にシェルを開く。開くと入力できる状態 (ターミナルモード) になる。
+- Opens a shell in a bottom split, in terminal mode.
 
-| キー | モード | 動作 | 出どころ |
+| Key | Mode | Action | Source |
 |---|---|---|---|
-| `<C-/>` | ノーマル / ターミナル | ターミナルを開く / 隠す (Git の最上位で開く)。別のウィンドウにいるときは、表示中のターミナルへ移動 | 設定 (LazyVim) |
-| `<leader>ft` | ノーマル | ターミナルを開く / 隠す (Git の最上位で開く。`<C-/>` と同じターミナル) | 設定 (LazyVim) |
-| `<leader>fT` | ノーマル | ターミナルを開く / 隠す (Neovim の今のディレクトリで開く) | 設定 (LazyVim) |
-| `<Esc><Esc>` | ターミナル | 素早く 2 回押すとノーマルモードへ (スクロールやコピーができる。`i` で入力に戻る) | snacks |
-| `q` | ノーマル (ターミナル内) | ターミナルを隠す (シェルは動いたまま) | snacks |
-| `gf` | ノーマル (ターミナル内) | カーソル下のファイル名を開く | snacks |
+| `<C-/>` | n / t | Toggle terminal at the Git root; jumps to it if visible elsewhere | Config (LazyVim) |
+| `<leader>ft` | n | Toggle terminal at the Git root (same as `<C-/>`) | Config (LazyVim) |
+| `<leader>fT` | n | Toggle terminal at the current directory | Config (LazyVim) |
+| `<Esc><Esc>` | t | Normal mode (scroll, copy; `i` to type again) | snacks |
+| `q` | n (in terminal) | Hide terminal (shell keeps running) | snacks |
+| `gf` | n (in terminal) | Open file under cursor | snacks |
 
-- シェルで `exit` を打つと、ターミナルは閉じる
-- `<C-/>` を区別できない端末では `<C-_>` として届くので、同じ動作を割り当てている
-- 標準の `<C-\><C-n>` でもノーマルモードに戻れる
+- `exit` in the shell closes the terminal.
+- Terminals that cannot send `<C-/>` send `<C-_>`, which is mapped the same.
+- Built-in `<C-\><C-n>` also enters normal mode.
 
-## 検索 (snacks.picker)
+## Search (snacks.picker)
 
-| キー | 動作 | 出どころ |
+| Key | Action | Source |
 |---|---|---|
-| `<leader>ff` | ファイル名で検索 | 設定 |
-| `<leader>/` | ファイルの中身を検索 (grep) | 設定 |
-| `<leader>,` | 開いているバッファの一覧 | 設定 |
-| `<leader>sh` | ヘルプを検索 | 設定 |
-| `<leader>ss` | 今のファイルのシンボル (関数、クラス、見出しなど) を検索して移動 | 設定 (LazyVim) |
-| `<leader>sS` | プロジェクト全体のシンボルを名前で検索 (開いていないファイルも LSP が探す) | 設定 (LazyVim) |
+| `<leader>ff` | Find files | Config |
+| `<leader>/` | Grep | Config |
+| `<leader>,` | Buffers | Config |
+| `<leader>sh` | Help pages | Config |
+| `<leader>ss` | Symbols in the current file | Config (LazyVim) |
+| `<leader>sS` | Workspace symbols (LSP, incl. unopened files) | Config (LazyVim) |
 
-`.gitignore` に書かれたファイルと隠しファイルは、標準では検索対象外。
+- Hidden and gitignored files are excluded by default.
+- `gra` (code action) and other selections also use the picker.
 
-検索画面の中で使うキー (入力欄は挿入モードで始まる):
+Inside the picker (input starts in insert mode):
 
-| キー | 動作 |
+| Key | Action |
 |---|---|
-| 文字を入力 | 絞り込み (`'foo` で完全一致、`!foo` で除外など、fzf と同じ書き方) |
-| `<C-n>` / `<C-p>` (`<C-j>` / `<C-k>`、`<Down>` / `<Up>`) | 次 / 前の候補 |
-| `<CR>` | 開く |
-| `<C-v>` / `<C-s>` / `<C-t>` | 縦分割 / 横分割 / 新しいタブで開く |
-| `<Tab>` | 候補を複数選択 (選んだものをまとめて開く) |
-| `<C-q>` | 候補を quickfix リストに送る |
-| `<C-f>` / `<C-b>` | プレビューをスクロール |
-| `<A-h>` / `<A-i>` | 隠しファイル / `.gitignore` 対象の表示を切り替え |
-| `<A-p>` | プレビューの表示を切り替え |
-| `<Esc>` → `<Esc>` (または `q`) | 1 回目でノーマルモード、2 回目で閉じる (`<C-c>` なら 1 回で閉じる) |
-| `?` | この画面のキー一覧 |
+| Type | Filter (fzf syntax: `'foo` exact, `!foo` exclude) |
+| `<C-n>` / `<C-p>` (`<C-j>` / `<C-k>`, `<Down>` / `<Up>`) | Next / previous item |
+| `<CR>` | Open |
+| `<C-v>` / `<C-s>` / `<C-t>` | Open in vsplit / split / tab |
+| `<Tab>` | Multi-select |
+| `<C-q>` | Send to quickfix |
+| `<C-f>` / `<C-b>` | Scroll preview |
+| `<A-h>` / `<A-i>` | Toggle hidden / ignored files |
+| `<A-p>` | Toggle preview |
+| `<Esc>` `<Esc>` (or `q`) | Normal mode, then close (`<C-c>` closes at once) |
+| `?` | Picker keymaps |
 
-`gra` (修正候補) などの選択画面も、この検索画面で表示される。
+## File explorer (neo-tree.nvim)
 
-## ファイル操作 (neo-tree.nvim)
+- Sidebar tree with Git status; refreshes on external changes.
 
-左のサイドバーにフォルダを木構造で表示する。Git の状態 (変更・未追跡など) が記号と色で付き、外でファイルが変わると自動で更新される。
-
-| キー | 動作 | 出どころ |
+| Key | Action | Source |
 |---|---|---|
-| `-` / `<leader>e` | サイドバーを開閉し、今のファイルの位置にカーソルを合わせる | 設定 |
-| `<leader>ge` | Git の変更があるファイルだけを浮動ウィンドウで一覧 | 設定 |
-| `nvim .` | neo-tree を開く | neo-tree |
+| `-` / `<leader>e` | Toggle sidebar and reveal the current file | Config |
+| `<leader>ge` | Git-changed files in a float | Config |
+| `nvim .` | Open neo-tree | neo-tree |
 
-`-` は Neovim 0.13 の標準では「親フォルダを組み込みのフォルダ一覧で開く」だが、neo-tree に置き換えている。
+- Built-in `-` (0.13: open parent dir) is replaced by neo-tree.
 
-サイドバーの中で使うキー:
+Inside the sidebar:
 
-| キー | 動作 |
+| Key | Action |
 |---|---|
-| `<CR>` | ファイルを開く / フォルダを開閉 |
-| `<Space>` | フォルダを開閉 (少し待つと `<leader>` の一覧が出る) |
-| `s` / `S` / `t` | 縦分割 / 横分割 / 新しいタブで開く |
-| `P` | プレビューの表示を切り替え |
-| `a` / `A` | ファイル (`名前/` ならフォルダ) / フォルダを作成 |
-| `r` / `b` | 名前の変更 / 拡張子を除いた名前の変更 |
-| `d` | ゴミ箱に移す (設定。標準は完全に削除) |
-| `u` / `U` | 直前のゴミ箱移動を取り消す / ゴミ箱から戻す |
-| `c` / `m` | 行き先を入力してコピー / 移動 |
-| `y` / `x` / `p` | コピー / 切り取り / 貼り付け |
-| `H` | 隠しファイルと `.gitignore` 対象の表示を切り替え (ドットファイルは標準で表示) |
-| `/` | 名前で絞り込み |
-| `<BS>` / `.` | 1 つ上のフォルダを根にする / カーソルのフォルダを根にする |
-| `]g` / `[g` | 次 / 前の Git の変更があるファイルへ |
-| `C` / `z` | フォルダを閉じる / すべて閉じる |
-| `<` / `>` | 画面の切り替え (ファイル / バッファ一覧 / Git の変更) |
-| `R` | 再読み込み |
-| `q` | 閉じる |
-| `?` | この画面のキー一覧 |
+| `<CR>` | Open file / toggle folder |
+| `<Space>` | Toggle folder (wait for leader hints) |
+| `s` / `S` / `t` | Open in vsplit / split / tab |
+| `P` | Toggle preview |
+| `a` / `A` | Add file (`name/` for folder) / add folder |
+| `r` / `b` | Rename / rename basename |
+| `d` | Move to trash (Config; default deletes) |
+| `u` / `U` | Undo last trash / restore from trash |
+| `c` / `m` | Copy / move to a path |
+| `y` / `x` / `p` | Copy / cut / paste |
+| `H` | Toggle hidden and gitignored files (dotfiles shown by default) |
+| `/` | Filter by name |
+| `<BS>` / `.` | Root to parent / root to folder under cursor |
+| `]g` / `[g` | Next / previous Git-changed file |
+| `C` / `z` | Close folder / close all |
+| `<` / `>` | Switch source (files / buffers / Git status) |
+| `R` | Refresh |
+| `q` | Close |
+| `?` | Sidebar keymaps |
 
 ## Git (gitsigns.nvim)
 
-Git 管理のファイルでは、左端に変更の記号が出る (`┃` 追加・変更、`▁` 削除)。変更のまとまりを hunk と呼ぶ。
+- Signs in the left column: `┃` added / changed, `▁` deleted; a change block is a hunk.
 
-| キー | モード | 動作 | 出どころ |
+| Key | Mode | Action | Source |
 |---|---|---|---|
-| `]c` / `[c` | ノーマル | 次 / 前の hunk へ移動 (差分画面では本来の `]c` / `[c`) | 設定 (README) |
-| `<leader>hp` | ノーマル | hunk の変更前後を浮動ウィンドウで表示 | 設定 (README) |
-| `<leader>hi` | ノーマル | hunk の変更前をその場に重ねて表示 | 設定 (README) |
-| `<leader>hs` | ノーマル / ビジュアル | hunk (ビジュアルでは選んだ行) を stage | 設定 (README) |
-| `<leader>hr` | ノーマル / ビジュアル | hunk (ビジュアルでは選んだ行) の変更を取り消す | 設定 (README) |
-| `<leader>hS` / `<leader>hR` | ノーマル | ファイル全体を stage / ファイル全体の変更を取り消す | 設定 (README) |
-| `<leader>hb` | ノーマル | カーソル行を最後に変更したコミット (blame) を表示 | 設定 (README) |
-| `<leader>hd` / `<leader>hD` | ノーマル | stage 済みの内容 / 直前のコミットとの差分画面 | 設定 (README) |
-| `<leader>hq` / `<leader>hQ` | ノーマル | このファイル / 全ファイルの hunk を quickfix リストへ | 設定 (README) |
-| `<leader>tb` | ノーマル | 各行の末尾に blame を常に表示する / しない | 設定 (README) |
-| `<leader>tw` | ノーマル | 行内の変更された単語の強調を切り替え | 設定 (README) |
-| `ih` | オペレーター / ビジュアル | hunk を選択 (例: `dih` で hunk を削除、`vih` で選択) | 設定 (README) |
+| `]c` / `[c` | n | Next / previous hunk (diff mode: built-in) | Config (README) |
+| `<leader>hp` | n | Preview hunk in a float | Config (README) |
+| `<leader>hi` | n | Preview hunk inline | Config (README) |
+| `<leader>hs` | n / v | Stage hunk (or selected lines) | Config (README) |
+| `<leader>hr` | n / v | Reset hunk (or selected lines) | Config (README) |
+| `<leader>hS` / `<leader>hR` | n | Stage / reset buffer | Config (README) |
+| `<leader>hb` | n | Blame line | Config (README) |
+| `<leader>hd` / `<leader>hD` | n | Diff against index / last commit | Config (README) |
+| `<leader>hq` / `<leader>hQ` | n | Hunks of buffer / all files to quickfix | Config (README) |
+| `<leader>tb` | n | Toggle inline blame | Config (README) |
+| `<leader>tw` | n | Toggle word diff | Config (README) |
+| `ih` | o / v | Select hunk (`dih`, `vih`) | Config (README) |
 
 ### lazygit (snacks.lazygit)
 
-| キー | 動作 | 出どころ |
+| Key | Action | Source |
 |---|---|---|
-| `<leader>gg` | lazygit を浮動ウィンドウで開く | 設定 |
-| `<leader>gl` | lazygit をコミット履歴の画面で開く | 設定 |
-| `<leader>gf` | 今のファイルの変更履歴を lazygit で開く | 設定 |
+| `<leader>gg` | lazygit in a float | Config |
+| `<leader>gl` | lazygit log | Config |
+| `<leader>gf` | lazygit history of the current file | Config |
 
-lazygit の中の主なキー (lazygit 自体の操作):
+Inside lazygit:
 
-| キー | 動作 |
+| Key | Action |
 |---|---|
-| `q` | 閉じて Neovim に戻る |
-| `?` | その画面で使えるキーの一覧 |
-| `<Space>` | ファイルを stage / unstage |
-| `c` | コミット (メッセージを入力して Enter) |
-| `P` / `p` | push / pull |
-| `e` | ファイルをこの Neovim で開く (lazygit は閉じる) |
-| `<Tab>` / 数字キー | パネルを移動 |
+| `q` | Quit to Neovim |
+| `?` | Keymaps |
+| `<Space>` | Stage / unstage file |
+| `c` | Commit |
+| `P` / `p` | Push / pull |
+| `e` | Edit file in this Neovim (closes lazygit) |
+| `<Tab>` / number keys | Switch panel |
 
-### 差分画面 (codediff.nvim)
+### Diff view (codediff.nvim)
 
-新しいタブで開く。Claude Code などが変更している最中も、差分がその場で更新される。
+- Opens in a new tab and updates live while files change (e.g. by Claude Code).
 
-| キー / コマンド | 動作 | 出どころ |
+| Key / Command | Action | Source |
 |---|---|---|
-| `<leader>gd` | 作業中の変更を一覧と差分で表示 (`:CodeDiff`) | 設定 |
-| `<leader>gh` | 今のファイルの履歴を差分付きでたどる (`:CodeDiff history %`) | 設定 |
-| `:CodeDiff main` | ブランチ main との比較 (`:CodeDiff main HEAD` で 2 つのリビジョン同士) | codediff |
-| `:CodeDiff --staged` | stage 済みの変更だけを表示 | codediff |
-| `:CodeDiff history` | リポジトリ全体の履歴 | codediff |
+| `<leader>gd` | Working tree changes (`:CodeDiff`) | Config |
+| `<leader>gh` | File history with diffs (`:CodeDiff history %`) | Config |
+| `:CodeDiff main` | Compare with branch main (`:CodeDiff main HEAD` for two revisions) | codediff |
+| `:CodeDiff --staged` | Staged changes only | codediff |
+| `:CodeDiff history` | Repository history | codediff |
 
-画面の中の主なキー:
+Inside the diff view:
 
-| キー | 動作 |
+| Key | Action |
 |---|---|
-| `]f` / `[f` | 次 / 前のファイル |
-| `]c` / `[c` | 次 / 前の変更箇所 |
-| `-` | ファイルを stage / unstage |
-| `<leader>hs` / `<leader>hu` / `<leader>hr` | カーソル位置の変更を stage / unstage / 取り消し |
-| `do` / `dp` | 反対側から変更を取り込む / 反対側へ送る |
-| `t` | 横並び / 1 画面の切り替え |
-| `gc` | 変更のない部分を折りたたむ |
-| `<leader>e` / `<leader>b` | 一覧へ移動 / 一覧の表示切り替え |
-| `q` | 閉じる |
-| `g?` | キー一覧 |
+| `]f` / `[f` | Next / previous file |
+| `]c` / `[c` | Next / previous change |
+| `-` | Stage / unstage file |
+| `<leader>hs` / `<leader>hu` / `<leader>hr` | Stage / unstage / reset change under cursor |
+| `do` / `dp` | Obtain / put change |
+| `t` | Toggle side-by-side / inline |
+| `gc` | Fold unchanged lines |
+| `<leader>e` / `<leader>b` | Focus / toggle file list |
+| `q` | Close |
+| `g?` | Keymaps |
 
 ## Claude Code (claudecode.nvim)
 
-Neovim の右側に Claude Code を開き、VS Code 拡張と同じ仕組みで連携する。Claude Code が提案した変更は、Neovim の差分画面で確認してから反映できる。
+- Opens Claude Code on the right, integrated like the VS Code extension.
+- Proposed edits open in a diff view to accept or reject.
 
-| キー | モード | 動作 | 出どころ |
+| Key | Mode | Action | Source |
 |---|---|---|---|
-| `<leader>ac` | ノーマル | Claude Code を開く / 閉じる | 設定 (README) |
-| `<leader>af` | ノーマル | Claude Code の画面に移動 (なければ開く) | 設定 (README) |
-| `<leader>ar` | ノーマル | 過去の会話を選んで再開 (`--resume`) | 設定 (README) |
-| `<leader>aC` | ノーマル | 直前の会話を続ける (`--continue`) | 設定 (README) |
-| `<leader>am` | ノーマル | モデルを選んで開く | 設定 (README) |
-| `<leader>ab` | ノーマル | 今のファイルを Claude Code の文脈に追加 | 設定 (README) |
-| `<leader>as` | ビジュアル | 選んだ範囲を Claude Code に送る | 設定 (README) |
-| `<leader>as` | ノーマル (neo-tree の中) | カーソル行のファイルを文脈に追加 | 設定 (README) |
-| `<leader>aa` | ノーマル | 差分画面で、提案された変更を承認 | 設定 (README) |
-| `<leader>ad` | ノーマル | 差分画面で、提案された変更を却下 | 設定 (README) |
+| `<leader>ac` | n | Toggle Claude Code | Config (README) |
+| `<leader>af` | n | Focus Claude Code (open if needed) | Config (README) |
+| `<leader>ar` | n | Resume a session (`--resume`) | Config (README) |
+| `<leader>aC` | n | Continue last session (`--continue`) | Config (README) |
+| `<leader>am` | n | Select model and open | Config (README) |
+| `<leader>ab` | n | Add current buffer to context | Config (README) |
+| `<leader>as` | v | Send selection | Config (README) |
+| `<leader>as` | n (neo-tree) | Add file under cursor to context | Config (README) |
+| `<leader>aa` | n | Accept diff | Config (README) |
+| `<leader>ad` | n | Deny diff | Config (README) |
 
-Claude Code の画面 (端末) の中では、`<C-\><C-n>` でノーマルモードに戻り、`<C-w>h` などで他のウィンドウへ移動できる。
+- In the Claude Code terminal, `<C-\><C-n>` enters normal mode and `<C-w>h` etc. switch windows.
 
 ## LSP
 
-ファイルに LSP サーバーが接続しているときに使える。
+- Available when a language server is attached.
 
-| キー | モード | 動作 | 出どころ |
+| Key | Mode | Action | Source |
 |---|---|---|---|
-| `K` | ノーマル | 説明を表示 (もう一度押すとウィンドウ内に入る) | 標準 |
-| `gd` | ノーマル | 定義へ移動 (候補が複数なら検索画面で選ぶ) | 設定 (LazyVim) |
-| `gD` | ノーマル | 宣言へ移動 | 設定 (LazyVim) |
-| `<C-]>` | ノーマル | 定義へ移動 | 標準 |
-| `<C-t>` / `<C-o>` | ノーマル | 移動前の位置に戻る | 標準 |
-| `grn` / `<leader>cr` | ノーマル | 名前を変更 | 標準 / 設定 (LazyVim) |
-| `gra` / `<leader>ca` | ノーマル / ビジュアル | 修正候補 (code action)。ビジュアルでは範囲に対する候補 | 標準 / 設定 (LazyVim) |
-| `grr` | ノーマル | 参照箇所の一覧 | 標準 |
-| `gri` | ノーマル | 実装へ移動 | 標準 |
-| `grt` | ノーマル | 型の定義へ移動 | 標準 |
-| `grx` | ノーマル | コードレンズを実行 | 標準 |
-| `gO` | ノーマル | ファイル内のシンボル (関数・見出しなど) の一覧 | 標準 |
+| `K` | n | Hover (press again to enter) | Built-in |
+| `gd` | n | Go to definition (picker if multiple) | Config (LazyVim) |
+| `gD` | n | Go to declaration | Config (LazyVim) |
+| `<C-]>` | n | Go to definition | Built-in |
+| `<C-t>` / `<C-o>` | n | Jump back | Built-in |
+| `grn` / `<leader>cr` | n | Rename | Built-in / Config (LazyVim) |
+| `gra` / `<leader>ca` | n / v | Code action (range in visual) | Built-in / Config (LazyVim) |
+| `grr` | n | References | Built-in |
+| `gri` | n | Go to implementation | Built-in |
+| `grt` | n | Go to type definition | Built-in |
+| `grx` | n | Run code lens | Built-in |
+| `gO` | n | Document symbols | Built-in |
 
-`gd` / `gD` / `<leader>ca` / `<leader>cr` は LSP がつながったバッファだけで効く。他のバッファの `gd` / `gD` は標準 (ファイル内の宣言へ移動)。
+- `gd` / `gD` / `<leader>ca` / `<leader>cr` are buffer-local to LSP buffers; elsewhere `gd` / `gD` are built-in.
 
-## 整形
+## Formatting
 
-保存 (`:w`) すると自動で整形される。整形ツールのないファイルは、行末の空白だけ消える。
+- Formats on save (`:w`); files without a formatter only get trailing spaces removed.
 
-| キー / コマンド | モード | 動作 | 出どころ |
+| Key / Command | Mode | Action | Source |
 |---|---|---|---|
-| `<leader>cf` | ノーマル / ビジュアル | ファイル全体 (ビジュアルでは選択範囲) を整形 | 設定 |
-| `gq{範囲}` | ノーマル / ビジュアル | 範囲を整形ツールで整形 (例: `gqq` で 1 行、`gqip` で段落、`gggqG` で全体) | 設定 (conform) |
-| `gw{範囲}` | ノーマル / ビジュアル | コメントや文章を `textwidth` で折り返す (`gq` の代わり) | 標準 |
-| `:FormatDisable` | - | 保存時の自動整形を止める (`:FormatDisable!` ならこのバッファだけ) | 設定 |
-| `:FormatEnable` | - | 保存時の自動整形を再開 | 設定 |
-| `:ConformInfo` | - | このファイルで使われる整形ツールとログ | conform |
+| `<leader>cf` | n / v | Format buffer (or selection) | Config |
+| `gq{motion}` | n / v | Format with the formatter (`gqq`, `gqip`, `gggqG`) | Config (conform) |
+| `gw{motion}` | n / v | Wrap text at `textwidth` | Built-in |
+| `:FormatDisable` | - | Disable format on save (`!` for this buffer only) | Config |
+| `:FormatEnable` | - | Enable format on save | Config |
+| `:ConformInfo` | - | Formatters and log for this buffer | conform |
 
-## 診断 (エラー・警告)
+## Diagnostics
 
-| キー | モード | 動作 | 出どころ |
+| Key | Mode | Action | Source |
 |---|---|---|---|
-| `]d` / `[d` | ノーマル | 次 / 前の診断へ移動 | 標準 |
-| `]D` / `[D` | ノーマル | 最後 / 最初の診断へ移動 | 標準 |
-| `]e` / `[e` | ノーマル | 次 / 前のエラーへ移動 | 設定 (LazyVim) |
-| `]w` / `[w` | ノーマル | 次 / 前の警告へ移動 | 設定 (LazyVim) |
-| `<C-w>d` / `<leader>cd` | ノーマル | カーソル行の診断の詳細を表示 | 標準 / 設定 (LazyVim) |
+| `]d` / `[d` | n | Next / previous diagnostic | Built-in |
+| `]D` / `[D` | n | Last / first diagnostic | Built-in |
+| `]e` / `[e` | n | Next / previous error | Config (LazyVim) |
+| `]w` / `[w` | n | Next / previous warning | Config (LazyVim) |
+| `<C-w>d` / `<leader>cd` | n | Line diagnostics | Built-in / Config (LazyVim) |
 
-## 補完 (挿入モード)
+## Completion (insert mode)
 
-入力すると候補が自動で表示される。
+- The menu opens automatically while typing.
 
-| キー | 動作 | 出どころ |
+| Key | Action | Source |
 |---|---|---|
-| `<C-n>` / `<C-p>` (`<Down>` / `<Up>`) | 次 / 前の候補を選ぶ | blink |
-| `<C-y>` | 選んでいる候補で確定 (未選択なら先頭の候補) | blink |
-| `<C-e>` | 候補を閉じる | blink |
-| `<C-space>` | 候補を表示 → 説明を表示 → 説明を隠す (押すたびに切り替え) | blink |
-| `<C-b>` / `<C-f>` | 候補の説明をスクロール | blink |
-| `<C-k>` | 関数の引数の説明を表示 / 隠す | blink |
-| `<Tab>` / `<S-Tab>` | スニペット展開後、次 / 前の入力箇所へ移動 | blink |
+| `<C-n>` / `<C-p>` (`<Down>` / `<Up>`) | Next / previous item | blink |
+| `<C-y>` | Accept (first item if none selected) | blink |
+| `<C-e>` | Close | blink |
+| `<C-space>` | Show menu, then docs, then hide docs | blink |
+| `<C-b>` / `<C-f>` | Scroll docs | blink |
+| `<C-k>` | Toggle signature help | blink |
+| `<Tab>` / `<S-Tab>` | Next / previous snippet placeholder | blink |
 
-## 括弧の自動入力 (mini.pairs)
+## Auto pairs (mini.pairs)
 
-挿入モードで、括弧や引用符を自動で閉じる (`|` はカーソル位置)。
+- Closes brackets and quotes in insert mode (`|` = cursor).
 
-| キー | 動作 | 出どころ |
+| Key | Action | Source |
 |---|---|---|
-| `(` `[` `{` `"` `'` `` ` `` | 閉じる側も入力し、カーソルを中に置く (`(|)`) | mini.pairs |
-| `)` `]` `}` (閉じ括弧の直前) | 新しく入力せず、閉じ括弧の右へ進む | mini.pairs |
-| `<BS>` (`(|)` の状態) | 左右をまとめて消す | mini.pairs |
-| `<CR>` (`{|}` の状態) | 改行して、閉じ括弧を次の行に送る | mini.pairs |
+| `(` `[` `{` `"` `'` `` ` `` | Insert the pair, cursor inside (`(|)`) | mini.pairs |
+| `)` `]` `}` (before the closer) | Move past the closer | mini.pairs |
+| `<BS>` (in `(|)`) | Delete both | mini.pairs |
+| `<CR>` (in `{|}`) | Newline, closer on the next line | mini.pairs |
 
-- `'` は英字の直後では閉じない (`don't`)
-- `\` の直後では閉じない (`\(`)
-- 1 文字だけ入れたいときは `<C-v>` を押してから入力する (`<C-v>(` で `(` だけ)
+- `'` does not close after a letter (`don't`).
+- Nothing closes after `\` (`\(`).
+- Insert a single character with `<C-v>` first (`<C-v>(`).
 
-## 補完 (コマンドライン)
+## Completion (cmdline)
 
-`:` で入力中に使える。
-
-| キー | 動作 | 出どころ |
+| Key | Action | Source |
 |---|---|---|
-| `<Tab>` / `<S-Tab>` | 候補を表示して次 / 前を選ぶ (候補が 1 つならそのまま確定) | blink |
-| `<C-n>` / `<C-p>` | 次 / 前の候補 | blink |
-| `<C-y>` | 確定 | blink |
-| `<C-e>` | 閉じる | blink |
+| `<Tab>` / `<S-Tab>` | Show menu and select next / previous (accept if only one) | blink |
+| `<C-n>` / `<C-p>` | Next / previous item | blink |
+| `<C-y>` | Accept | blink |
+| `<C-e>` | Close | blink |
 
-## 折りたたみ
+## Folding
 
-Treesitter が関数・クラス・見出しなどの単位で折りたたみ範囲を決める。ファイルを開いた直後はすべて展開されている。
+- Treesitter folds functions, classes, headings, etc.; all open on load.
 
-| キー | 動作 | 出どころ |
+| Key | Action | Source |
 |---|---|---|
-| `zc` / `zo` | カーソル位置を折りたたむ / 開く | 標準 |
-| `za` | 折りたたみを切り替える | 標準 |
-| `zM` / `zR` | すべて折りたたむ / すべて開く | 標準 |
-| `zj` / `zk` | 次 / 前の折りたたみへ移動 | 標準 |
+| `zc` / `zo` | Close / open fold | Built-in |
+| `za` | Toggle fold | Built-in |
+| `zM` / `zR` | Close / open all | Built-in |
+| `zj` / `zk` | Next / previous fold | Built-in |
 
-## よく使うコマンド
+## Useful commands
 
-| コマンド | 動作 |
+| Command | Action |
 |---|---|
-| `:Lazy` | プラグインの一覧・更新 (`U` で更新、`q` で閉じる) |
-| `:Lazy profile` | 起動時間とプラグインごとの読み込み時間 |
-| `:Mason` | LSP サーバーやツールの一覧・更新 |
-| `:Inspect` | カーソル位置の色の出どころ (Treesitter / LSP) |
-| `:InspectTree` | Treesitter の構文木を表示 |
-| `:TSUpdate` | Treesitter のパーサーを更新 |
-| `:checkhealth vim.lsp` | LSP の接続状況 |
-| `:checkhealth nvim-treesitter` | Treesitter の状態 |
+| `:Lazy` | Plugins (`U` update, `q` close) |
+| `:Lazy profile` | Startup and per-plugin load time |
+| `:Mason` | LSP servers and tools |
+| `:Inspect` | Highlight source under cursor (Treesitter / LSP) |
+| `:InspectTree` | Treesitter syntax tree |
+| `:TSUpdate` | Update Treesitter parsers |
+| `:checkhealth vim.lsp` | LSP status |
+| `:checkhealth nvim-treesitter` | Treesitter status |

@@ -20,7 +20,8 @@ git clone
 - shell: zsh
 - terminal emulator: ghostty
 - editor: neovim
-  - dependencies: [nvim/.config/nvim/DEPENDENCIES.md](./nvim/.config/nvim/DEPENDENCIES.md)
+   - [backlog](./nvim/.config/nvim/BACKLOG.md)
+   - [keymaps](./nvim/.config/nvim/KEYMAPS.md)
 
 ## directory tree
 
@@ -41,11 +42,8 @@ git clone
 ├── nvim
 │  └── .config
 │     └── nvim
-│        ├── .gitignore
 │        ├── .stylua.toml
 │        ├── BACKLOG.md
-│        ├── CLAUDE.md
-│        ├── DEPENDENCIES.md
 │        ├── KEYMAPS.md
 │        ├── init.lua
 │        ├── lazy-lock.json

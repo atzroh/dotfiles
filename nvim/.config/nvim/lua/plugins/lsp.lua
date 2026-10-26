@@ -26,7 +26,7 @@ return {
       automatic_enable = servers,
     },
     config = function(_, opts)
-      -- Workaround: blink.cmp ignores applyKind merge (see BACKLOG.md)
+      -- Workaround: blink.cmp ignores applyKind merge
       vim.lsp.config("*", {
         capabilities = {
           textDocument = { completion = { completionList = { applyKindSupport = false } } },
