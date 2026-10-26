@@ -54,23 +54,23 @@ git clone
 │           │  ├── lazy.lua
 │           │  └── options.lua
 │           └── plugins
-│              ├── claudecode.lua
-│              ├── codediff.lua
+│              ├── ai.lua
+│              ├── cmdline.lua
 │              ├── colorscheme.lua
 │              ├── completion.lua
 │              ├── dashboard.lua
+│              ├── diff.lua
 │              ├── explorer.lua
 │              ├── format.lua
-│              ├── gitsigns.lua
+│              ├── git.lua
 │              ├── icons.lua
 │              ├── lsp.lua
-│              ├── lualine.lua
-│              ├── mason.lua
-│              ├── noice.lua
 │              ├── pairs.lua
 │              ├── snacks.lua
+│              ├── statusline.lua
+│              ├── syntax.lua
 │              ├── terminal.lua
-│              ├── treesitter.lua
+│              ├── tools.lua
 │              └── which-key.lua
 ├── README.md
 ├── ssh
