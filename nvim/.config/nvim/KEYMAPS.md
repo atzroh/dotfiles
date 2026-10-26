@@ -99,8 +99,6 @@ Keymaps available in this config.
 | Key | Mode | Action | Source |
 |---|---|---|---|
 | `<C-/>` | n / t | Toggle terminal at the Git root; jumps to it if visible elsewhere | Config (LazyVim) |
-| `<leader>ft` | n | Toggle terminal at the Git root (same as `<C-/>`) | Config (LazyVim) |
-| `<leader>fT` | n | Toggle terminal at the current directory | Config (LazyVim) |
 | `<Esc><Esc>` | t | Normal mode (scroll, copy; `i` to type again) | snacks |
 | `q` | n (in terminal) | Hide terminal (shell keeps running) | snacks |
 | `gf` | n (in terminal) | Open file under cursor | snacks |

@@ -10,22 +10,8 @@ end
 
 return {
   "folke/snacks.nvim",
-  -- Terminal at the bottom; <C-/> and <leader>ft share the same one
+  -- Terminal at the bottom
   keys = {
-    {
-      "<leader>ft",
-      function()
-        Snacks.terminal(nil, { cwd = terminal_root() })
-      end,
-      desc = "Terminal (git root)",
-    },
-    {
-      "<leader>fT",
-      function()
-        Snacks.terminal()
-      end,
-      desc = "Terminal (cwd)",
-    },
     {
       "<C-/>",
       function()
