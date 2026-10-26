@@ -23,10 +23,14 @@ PACKAGES=(
     wl-clipboard # Clipboard manager
     unzip        # Extract ZIP files
     chafa        # Image-to-Terminal converter
+    fastfetch    # System information tool
 
     # Development Tools
     build-essential # Essential packages for building software
     tar             # Archiving utility
+
+    # Terminal
+    ghostty # Terminal emulator
 
     # Languages & Interpreters
     zsh  # Shell
@@ -37,17 +41,10 @@ echo "[*] Installing core packages..."
 sudo apt-get install -y "${PACKAGES[@]}"
 
 # Install packages from PPAs
-echo "[*] Installing packages from PPAs..."
-PPAS=(
-    ppa:neovim-ppa/stable
-    ppa:mkasberg/ghostty-ubuntu
-    ppa:zhangsongcui3371/fastfetch
-)
-for ppa in "${PPAS[@]}"; do
-    sudo add-apt-repository -y "$ppa" >/dev/null
-done
+echo "[*] Installing Neovim..."
+sudo add-apt-repository -y ppa:neovim-ppa/stable >/dev/null
 sudo apt-get update
-sudo apt-get install -y neovim ghostty fastfetch
+sudo apt-get install -y neovim
 
 # ==============================================================================
 # NODE.JS ECOSYSTEM
