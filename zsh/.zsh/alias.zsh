@@ -45,3 +45,6 @@ alias icat='chafa -f kitty'
 
 # password alias
 alias genpw='openssl rand -base64 18 | wl-copy && wl-paste'
+
+# fastfetch alias (hide host, local ip and battery)
+alias fastfetch='fastfetch -s Title:Separator:OS:Kernel:Uptime:Packages:Shell:Display:DE:WM:WMTheme:Theme:Icons:Font:Cursor:Terminal:TerminalFont:CPU:GPU:Memory:Swap:Disk:PowerAdapter:Locale:Break:Colors'
