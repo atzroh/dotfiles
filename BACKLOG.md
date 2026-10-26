@@ -66,7 +66,7 @@
 
 ### snacks.nvim の他の機能
 - 有効にしているのは picker、lazygit、notifier、input、dashboard。どれも `lua/plugins/snacks.lua` の `opts` に `<名前> = { enabled = true }` を足せば使える (dashboard は設定が長いので `lua/plugins/dashboard.lua` に分けた)
-- terminal は claudecode.nvim が Claude Code を開くのに使っている
+- terminal は claudecode.nvim が Claude Code を開くのに使っているほか、`<C-/>` / `<leader>ft` / `<leader>fT` で使っている
 - bufdelete は有効にしなくても関数として呼べるので、`<leader>bd` / `<leader>bo` で使っている
 - dashboard で分かったこと:
   - 試して採らなかった構成: キー一覧を縦に並べる既定の形、最近のファイル / プロジェクト / git status を右の列に出す 2 列の形 (横幅 124 列以上が必要)。今は「ロゴ + 1 行のキー案内」にしている。公式の例は snacks の `docs/dashboard.md` の Examples
