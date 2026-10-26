@@ -23,7 +23,7 @@
 - Treesitter: nvim-treesitter main ブランチ (`treesitter.lua`)。折りたたみも Treesitter
 - 補完: blink.cmp (`completion.lua`)
 - 整形: conform.nvim、保存時に自動 (`format.lua`)
-- snacks.nvim: picker、lazygit、notifier、input (`snacks.lua`)
+- snacks.nvim: picker、lazygit、notifier、input (`snacks.lua`)、起動画面 dashboard (`dashboard.lua`、opts を snacks.lua の spec に合流)
 - ファイラー: neo-tree.nvim (`neo-tree.lua`)。アイコンは mini.icons (`icons.lua`、nvim-web-devicons の代わりも兼ねる)
 - claudecode.nvim (`claudecode.lua`)
 - Git: gitsigns.nvim (`gitsigns.lua`)、codediff.nvim (`codediff.lua`)

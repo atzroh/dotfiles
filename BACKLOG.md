@@ -68,8 +68,13 @@
 - 候補: ウィンドウ移動 (`<C-h/j/k/l>`), バッファ切替 (`<S-h>`/`<S-l>`), 行移動 (`<A-j>`/`<A-k>`), LSP 系 (`<leader>c*`)
 
 ### snacks.nvim の他の機能
-- 有効にしているのは picker、lazygit、notifier、input。どれも `lua/plugins/snacks.lua` の `opts` に `<名前> = { enabled = true }` を足せば使える
+- 有効にしているのは picker、lazygit、notifier、input、dashboard。どれも `lua/plugins/snacks.lua` の `opts` に `<名前> = { enabled = true }` を足せば使える (dashboard は設定が長いので `lua/plugins/dashboard.lua` に分けた)
 - terminal は claudecode.nvim が Claude Code を開くのに使っている
+- dashboard で分かったこと:
+  - 試して採らなかった構成: キー一覧を縦に並べる既定の形、最近のファイル / プロジェクト / git status を右の列に出す 2 列の形 (横幅 124 列以上が必要)。今は「ロゴ + 1 行のキー案内」にしている。公式の例は snacks の `docs/dashboard.md` の Examples
+  - monokai-pro は `NonText` の文字色を背景色にしている。snacks の `dir` (最近のファイル一覧のディレクトリ部分) はこれを参照するので見えなくなる。一覧を出すときは `SnacksDashboardDir` の色を指定する
+  - `preset.keys` を関数にすると、コメントでは既定のキーが渡るとあるが、実際にはダッシュボード自体が渡ってエラーになる。キーを足すときは自分で一覧を書く
+  - 前の LazyVim 構成のロゴが青かったのは、配色 0x96f が `SnacksDashboardHeader` を青にしていたため
 - おすすめ (試用候補):
   - indent: インデントの縦線と、今いるブロックの強調
   - words: カーソル下の変数の参照箇所を強調し、`]]` / `[[` で移動
@@ -77,7 +82,6 @@
 - その他の候補:
   - toggle: 設定の on/off キー (which-key に状態が表示される)
   - scope: 今いるブロックをテキストオブジェクト (`ii` / `ai`) として扱う
-  - dashboard: 起動画面
   - statuscolumn: 行番号・記号欄・折りたたみ表示を整える
   - scroll: スクロールを滑らかにする
   - quickfile: `nvim ファイル名` でプラグインより先にファイルを表示する
