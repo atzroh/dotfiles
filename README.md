@@ -77,6 +77,9 @@ git clone
 │  └── .ssh
 │     └── config
 └── zsh
+   ├── .config
+   │  └── sheldon
+   │     └── plugins.toml
    ├── .zsh
    │  ├── .fzf.zsh
    │  ├── .p10k.zsh
