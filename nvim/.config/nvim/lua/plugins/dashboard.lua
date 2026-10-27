@@ -55,6 +55,19 @@ end
 -- Merged into the spec in snacks.lua (load order is set there)
 return {
   "folke/snacks.nvim",
+  -- Quiet dashboard: accents in colors apart from the logo, the rest gray
+  init = function()
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      pattern = "catppuccin*",
+      callback = function()
+        local c = require("catppuccin.palettes").get_palette()
+        vim.api.nvim_set_hl(0, "SnacksDashboardKey", { fg = c.subtext1 })
+        vim.api.nvim_set_hl(0, "SnacksDashboardDesc", { fg = c.overlay0 })
+        vim.api.nvim_set_hl(0, "SnacksDashboardFooter", { fg = c.overlay0, italic = true })
+        vim.api.nvim_set_hl(0, "SnacksDashboardSpecial", { fg = c.subtext1, italic = true })
+      end,
+    })
+  end,
   ---@type snacks.Config
   opts = {
     -- Start screen when nvim is opened without arguments
