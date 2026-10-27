@@ -1,6 +1,6 @@
 # Powerlevel10k config, trimmed from romkatv/powerlevel10k/config/p10k-lean.zsh.
 # Wizard options: nerdfont-v3 + powerline, small icons, unicode, lean, 24h time, 1 line,
-# compact, many icons, concise, transient_prompt, instant_prompt=verbose.
+# compact, many icons, concise, transient_prompt, instant_prompt=off.
 # Note: `p10k configure` overwrites this file.
 
 # Temporarily change options.
@@ -344,7 +344,8 @@
   typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
 
   # Instant prompt mode (off, quiet, verbose).
-  typeset -g POWERLEVEL9K_INSTANT_PROMPT=verbose
+  # Off: Ghostty's OSC 133 mark makes the cursor jump a line on startup.
+  typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
   typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
 
