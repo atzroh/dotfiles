@@ -1,4 +1,5 @@
-###aliases###
+# Aliases; loaded last so they never affect other modules
+
 # colorize grep output (ls is aliased to eza below)
 if [[ -x /usr/bin/dircolors ]]; then
     alias grep='grep --color=auto'

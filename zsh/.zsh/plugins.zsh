@@ -1,3 +1,5 @@
+# External tools and zsh plugins; loaded before compinit
+
 # fnm
 FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then

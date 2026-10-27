@@ -1,3 +1,5 @@
+# Completion: fpath -> compinit -> zstyle -> fzf
+
 # Enable bash completion for Python argcomplete (fpath must be set before compinit)
 fpath=(/usr/lib/python3/dist-packages/argcomplete/bash_completion.d $fpath)
 
