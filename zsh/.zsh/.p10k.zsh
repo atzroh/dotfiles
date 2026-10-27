@@ -31,7 +31,10 @@
     command_execution_time  # duration of the last command
     background_jobs         # presence of background jobs
     virtualenv              # python virtual environment
-    context                 # user@hostname
+    python_version          # python version from .python-version (custom)
+    node_version           # node.js version
+    go_version              # go version
+    context                # user@hostname
     vim_shell               # vim shell indicator (:sh)
     time                    # current time
   )
@@ -291,6 +294,30 @@
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=false
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_WITH_PYENV=false
   typeset -g POWERLEVEL9K_VIRTUALENV_{LEFT,RIGHT}_DELIMITER=
+
+  ##################[ python_version: python version from .python-version ]###################
+  # Custom segment. Shows the first line of the nearest .python-version (e.g., `uv python pin`).
+  function prompt_python_version() {
+    local dir=$PWD
+    while [[ ! -r $dir/.python-version ]]; do
+      [[ $dir == / ]] && return
+      dir=${dir:h}
+    done
+    local -a lines=("${(@f)$(<$dir/.python-version)}")
+    local v=${lines[1]//[[:space:]]/}
+    [[ -n $v ]] && p10k segment -r -i PYTHON_ICON -t "${v//\%/%%}"
+  }
+  typeset -g POWERLEVEL9K_PYTHON_VERSION_FOREGROUND=37
+
+  ##############################[ node_version: node.js version ]###############################
+  typeset -g POWERLEVEL9K_NODE_VERSION_FOREGROUND=70
+  # Show only in a directory tree containing package.json.
+  typeset -g POWERLEVEL9K_NODE_VERSION_PROJECT_ONLY=true
+
+  ##################################[ go_version: go version ]##################################
+  typeset -g POWERLEVEL9K_GO_VERSION_FOREGROUND=37
+  # Show only in a go project subdirectory.
+  typeset -g POWERLEVEL9K_GO_VERSION_PROJECT_ONLY=true
 
   ##################################[ context: user@hostname ]##################################
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=178
