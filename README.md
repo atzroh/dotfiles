@@ -1,5 +1,15 @@
 # atzroh's dotfiles
 
+<!--toc:start-->
+
+- [atzroh's dotfiles](#atzrohs-dotfiles)
+  - [installation](#installation)
+  - [images](#images)
+  - [packages](#packages)
+  - [directory tree](#directory-tree)
+
+<!--toc:end-->
+
 ## installation
 
 Place the `dotfiles/` directory in your home directory.
@@ -7,21 +17,21 @@ Place the `dotfiles/` directory in your home directory.
 ```sh
 cd ~
 git clone
+./install.sh
 ```
 
 ## images
 
-![fastfetch](./img/fastfetch.png)
-![neovim_dashboard](./img/neovim_dashboard.png)
-![neovim_editor](./img/neovim_editor.png)
+![neovim](./img/neovim.png)
+![zsh](./img/zsh.png)
 
 ## packages
 
 - shell: zsh
 - terminal emulator: ghostty
 - editor: neovim
-   - [backlog](./nvim/.config/nvim/BACKLOG.md)
-   - [keymaps](./nvim/.config/nvim/KEYMAPS.md)
+  - [backlog](./nvim/.config/nvim/BACKLOG.md)
+  - [keymaps](./nvim/.config/nvim/KEYMAPS.md)
 
 ## directory tree
 
@@ -35,9 +45,8 @@ git clone
 ├── git
 │  └── .gitconfig
 ├── img
-│  ├── fastfetch.png
-│  ├── neovim_dashboard.png
-│  └── neovim_editor.png
+│  ├── neovim.png
+│  └── zsh.png
 ├── install.sh
 ├── nvim
 │  └── .config

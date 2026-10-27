@@ -38,15 +38,6 @@ Plugins and settings to add.
   - Runs non-LSP linters.
   - Covers languages without a good language server.
 
-## Markdown
-
-- live-preview.nvim
-  - Live browser preview of Markdown.
-  - Pure Lua (no Node / Deno), KaTeX / Mermaid, scroll sync.
-- render-markdown.nvim
-  - Renders Markdown inside Neovim.
-  - Readable headings, tables, and code blocks without leaving the editor.
-
 ## UI
 
 - snacks.nvim indent
@@ -98,9 +89,6 @@ Plugins and settings to add.
 
 ## AI
 
-- Copilot inline completion
-  - Uses the native LSP inline completion (0.12+).
-  - AI suggestions while typing.
 - codecompanion.nvim
   - AI chat and inline edits.
   - Works with multiple model providers.
