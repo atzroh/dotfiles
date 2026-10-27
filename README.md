@@ -87,6 +87,6 @@ git clone
    │  ├── completion.zsh
    │  ├── history.zsh
    │  ├── path.zsh
-   │  └── plugin.zsh
+   │  └── sheldon.zsh
    └── .zshrc
 ```

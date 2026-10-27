@@ -9,7 +9,7 @@ fi
 bindkey -e
 
 [ -f ~/.zsh/path.zsh ] && source ~/.zsh/path.zsh # path configurations
-[ -f ~/.zsh/plugin.zsh ] && source ~/.zsh/plugin.zsh # plugin configurations
+[ -f ~/.zsh/sheldon.zsh ] && source ~/.zsh/sheldon.zsh # sheldon configurations
 [ -f ~/.zsh/.p10k.zsh ] && source ~/.zsh/.p10k.zsh # powerlevel10k configurations
 [ -f ~/.zsh/history.zsh ] && source ~/.zsh/history.zsh # history configurations
 [ -f ~/.zsh/completion.zsh ] && source ~/.zsh/completion.zsh # completion configurations
