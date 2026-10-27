@@ -1,5 +1,8 @@
 shell = "zsh"
 
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
 
@@ -9,5 +12,10 @@ github = "romkatv/powerlevel10k"
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 
+# Deferred until .zshrc finishes, so it always loads last
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
+
+[templates]
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"

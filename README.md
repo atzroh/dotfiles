@@ -90,12 +90,11 @@ git clone
    │  └── sheldon
    │     └── plugins.toml
    ├── .zsh
-   │  ├── .fzf.zsh
-   │  ├── .p10k.zsh
    │  ├── alias.zsh
    │  ├── completion.zsh
-   │  ├── history.zsh
-   │  ├── path.zsh
-   │  └── sheldon.zsh
+   │  ├── options.zsh
+   │  ├── p10k.zsh
+   │  └── plugins.zsh
+   ├── .zshenv
    └── .zshrc
 ```
