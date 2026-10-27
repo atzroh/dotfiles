@@ -6,6 +6,7 @@
 
 # script
 !install.sh
+!uninstall.sh
 
 # shell
 !/zsh/
