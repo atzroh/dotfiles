@@ -22,6 +22,12 @@ Plugins and settings to add.
 - ts-comments.nvim
   - Context-aware `gc` comments (e.g. JSX).
   - Uses the correct comment syntax for embedded languages.
+- Built-in undotree
+  - Browse the undo history as a tree (`:packadd nvim.undotree`, `:Undotree`).
+  - Restores earlier states without a plugin.
+- guess-indent.nvim
+  - Detects indent width and tabs per file.
+  - Matches the style of code written by others.
 
 ## Language support
 
@@ -34,6 +40,9 @@ Plugins and settings to add.
 - Debugger (DAP)
   - nvim-dap + nvim-dap-view, debugpy (Python), codelldb (C / C++).
   - Breakpoints and variable inspection inside Neovim.
+- neotest
+  - neotest-python for pytest.
+  - Run tests per function and show results inline; can debug tests with DAP.
 - nvim-lint
   - Runs non-LSP linters.
   - Covers languages without a good language server.
@@ -49,6 +58,9 @@ Plugins and settings to add.
 - todo-comments.nvim
   - Highlights and lists `TODO` / `FIXME`.
   - Easy to find pending work.
+- nvim-treesitter-context
+  - Pins the enclosing function or class at the top of the window.
+  - Shows where you are inside long blocks.
 - Built-in ui2 (replace noice.nvim)
   - Neovim's new message and cmdline UI.
   - Future default; noice.nvim is no longer maintained.
@@ -58,6 +70,9 @@ Plugins and settings to add.
 - persistence.nvim
   - Restores buffers and window layout.
   - Resume work where you left off.
+- quicker.nvim
+  - Editable, nicer-looking quickfix list.
+  - Edit lines in the list and save to apply them to files.
 
 ## Other
 
