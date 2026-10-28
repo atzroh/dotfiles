@@ -74,6 +74,7 @@ Keymaps available in this config.
 | `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` | Go to left / lower / upper / right window | Config (LazyVim) |
 | `<leader>-` / `<leader>\|` | Split below / right | Config (LazyVim) |
 | `<leader>wd` | Close window | Config (LazyVim) |
+| `<C-Up>` / `<C-Down>` / `<C-Left>` / `<C-Right>` | Increase / decrease height, decrease / increase width | Config (LazyVim) |
 | `<S-h>` / `<S-l>` | Previous / next buffer (same as `[b` / `]b`) | Config (LazyVim) |
 | `<leader>bb` | Alternate buffer | Config (LazyVim) |
 | `<leader>bd` | Delete buffer, keep window | Config (snacks.bufdelete) |

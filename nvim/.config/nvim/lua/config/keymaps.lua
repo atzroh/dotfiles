@@ -18,6 +18,10 @@ map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 map("n", "<leader>-", "<C-w>s", { desc = "Split window below", remap = true })
 map("n", "<leader>|", "<C-w>v", { desc = "Split window right", remap = true })
 map("n", "<leader>wd", "<C-w>c", { desc = "Delete window", remap = true })
+map("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Increase window height" })
+map("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Decrease window height" })
+map("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { desc = "Decrease window width" })
+map("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { desc = "Increase window width" })
 
 -- Buffers
 map("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "Prev buffer" })
