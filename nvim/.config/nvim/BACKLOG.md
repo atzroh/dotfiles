@@ -65,33 +65,15 @@ Plugins and settings to add.
 - todo-comments.nvim
   - Highlights and lists `TODO` / `FIXME`.
   - Easy to find pending work.
-- bufferline.nvim
-  - Buffer tabs at the top.
-  - Shows open buffers at a glance.
 - Built-in ui2 (replace noice.nvim)
   - Neovim's new message and cmdline UI.
   - Future default; noice.nvim is no longer maintained.
 
 ## Diagnostics and sessions
 
-- trouble.nvim
-  - Lists of diagnostics, references, and quickfix items.
-  - Easier to review many problems at once.
 - persistence.nvim
   - Restores buffers and window layout.
   - Resume work where you left off.
-
-## Git
-
-- neogit
-  - Magit-like Git UI.
-  - Stage, commit, and rebase without leaving Neovim.
-
-## AI
-
-- codecompanion.nvim
-  - AI chat and inline edits.
-  - Works with multiple model providers.
 
 ## Other
 
