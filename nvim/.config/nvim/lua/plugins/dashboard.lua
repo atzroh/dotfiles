@@ -12,6 +12,9 @@ local colors = {
   "bb b p   bbp   bp bb   pp",
 }
 
+-- Catppuccin palette name for each letter in colors
+local logo_colors = { b = "blue", p = "mauve" }
+
 -- Same actions as the snacks default keys
 local keys = {
   { key = "f", hint = "files", action = ":lua Snacks.dashboard.pick('files')" },
@@ -28,7 +31,8 @@ local function header()
   local text = {}
   for row, line in ipairs(logo) do
     for col, char in ipairs(vim.fn.split(line, "\\zs")) do
-      text[#text + 1] = { char, hl = colors[row]:sub(col, col) == "p" and "Keyword" or "header" }
+      local k = colors[row]:sub(col, col)
+      text[#text + 1] = { char, hl = logo_colors[k] and "SnacksDashboardLogo" .. k or nil }
     end
     text[#text + 1] = { "\n" }
   end
@@ -61,6 +65,9 @@ return {
       pattern = "catppuccin*",
       callback = function()
         local c = require("catppuccin.palettes").get_palette()
+        for k, name in pairs(logo_colors) do
+          vim.api.nvim_set_hl(0, "SnacksDashboardLogo" .. k, { fg = c[name] })
+        end
         vim.api.nvim_set_hl(0, "SnacksDashboardKey", { fg = c.subtext1 })
         vim.api.nvim_set_hl(0, "SnacksDashboardDesc", { fg = c.overlay0 })
         vim.api.nvim_set_hl(0, "SnacksDashboardFooter", { fg = c.overlay0, italic = true })
