@@ -25,6 +25,8 @@ return {
     toggle = { enabled = true },
     -- Opens image files as images; renders images and math in Markdown
     image = { enabled = true },
+    -- ii / ai select the current block; [i / ]i jump to its edges
+    scope = { enabled = true },
   },
   keys = {
     {

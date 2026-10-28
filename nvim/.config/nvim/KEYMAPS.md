@@ -89,7 +89,10 @@ Keymaps available in this config.
 | `<` / `>` | v | Indent and keep the selection | Config (LazyVim) |
 | `j` / `k` | n / v | Move by screen line on wrapped lines; counts (`5j`) use real lines | Config (LazyVim) |
 | `n` / `N` | n / v / o | Always search forward / backward (even after `?` or `#`), open folds | Config (LazyVim) |
+| `ii` / `ai` | v / o | Select block (indent / Treesitter) without / with its header line | snacks |
+| `[i` / `]i` | n / v / o | Go to top / bottom of the block; repeat for the outer block | snacks |
 
+- Repeating `ii` does not expand the selection; `[i` to the outer header first, then `vii`.
 - Alt keys do not reach Neovim if the terminal (Ghostty, etc.) binds them.
 
 ## Terminal (snacks.terminal)

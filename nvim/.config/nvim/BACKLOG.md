@@ -50,7 +50,6 @@ Plugins and settings to add.
 ## UI
 
 - Other snacks.nvim modules
-  - scope: current block as a textobject (`ii` / `ai`)
   - gitbrowse: open the file or line on GitHub
 - todo-comments.nvim
   - Highlights and lists `TODO` / `FIXME`.
