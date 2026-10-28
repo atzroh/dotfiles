@@ -31,9 +31,9 @@ Plugins and settings to add.
 
 ## Language support
 
-- Shell / JSON / YAML / TOML LSP
-  - bashls + shellcheck, jsonls / yamlls + SchemaStore.nvim, taplo.
-  - Completion and validation for config files (`package.json`, GitHub Actions, `pyproject.toml`).
+- TOML LSP
+  - taplo or tombi; schema validation for `pyproject.toml` etc.
+  - taplo cannot load the SchemaStore catalog (tamasfe/taplo#799) and is barely maintained; tombi is the likely successor.
 - LaTeX
   - VimTeX + Okular, texlab for completion and diagnostics.
   - Compile on save and jump between source and PDF.

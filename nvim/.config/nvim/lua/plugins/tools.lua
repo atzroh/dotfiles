@@ -7,6 +7,7 @@ local tools = {
   "prettierd",
   "shfmt",
   "taplo",
+  "shellcheck", -- used by bashls for diagnostics
 }
 
 return {

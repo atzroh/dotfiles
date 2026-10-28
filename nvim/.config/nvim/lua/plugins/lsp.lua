@@ -7,6 +7,9 @@ local servers = {
   "html",
   "cssls",
   "marksman",
+  "bashls",
+  "jsonls",
+  "yamlls",
 }
 
 return {
@@ -56,6 +59,25 @@ return {
         init_options = { fallbackFlags = { "-Wall", "-Wextra" } },
       })
 
+      -- Schemas from SchemaStore.nvim, loaded when the server starts
+      vim.lsp.config("jsonls", {
+        before_init = function(_, config)
+          config.settings.json.schemas = require("schemastore").json.schemas()
+        end,
+        settings = { json = { validate = { enable = true } } },
+      })
+      vim.lsp.config("yamlls", {
+        before_init = function(_, config)
+          config.settings.yaml.schemas = require("schemastore").yaml.schemas()
+        end,
+        settings = {
+          yaml = {
+            -- Use SchemaStore.nvim instead of the built-in download
+            schemaStore = { enable = false, url = "" },
+          },
+        },
+      })
+
       -- Use basedpyright's hover instead of Ruff's
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("lsp_ruff_no_hover", { clear = true }),
@@ -88,6 +110,9 @@ return {
       require("mason-lspconfig").setup(opts)
     end,
   },
+
+  -- JSON / YAML schemas for jsonls and yamlls
+  { "b0o/SchemaStore.nvim", lazy = true, version = false },
 
   -- Completion and type info for the Neovim Lua API in config files
   {
