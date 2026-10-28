@@ -52,7 +52,6 @@ Plugins and settings to add.
 - Other snacks.nvim modules
   - toggle: option toggles shown in which-key
   - scope: current block as a textobject (`ii` / `ai`)
-  - statuscolumn: tidy line numbers, signs, and folds
   - gitbrowse: open the file or line on GitHub
   - image: inline images
 - todo-comments.nvim

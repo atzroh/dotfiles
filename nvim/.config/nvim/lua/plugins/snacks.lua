@@ -19,6 +19,8 @@ return {
     words = { enabled = true },
     -- Disables heavy features on huge files
     bigfile = { enabled = true },
+    -- Marks and signs left of line numbers; folds and git signs right
+    statuscolumn = { enabled = true },
   },
   keys = {
     {
