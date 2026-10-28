@@ -79,5 +79,14 @@ vim.api.nvim_create_autocmd("User", {
     Snacks.toggle.treesitter():map("<leader>uT")
     Snacks.toggle.inlay_hints():map("<leader>uh")
     Snacks.toggle.indent():map("<leader>ug")
+    Snacks.toggle({
+      name = "Treesitter Context",
+      get = function()
+        return require("treesitter-context").enabled()
+      end,
+      set = function(state)
+        require("treesitter-context")[state and "enable" or "disable"]()
+      end,
+    }):map("<leader>ut")
   end,
 })

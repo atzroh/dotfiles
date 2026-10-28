@@ -377,6 +377,7 @@ Inside the diff view:
 | `<leader>ug` | Indent guides | Config (README) |
 | `<leader>uc` | Conceal (e.g. Markdown markup) | Config (README) |
 | `<leader>uT` | Treesitter highlighting | Config (README) |
+| `<leader>ut` | Treesitter context (enclosing function pinned at the top) | Config (LazyVim) |
 
 ## Useful commands
 

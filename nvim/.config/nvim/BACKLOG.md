@@ -54,9 +54,6 @@ Plugins and settings to add.
 - todo-comments.nvim
   - Highlights and lists `TODO` / `FIXME`.
   - Easy to find pending work.
-- nvim-treesitter-context
-  - Pins the enclosing function or class at the top of the window.
-  - Shows where you are inside long blocks.
 - Built-in ui2 (replace noice.nvim)
   - Neovim's new message and cmdline UI.
   - Future default; noice.nvim is no longer maintained.
