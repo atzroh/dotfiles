@@ -23,6 +23,8 @@ return {
     statuscolumn = { enabled = true },
     -- Option toggles; which-key shows their state
     toggle = { enabled = true },
+    -- Opens image files as images; renders images and math in Markdown
+    image = { enabled = true },
   },
   keys = {
     {

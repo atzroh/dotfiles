@@ -52,7 +52,6 @@ Plugins and settings to add.
 - Other snacks.nvim modules
   - scope: current block as a textobject (`ii` / `ai`)
   - gitbrowse: open the file or line on GitHub
-  - image: inline images
 - todo-comments.nvim
   - Highlights and lists `TODO` / `FIXME`.
   - Easy to find pending work.

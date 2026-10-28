@@ -23,6 +23,7 @@ PACKAGES=(
     wl-clipboard # Clipboard manager
     unzip        # Extract ZIP files
     chafa        # Image-to-Terminal converter
+    imagemagick  # Image converter (for snacks.image in Neovim)
     fastfetch    # System information tool
 
     # Development Tools
