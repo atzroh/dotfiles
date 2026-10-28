@@ -13,6 +13,12 @@ return {
     notifier = { enabled = true },
     -- vim.ui.input (e.g. grn rename) in a floating window
     input = { enabled = true },
+    -- Indent guides; highlights the current scope
+    indent = { enabled = true },
+    -- Highlights LSP references of the word under the cursor
+    words = { enabled = true },
+    -- Disables heavy features on huge files
+    bigfile = { enabled = true },
   },
   keys = {
     {
@@ -63,6 +69,35 @@ return {
         Snacks.picker.lsp_workspace_symbols()
       end,
       desc = "LSP workspace symbols",
+    },
+    {
+      "]]",
+      function()
+        Snacks.words.jump(vim.v.count1)
+      end,
+      desc = "Next reference",
+    },
+    {
+      "[[",
+      function()
+        Snacks.words.jump(-vim.v.count1)
+      end,
+      desc = "Prev reference",
+    },
+    -- Also works where ftplugins override ]] / [[ (e.g. Python)
+    {
+      "<A-n>",
+      function()
+        Snacks.words.jump(vim.v.count1, true)
+      end,
+      desc = "Next reference (cycle)",
+    },
+    {
+      "<A-p>",
+      function()
+        Snacks.words.jump(-vim.v.count1, true)
+      end,
+      desc = "Prev reference (cycle)",
     },
     -- Delete buffers without closing their windows
     {

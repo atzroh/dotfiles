@@ -279,8 +279,12 @@ Inside the diff view:
 | `grt` | n | Go to type definition | Built-in |
 | `grx` | n | Run code lens | Built-in |
 | `gO` | n | Document symbols | Built-in |
+| `]]` / `[[` | n | Next / previous reference of the word under cursor | Config (README) |
+| `<A-n>` / `<A-p>` | n | Next / previous reference, wraps around | Config (LazyVim) |
 
 - `gd` / `gD` / `<leader>ca` / `<leader>cr` are buffer-local to LSP buffers; elsewhere `gd` / `gD` are built-in.
+- References of the word under the cursor are highlighted automatically (snacks.words).
+- Built-in `]]` / `[[` (section jump) are replaced; ftplugins (Python, Go, Rust, Markdown, ...) keep their own, so use `<A-n>` / `<A-p>` there.
 
 ## Formatting
 

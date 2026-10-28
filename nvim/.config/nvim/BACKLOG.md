@@ -40,15 +40,6 @@ Plugins and settings to add.
 
 ## UI
 
-- snacks.nvim indent
-  - Indent guides and current scope highlight.
-  - Makes nested blocks easy to follow.
-- snacks.nvim words
-  - Highlights LSP references of the word under the cursor; jump with `]]` / `[[`.
-  - Shows where a variable is used at a glance.
-- snacks.nvim bigfile
-  - Disables heavy features on huge files.
-  - Keeps Neovim responsive.
 - Other snacks.nvim modules
   - toggle: option toggles shown in which-key
   - scope: current block as a textobject (`ii` / `ai`)
