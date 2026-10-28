@@ -73,6 +73,15 @@ Plugins and settings to add.
   - Editable, nicer-looking quickfix list.
   - Edit lines in the list and save to apply them to files.
 
+## Keymaps
+
+- Merge `<leader>t` into `<leader>u`
+  - `<leader>tb` / `<leader>tw` (gitsigns, from its README) and `<leader>u` (snacks.toggle) are both toggles.
+  - LazyVim keeps toggles under `<leader>u` and uses `<leader>t` for tests (neotest).
+- `]]` / `[[` for LSP references
+  - Replaces the built-in section jumps, and ftplugins (Python, Go, Markdown, ...) override it.
+  - Only `<A-n>` / `<A-p>` work everywhere; consider keeping just those.
+
 ## Other
 
 - vim.pack
