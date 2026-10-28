@@ -390,3 +390,30 @@ Inside the diff view:
 | `:TSUpdate` | Update Treesitter parsers |
 | `:checkhealth vim.lsp` | LSP status |
 | `:checkhealth nvim-treesitter` | Treesitter status |
+
+## Extra: scrolling in Claude Code (Claude Code feature, not Neovim)
+
+- Keys reach Claude Code only in terminal mode; in normal mode Neovim scrolls the buffer.
+- Fullscreen rendering (`/tui fullscreen`) draws on the alternate screen, so the conversation is not in Neovim's scrollback.
+
+| Key | Action | Source |
+|---|---|---|
+| `PgUp` / `PgDn` | Scroll half a screen (fullscreen rendering) | Claude Code |
+| Mouse wheel | Scroll a few lines (fullscreen rendering) | Claude Code |
+| `<C-Home>` / `<C-End>` | Top / latest, resumes auto-follow (fullscreen rendering) | Claude Code |
+| `<C-o>` | Toggle transcript view | Claude Code |
+
+Inside the transcript view (open with `<C-o>` first; in the main view `j` / `k` just type):
+
+| Key | Action |
+|---|---|
+| `j` / `k` | Scroll a line |
+| `<C-u>` / `<C-d>` | Half page |
+| `<C-b>` / `<C-f>` | Full page |
+| `g` / `G` | Top / bottom |
+| `{` / `}` | Previous / next prompt |
+| `/`, `n` / `N` | Search, next / previous match |
+| `[` | Write the conversation to the terminal scrollback |
+| `q` / `<Esc>` | Close |
+
+- Fullscreen scroll keys can be rebound with `/keybindings` (`~/.claude/keybindings.json`, context `Scroll`, e.g. `scroll:halfPageUp`).
