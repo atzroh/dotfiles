@@ -15,6 +15,7 @@ return {
       { "<leader>q", group = "Quit" },
       { "<leader>s", group = "Search" },
       { "<leader>t", group = "Toggle" },
+      { "<leader>u", group = "UI" },
       { "<leader>w", group = "Window" },
     },
   },

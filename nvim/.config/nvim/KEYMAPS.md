@@ -17,7 +17,7 @@ Keymaps available in this config.
 | `<BS>` (popup open) | Go up one level | which-key |
 | `<Esc>` (popup open) | Close | which-key |
 
-- Leader groups: `a` AI, `b` Buffer, `c` Code, `f` Find, `g` Git, `h` Hunk, `q` Quit, `s` Search, `t` Toggle, `w` Window.
+- Leader groups: `a` AI, `b` Buffer, `c` Code, `f` Find, `g` Git, `h` Hunk, `q` Quit, `s` Search, `t` Toggle, `u` UI, `w` Window.
 
 ## Messages and notifications (noice.nvim + snacks.nvim)
 
@@ -357,6 +357,22 @@ Inside the diff view:
 | `za` | Toggle fold | Built-in |
 | `zM` / `zR` | Close / open all | Built-in |
 | `zj` / `zk` | Next / previous fold | Built-in |
+
+## UI toggles (snacks.toggle)
+
+- which-key shows each toggle's current state (icon and color).
+
+| Key | Toggle | Source |
+|---|---|---|
+| `<leader>us` | Spell check | Config (README) |
+| `<leader>uw` | Line wrap | Config (README) |
+| `<leader>ul` | Line numbers | Config (README) |
+| `<leader>uL` | Relative line numbers | Config (README) |
+| `<leader>ud` | Diagnostics | Config (README) |
+| `<leader>uh` | Inlay hints (LSP) | Config (README) |
+| `<leader>ug` | Indent guides | Config (README) |
+| `<leader>uc` | Conceal (e.g. Markdown markup) | Config (README) |
+| `<leader>uT` | Treesitter highlighting | Config (README) |
 
 ## Useful commands
 

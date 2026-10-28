@@ -21,6 +21,8 @@ return {
     bigfile = { enabled = true },
     -- Marks and signs left of line numbers; folds and git signs right
     statuscolumn = { enabled = true },
+    -- Option toggles; which-key shows their state
+    toggle = { enabled = true },
   },
   keys = {
     {

@@ -50,7 +50,6 @@ Plugins and settings to add.
 ## UI
 
 - Other snacks.nvim modules
-  - toggle: option toggles shown in which-key
   - scope: current block as a textobject (`ii` / `ai`)
   - gitbrowse: open the file or line on GitHub
   - image: inline images
