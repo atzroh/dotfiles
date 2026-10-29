@@ -74,6 +74,11 @@ return {
         vim.api.nvim_set_hl(0, "SnacksDashboardSpecial", { fg = c.subtext1, italic = true })
       end,
     })
+
+    -- Opens as a float over the current window; <Esc> closes it
+    vim.api.nvim_create_user_command("Dashboard", function()
+      Snacks.dashboard()
+    end, { desc = "Open the dashboard" })
   end,
   ---@type snacks.Config
   opts = {

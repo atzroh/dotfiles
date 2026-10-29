@@ -50,7 +50,7 @@ Keymaps available in this config.
 | `c` | Find config files | Config |
 | `L` | lazy.nvim | Config |
 | `q` | Quit (`:qa`) | Config |
-| `:lua Snacks.dashboard()` | Open the dashboard later (close with `<Esc>`; `q` quits Neovim) | snacks |
+| `:Dashboard` | Open the dashboard later (close with `<Esc>`; `q` quits Neovim) | Config |
 
 ## Basics
 
