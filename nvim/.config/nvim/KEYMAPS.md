@@ -301,6 +301,7 @@ Inside the diff view:
 | `gw{motion}` | n / v | Wrap text at `textwidth` | Built-in |
 | `:FormatDisable` | - | Disable format on save (`!` for this buffer only) | Config |
 | `:FormatEnable` | - | Enable format on save | Config |
+| `:FormatAll` | - | Format all git-tracked files (asks first) | Config |
 | `:ConformInfo` | - | Formatters and log for this buffer | conform |
 
 ## Diagnostics
