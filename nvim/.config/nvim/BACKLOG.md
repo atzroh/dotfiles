@@ -60,6 +60,39 @@ Plugins and settings to add.
 - quicker.nvim
   - Editable, nicer-looking quickfix list.
   - Edit lines in the list and save to apply them to files.
+- trouble.nvim
+  - Persistent panel listing diagnostics, LSP references / symbols, and quickfix, grouped by file.
+  - Stays open while fixing errors one by one; for one-off jumps `Snacks.picker.diagnostics()` is enough.
+
+## Options
+
+From LazyVim (lazyvim/config/options.lua).
+
+- `confirm`: ask to save instead of failing on `:q` with unsaved changes.
+- `virtualedit = "block"`: block selection can extend past line ends.
+- `splitkeep = "screen"`: keep the view in place when splits open or close.
+- `showmode = false`: lualine already shows the mode.
+- `pumheight = 10`: limit popup menu height (blink.cmp sets its own, so little effect).
+- `sidescrolloff = 8`: horizontal margin around the cursor with `nowrap`.
+- `shiftround`: round `>` / `<` indent to a multiple of `shiftwidth`.
+- `updatetime = 200`: faster `CursorHold` and swap writes (default 4000 ms).
+- `timeoutlen = 300`: shorter wait for mapped key sequences; which-key shows sooner.
+- `spelllang = { "en", "cjk" }`: do not mark Japanese as spelling errors.
+
+## Autocmds
+
+From LazyVim (lazyvim/config/autocmds.lua). Reloading externally changed files is not needed (built-in `nvim.autoread` in 0.13).
+
+- Restore cursor position (last_loc)
+  - Jump to the last position when reopening a file.
+- Close with `q` (close_with_q)
+  - `q` closes help, quickfix, man, checkhealth, etc.
+- Equalize splits on resize (resize_splits)
+  - `wincmd =` on `VimResized`.
+- Wrap and spell in prose (wrap_spell)
+  - Enable `wrap` and `spell` for markdown and gitcommit.
+- Create missing directories on save (auto_create_dir)
+  - `BufWritePre` creates the parent directory instead of failing.
 
 ## Keymaps
 
