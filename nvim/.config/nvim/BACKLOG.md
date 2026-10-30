@@ -5,6 +5,7 @@ Plugins and settings to add.
 ## Next
 
 - Choose between grug-far.nvim and quicker.nvim
+- Add built-in undotree
 
 ## Editing
 
@@ -20,6 +21,9 @@ Plugins and settings to add.
 - grug-far.nvim
   - Project-wide search and replace in a buffer.
   - Previews all changes before applying them.
+- Built-in undotree
+  - Browse the undo history as a tree (`:packadd nvim.undotree`, `:Undotree`).
+  - Restores earlier states without a plugin.
 - guess-indent.nvim
   - Detects indent width and tabs per file.
   - Matches the style of code written by others.

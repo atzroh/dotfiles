@@ -29,6 +29,3 @@ require("lazy").setup({
   rocks = { enabled = false },
   performance = { rtp = { paths = bundled } },
 })
-
--- Built-in undo tree viewer (:Undotree); after setup so the rtp reset keeps it
-vim.cmd.packadd("nvim.undotree")

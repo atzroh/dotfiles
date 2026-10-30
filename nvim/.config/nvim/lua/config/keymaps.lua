@@ -63,7 +63,6 @@ map("n", "[w", diagnostic_jump(-1, "WARN"), { desc = "Prev warning" })
 map("n", "<leader>fn", "<cmd>enew<CR>", { desc = "New file" })
 map("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Lazy" })
 map("n", "<leader>qq", "<cmd>qa<CR>", { desc = "Quit all" })
-map("n", "<leader>su", "<cmd>Undotree<CR>", { desc = "Undotree" })
 
 -- UI toggles (snacks.toggle); Snacks is ready after VeryLazy
 vim.api.nvim_create_autocmd("User", {
