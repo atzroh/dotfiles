@@ -21,6 +21,7 @@ local keys = {
   { key = "n", hint = "new", action = ":ene | startinsert" },
   { key = "g", hint = "grep", action = ":lua Snacks.dashboard.pick('live_grep')" },
   { key = "r", hint = "recent", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+  { key = "s", hint = "session", action = ":lua require('persistence').load()" },
   { key = "c", hint = "config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
   { key = "L", hint = "lazy", action = ":Lazy" },
   { key = "q", hint = "quit", action = ":qa" },

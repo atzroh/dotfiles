@@ -12,7 +12,7 @@ return {
       { "<leader>f", group = "Find" },
       { "<leader>g", group = "Git" },
       { "<leader>h", group = "Hunk (gitsigns)" },
-      { "<leader>q", group = "Quit" },
+      { "<leader>q", group = "Quit/Session" },
       { "<leader>s", group = "Search" },
       { "<leader>t", group = "Toggle" },
       { "<leader>u", group = "UI" },

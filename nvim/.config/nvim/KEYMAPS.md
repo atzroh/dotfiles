@@ -17,7 +17,7 @@ Keymaps available in this config.
 | `<BS>` (popup open) | Go up one level | which-key |
 | `<Esc>` (popup open) | Close | which-key |
 
-- Leader groups: `a` AI, `b` Buffer, `c` Code, `f` Find, `g` Git, `h` Hunk, `q` Quit, `s` Search, `t` Toggle, `u` UI, `w` Window.
+- Leader groups: `a` AI, `b` Buffer, `c` Code, `f` Find, `g` Git, `h` Hunk, `q` Quit/Session, `s` Search, `t` Toggle, `u` UI, `w` Window.
 
 ## Messages and notifications (noice.nvim + snacks.nvim)
 
@@ -47,6 +47,7 @@ Keymaps available in this config.
 | `n` | New file (starts in insert mode) | Config |
 | `g` | Grep | Config |
 | `r` | Recent files | Config |
+| `s` | Restore session for the cwd | Config |
 | `c` | Find config files | Config |
 | `L` | lazy.nvim | Config |
 | `q` | Quit (`:qa`) | Config |
@@ -81,6 +82,18 @@ Keymaps available in this config.
 | `<leader>bo` | Delete other buffers | Config (snacks.bufdelete) |
 
 - Built-in `H` / `L` (top / bottom of screen) are replaced by buffer switching.
+
+## Sessions (persistence.nvim)
+
+- Buffers and window layout are saved per cwd on exit, only if a file was opened.
+- Restore is manual (also `s` on the dashboard).
+
+| Key | Action | Source |
+|---|---|---|
+| `<leader>qs` | Restore session for the cwd | Config (LazyVim) |
+| `<leader>qS` | Select a session to restore | Config (LazyVim) |
+| `<leader>ql` | Restore last session | Config (LazyVim) |
+| `<leader>qd` | Don't save the current session on exit | Config (LazyVim) |
 
 ## Editing
 

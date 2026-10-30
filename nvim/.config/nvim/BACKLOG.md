@@ -58,9 +58,6 @@ Plugins and settings to add.
 
 ## Diagnostics and sessions
 
-- persistence.nvim
-  - Restores buffers and window layout.
-  - Resume work where you left off.
 - quicker.nvim
   - Editable, nicer-looking quickfix list.
   - Edit lines in the list and save to apply them to files.
