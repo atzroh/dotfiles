@@ -7,7 +7,6 @@ Plugins and settings to add.
 - Choose between grug-far.nvim and quicker.nvim
 - Add persistence.nvim
 - Add built-in undotree
-- Add nvim-ts-autotag
 
 ## Editing
 
@@ -20,9 +19,6 @@ Plugins and settings to add.
 - mini.ai
   - Extends a / i textobjects (`af` call, `aa` argument, `aq` quote, `ab` bracket, etc.).
   - Works even when the cursor is not inside the target (`ci"` from the line start).
-- nvim-ts-autotag
-  - Auto close and rename HTML / JSX tags.
-  - Keeps opening and closing tags in sync.
 - grug-far.nvim
   - Project-wide search and replace in a buffer.
   - Previews all changes before applying them.
