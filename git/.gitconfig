@@ -3,3 +3,12 @@
 	email = atzroh@gmail.com
 [init]
 	defaultBranch = main
+[core]
+	editor = nvim
+	pager = delta
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true              # allow pull --rebase with uncommitted changes
+[push]
+	autoSetupRemote = true        # no need for -u on first push

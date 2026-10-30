@@ -25,6 +25,7 @@ PACKAGES=(
     chafa        # Image-to-Terminal converter
     imagemagick  # Image converter (for snacks.image in Neovim)
     fastfetch    # System information tool
+    git-delta    # Git diff pager
 
     # Development Tools
     build-essential # Essential packages for building software

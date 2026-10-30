@@ -1,0 +1,37 @@
+# Based on github/gitignore Global templates
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Vim
+[._]*.sw[a-p]
+[._]sw[a-p]
+[._]*.un~
+Session.vim
+Sessionx.vim
+.netrwhist
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Merge/patch leftovers
+*.orig
+*.rej
+
+# Local env
+.env.local
+
+# Claude Code
+**/.claude/settings.local.json
+CLAUDE.local.md

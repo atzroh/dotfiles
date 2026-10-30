@@ -43,6 +43,9 @@ git clone
 │     └── ghostty
 │        └── config.ghostty
 ├── git
+│  ├── .config
+│  │  └── git
+│  │     └── ignore
 │  └── .gitconfig
 ├── img
 │  ├── neovim.png
