@@ -85,7 +85,7 @@ Keymaps available in this config.
 
 ## Sessions (persistence.nvim)
 
-- Buffers and window layout are saved per cwd on exit, only if a file was opened.
+- Buffers and window layout are saved per cwd (and Git branch other than main / master) on exit, only if a file was opened.
 - Restore is manual (also `s` on the dashboard).
 
 | Key | Action | Source |

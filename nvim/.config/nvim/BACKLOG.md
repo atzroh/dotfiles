@@ -5,7 +5,6 @@ Plugins and settings to add.
 ## Next
 
 - Choose between grug-far.nvim and quicker.nvim
-- Add persistence.nvim
 - Add built-in undotree
 
 ## Editing
