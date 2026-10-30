@@ -2,6 +2,13 @@
 
 Plugins and settings to add.
 
+## Next
+
+- Choose between grug-far.nvim and quicker.nvim
+- Add persistence.nvim
+- Add built-in undotree
+- Add nvim-ts-autotag
+
 ## Editing
 
 - flash.nvim
@@ -19,9 +26,6 @@ Plugins and settings to add.
 - grug-far.nvim
   - Project-wide search and replace in a buffer.
   - Previews all changes before applying them.
-- ts-comments.nvim
-  - Context-aware `gc` comments (e.g. JSX).
-  - Uses the correct comment syntax for embedded languages.
 - Built-in undotree
   - Browse the undo history as a tree (`:packadd nvim.undotree`, `:Undotree`).
   - Restores earlier states without a plugin.
@@ -49,8 +53,6 @@ Plugins and settings to add.
 
 ## UI
 
-- Other snacks.nvim modules
-  - gitbrowse: open the file or line on GitHub
 - todo-comments.nvim
   - Highlights and lists `TODO` / `FIXME`.
   - Easy to find pending work.
