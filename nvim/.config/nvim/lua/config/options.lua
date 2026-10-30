@@ -36,6 +36,9 @@ opt.splitbelow = true
 -- Persist undo history across sessions
 opt.undofile = true
 
+-- Sessions (LazyVim): no empty or terminal windows; globals keep plugin state
+opt.sessionoptions = { "buffers", "curdir", "folds", "globals", "help", "skiprtp", "tabpages", "winsize" }
+
 -- Share the system clipboard
 opt.clipboard = "unnamedplus"
 
