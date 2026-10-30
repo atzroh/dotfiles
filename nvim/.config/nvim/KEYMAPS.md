@@ -109,6 +109,16 @@ Keymaps available in this config.
 - Repeating `ii` does not expand the selection; `[i` to the outer header first, then `vii`.
 - Alt keys do not reach Neovim if the terminal (Ghostty, etc.) binds them.
 
+## Undo tree (built-in)
+
+- Shows the undo history as a tree in a side split; moving the cursor in it restores that state.
+- Branches left by undo + new edits stay reachable, unlike plain `u` / `<C-r>`.
+- History survives restarts (`undofile`).
+
+| Key / Command | Action | Source |
+|---|---|---|
+| `<leader>su` / `:Undotree` | Toggle the undo tree | Config / Built-in |
+
 ## Terminal (snacks.terminal)
 
 - Opens a shell in a bottom split, in terminal mode.
