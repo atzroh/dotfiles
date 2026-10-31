@@ -86,8 +86,8 @@ git clone -q --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
 # ==============================================================================
 
 echo "[*] Installing sheldon (Zsh plugin manager)..."
-curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
-    | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
+curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh |
+    bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
 
 echo "[*] Installing lazygit (Git UI)..."
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')

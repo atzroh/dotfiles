@@ -8,10 +8,38 @@ return {
     terminal = {
       snacks_win_opts = {
         keys = {
-          nav_h = { "<C-h>", function() vim.cmd.wincmd("h") end, mode = "t", desc = "Go to left window" },
-          nav_j = { "<C-j>", function() vim.cmd.wincmd("j") end, mode = "t", desc = "Go to lower window" },
-          nav_k = { "<C-k>", function() vim.cmd.wincmd("k") end, mode = "t", desc = "Go to upper window" },
-          nav_l = { "<C-l>", function() vim.cmd.wincmd("l") end, mode = "t", desc = "Go to right window" },
+          nav_h = {
+            "<C-h>",
+            function()
+              vim.cmd.wincmd("h")
+            end,
+            mode = "t",
+            desc = "Go to left window",
+          },
+          nav_j = {
+            "<C-j>",
+            function()
+              vim.cmd.wincmd("j")
+            end,
+            mode = "t",
+            desc = "Go to lower window",
+          },
+          nav_k = {
+            "<C-k>",
+            function()
+              vim.cmd.wincmd("k")
+            end,
+            mode = "t",
+            desc = "Go to upper window",
+          },
+          nav_l = {
+            "<C-l>",
+            function()
+              vim.cmd.wincmd("l")
+            end,
+            mode = "t",
+            desc = "Go to right window",
+          },
         },
       },
     },
