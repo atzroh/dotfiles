@@ -24,6 +24,10 @@
 !/nvim/
 !/nvim/**
 
+# prompt
+!/starship/
+!/starship/**
+
 ## ssh
 !/ssh/
 !/ssh/**
