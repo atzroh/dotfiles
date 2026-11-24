@@ -18,6 +18,7 @@ DOTFILES=(
 APT_PACKAGES=(
     neovim
     ghostty
+    starship
     eza
     bat
     fd-find

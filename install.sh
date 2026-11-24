@@ -32,7 +32,8 @@ PACKAGES=(
     tar             # Archiving utility
 
     # Terminal
-    ghostty # Terminal emulator
+    ghostty  # Terminal emulator
+    starship # Shell prompt
 
     # Languages & Interpreters
     zsh          # Shell

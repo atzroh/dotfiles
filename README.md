@@ -28,6 +28,7 @@ git clone
 ## packages
 
 - shell: zsh
+- prompt: starship
 - terminal emulator: ghostty
 - editor: neovim
   - [backlog](./nvim/.config/nvim/BACKLOG.md)
@@ -90,13 +91,13 @@ git clone
 │     └── config
 └── zsh
    ├── .config
-   │  └── sheldon
-   │     └── plugins.toml
+   │  ├── sheldon
+   │  │  └── plugins.toml
+   │  └── starship.toml
    ├── .zsh
    │  ├── alias.zsh
    │  ├── completion.zsh
    │  ├── options.zsh
-   │  ├── p10k.zsh
    │  └── plugins.zsh
    ├── .zshenv
    └── .zshrc
