@@ -198,8 +198,9 @@ style = "peach"
 style_user = "peach"
 
 [jobs]
+symbol = ""
 number_threshold = 1
-style = "green"
+style = "subtext0"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
