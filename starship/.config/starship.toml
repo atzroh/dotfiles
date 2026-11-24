@@ -1,4 +1,5 @@
 add_newline = false
+palette = "catppuccin_mocha"
 
 format = """
 $os\
@@ -31,7 +32,7 @@ $time"""
 
 [directory]
 read_only = " 󰌾"
-style = "blue"
+style = "bold blue"
 
 [directory.substitutions]
 Desktop = ""
@@ -44,18 +45,18 @@ Templates = ""
 Videos = ""
 
 [character]
-success_symbol = "[❯](purple)"
+success_symbol = "[❯](mauve)"
 error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](green)"
 
 [git_branch]
 format = "on [$symbol$branch]($style)"
 symbol = " "
-style = "bright-black"
+style = "green"
 
 [git_status]
-format = "[[($conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed )]($style)"
-style = "cyan"
+format = "[[($conflicted$untracked$modified$staged$renamed$deleted)](yellow) ($ahead_behind$stashed )]($style)"
+style = "green"
 conflicted = " =$count"
 untracked = " ?$count"
 modified = " !$count"
@@ -69,51 +70,64 @@ stashed = "≡"
 
 [git_state]
 format = ' \([$state( $progress_current/$progress_total)]($style)\)'
-style = "bright-black"
+style = "red"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "yellow"
+style = "overlay1"
 
 [c]
 symbol = " "
+style = "blue"
 
 [cmake]
 symbol = " "
+style = "text"
 
 [dotnet]
 format = "via [$symbol($version )(󰓾 $tfm )]($style)"
 symbol = "󰪮 "
+style = "mauve"
 
 [golang]
 symbol = " "
+style = "sky"
 
 [java]
 symbol = " "
+style = "red"
 
 [kotlin]
 symbol = " "
+style = "mauve"
 
 [nodejs]
 symbol = " "
+style = "green"
 
 [python]
 symbol = " "
+style = "yellow"
 
 [rlang]
 symbol = "󰟔 "
+style = "blue"
 
 [ruby]
 symbol = " "
+style = "red"
 
 [rust]
 symbol = "󱘗 "
+style = "text"
 
 [swift]
 symbol = " "
+style = "peach"
 
 [os]
 disabled = false
+style = "text"
 
 [os.symbols]
 Alpaquita = " "
@@ -164,14 +178,53 @@ Windows = "󰍲 "
 
 [time]
 disabled = false
+style = "overlay1"
 
 [status]
 disabled = false
 symbol = "✘ "
+style = "red"
 
 [sudo]
 disabled = false
 symbol = "󰿆 "
+style = "peach"
 
 [hostname]
 ssh_symbol = " "
+style = "peach"
+
+[username]
+style_user = "peach"
+
+[jobs]
+number_threshold = 1
+style = "green"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
