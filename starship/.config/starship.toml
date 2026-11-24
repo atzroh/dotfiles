@@ -3,8 +3,7 @@ palette = "catppuccin_mocha"
 
 format = """
 $os\
-$username\
-$hostname\
+($username$hostname )\
 $directory\
 $git_branch\
 $git_state\
@@ -186,15 +185,18 @@ symbol = "✘ "
 style = "red"
 
 [sudo]
+format = "as [$symbol]($style)"
 disabled = false
-symbol = "󰿆 "
+symbol = "󰿆 sudo "
 style = "peach"
 
 [hostname]
-ssh_symbol = " "
+format = "[@$hostname $ssh_symbol]($style)"
+ssh_symbol = ""
 style = "peach"
 
 [username]
+format = "[$user]($style)"
 style_user = "peach"
 
 [jobs]
