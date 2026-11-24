@@ -2,7 +2,6 @@
 font-family = JetBrainsMono Nerd Font
 font-size = 10
 theme = Catppuccin Mocha
-background-opacity = 0.90
 
 # --- Behavior ---
 mouse-hide-while-typing = true
