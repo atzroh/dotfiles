@@ -1,24 +1,17 @@
 local logo = {
-  "╭─╮   ╭─╮   ╭─╮   ╷ ╷   ╷   ╭┬╮",
-  "│ │   ├─┘   │ │   │ │   │   │││",
-  "╵ ╵   ╰─╯   ╰─╯   ╰─╯   ╵   ╵╵╵",
+  "                                                                   ",
+  "      ████ ██████           █████      ██                    ",
+  "     ███████████             █████                            ",
+  "     █████████ ███████████████████ ███   ███████████  ",
+  "    █████████  ███    █████████████ █████ ██████████████  ",
+  "   █████████ ██████████ █████████ █████ █████ ████ █████  ",
+  " ███████████ ███    ███ █████████ █████ █████ ████ █████ ",
+  "██████  █████████████████████ ████ █████ █████ ████ ██████",
 }
 
--- Catppuccin accent for each letter, from left to right
-local letter_colors = { "mauve", "lavender", "blue", "sapphire", "sky", "teal" }
-
--- Logo with each letter in its own color; letters are separated by 3 spaces
+-- Logo in one color (SnacksDashboardHeader, set in colorscheme.lua)
 local function header()
-  local c = require("catppuccin.palettes").get_palette()
-  local text = {}
-  for _, line in ipairs(logo) do
-    for i, letter in ipairs(vim.split(line, "   ", { plain = true })) do
-      vim.api.nvim_set_hl(0, "SnacksDashboardLogo" .. i, { fg = c[letter_colors[i]] })
-      text[#text + 1] = { (i > 1 and "   " or "") .. letter, hl = "SnacksDashboardLogo" .. i }
-    end
-    text[#text + 1] = { "\n" }
-  end
-  return { align = "center", text = text, padding = 1 }
+  return { align = "center", text = { table.concat(logo, "\n"), hl = "header" }, padding = 3 }
 end
 
 -- Merged into the spec in snacks.lua (load order is set there)

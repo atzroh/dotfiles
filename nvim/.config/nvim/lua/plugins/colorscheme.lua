@@ -17,6 +17,16 @@ return {
           end,
         },
       },
+      custom_highlights = function(colors)
+        return {
+          -- Dashboard logo color (any catppuccin palette name)
+          SnacksDashboardHeader = { fg = colors.teal },
+          -- Drop the context underline; the separator in context.lua replaces it
+          TreesitterContextBottom = { style = {} },
+          -- Context separator in the same color as the indent guides
+          TreesitterContextSeparator = { link = "SnacksIndentScope" },
+        }
+      end,
     })
     vim.cmd.colorscheme("catppuccin")
     -- Hide "~" on lines past the end of the buffer
