@@ -1,14 +1,32 @@
+add_newline = false
+
 format = """
+$os\
 $username\
 $hostname\
 $directory\
 $git_branch\
 $git_state\
 $git_status\
-$cmd_duration\
-$line_break\
-$python\
 $character"""
+
+right_format = """
+$cmd_duration\
+$jobs\
+$c\
+$cmake\
+$dotnet\
+$golang\
+$java\
+$kotlin\
+$lua\
+$nodejs\
+$python\
+$rlang\
+$ruby\
+$rust\
+$swift\
+$time"""
 
 [directory]
 style = "blue"
@@ -23,14 +41,14 @@ format = "[$branch]($style)"
 style = "bright-black"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+format = "[[( $conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
 style = "cyan"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
+conflicted = "="
+untracked = "?"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
 stashed = "≡"
 
 [git_state]
@@ -44,3 +62,9 @@ style = "yellow"
 [python]
 format = "[$virtualenv]($style) "
 style = "bright-black"
+
+[os]
+disabled = false
+
+[time]
+disabled = false
