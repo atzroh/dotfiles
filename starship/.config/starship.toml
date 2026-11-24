@@ -30,7 +30,18 @@ $swift\
 $time"""
 
 [directory]
+read_only = " 󰌾"
 style = "blue"
+
+[directory.substitutions]
+Desktop = ""
+Documents = "󰈙"
+Downloads = ""
+Music = "󰝚"
+Pictures = ""
+Public = ""
+Templates = ""
+Videos = ""
 
 [character]
 success_symbol = "[❯](purple)"
@@ -43,7 +54,7 @@ symbol = " "
 style = "bright-black"
 
 [git_status]
-format = "[[($conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+format = "[[($conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed )]($style)"
 style = "cyan"
 conflicted = " =$count"
 untracked = " ?$count"
@@ -71,6 +82,7 @@ symbol = " "
 symbol = " "
 
 [dotnet]
+format = "via [$symbol($version )(󰓾 $tfm )]($style)"
 symbol = "󰪮 "
 
 [golang]
@@ -160,3 +172,6 @@ symbol = "✘ "
 [sudo]
 disabled = false
 symbol = "󰿆 "
+
+[hostname]
+ssh_symbol = " "
