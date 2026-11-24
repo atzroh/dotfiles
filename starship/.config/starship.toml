@@ -19,7 +19,6 @@ $dotnet\
 $golang\
 $java\
 $kotlin\
-$lua\
 $nodejs\
 $python\
 $rlang\
@@ -59,9 +58,40 @@ style = "bright-black"
 format = "[$duration]($style) "
 style = "yellow"
 
+[c]
+symbol = " "
+
+[cmake]
+symbol = " "
+
+[dotnet]
+symbol = "󰪮 "
+
+[golang]
+symbol = " "
+
+[java]
+symbol = " "
+
+[kotlin]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
 [python]
-format = "[$virtualenv]($style) "
-style = "bright-black"
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = "󱘗 "
+
+[swift]
 
 [os]
 disabled = false
