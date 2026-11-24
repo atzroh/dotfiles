@@ -92,6 +92,7 @@ symbol = " "
 symbol = "󱘗 "
 
 [swift]
+symbol = " "
 
 [os]
 disabled = false
