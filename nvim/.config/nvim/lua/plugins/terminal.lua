@@ -10,12 +10,12 @@ end
 
 return {
   "folke/snacks.nvim",
-  -- Terminal at the bottom
+  -- Floating terminal
   keys = {
     {
       "<C-/>",
       function()
-        Snacks.terminal.focus(nil, { cwd = terminal_root() })
+        Snacks.terminal.focus(nil, { cwd = terminal_root(), win = { position = "float" } })
       end,
       mode = { "n", "t" },
       desc = "Terminal (git root)",
@@ -24,7 +24,7 @@ return {
     {
       "<C-_>",
       function()
-        Snacks.terminal.focus(nil, { cwd = terminal_root() })
+        Snacks.terminal.focus(nil, { cwd = terminal_root(), win = { position = "float" } })
       end,
       mode = { "n", "t" },
       desc = "which_key_ignore",

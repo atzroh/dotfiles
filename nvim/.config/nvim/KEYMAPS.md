@@ -111,7 +111,7 @@ Keymaps available in this config.
 
 ## Terminal (snacks.terminal)
 
-- Opens a shell in a bottom split, in terminal mode.
+- Opens a shell in a floating window, in terminal mode.
 
 | Key          | Mode            | Action                                                            | Source           |
 | ------------ | --------------- | ----------------------------------------------------------------- | ---------------- |
