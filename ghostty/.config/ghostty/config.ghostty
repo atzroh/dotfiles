@@ -40,8 +40,8 @@ keybind = ctrl+shift+arrow_left=previous_tab
 keybind = ctrl+shift+arrow_right=next_tab
 
 # Scroll by line
-keybind = ctrl+shift+arrow_up=scroll_page_lines:-1
-keybind = ctrl+shift+arrow_down=scroll_page_lines:1
+keybind = ctrl+shift+arrow_up=scroll_page_lines:-5
+keybind = ctrl+shift+arrow_down=scroll_page_lines:5
 
 # Fullscreen and split zoom (same as default)
 keybind = ctrl+enter=toggle_fullscreen
