@@ -25,3 +25,9 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # fzf (after compinit; wraps Tab completion). PATH is set in .zshenv
 source <(fzf --zsh)
+
+# zoxide (after compinit)
+if (( $+commands[zoxide] )); then
+  export _ZO_ECHO=1
+  eval "$(zoxide init zsh --cmd cd)"
+fi

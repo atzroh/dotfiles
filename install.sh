@@ -26,6 +26,7 @@ PACKAGES=(
     imagemagick  # Image converter (for snacks.image in Neovim)
     fastfetch    # System information tool
     git-delta    # Git diff pager
+    zoxide       # Smarter cd
 
     # Development Tools
     build-essential # Essential packages for building software
