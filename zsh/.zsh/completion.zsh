@@ -29,5 +29,5 @@ source <(fzf --zsh)
 # zoxide (after compinit)
 if (( $+commands[zoxide] )); then
   export _ZO_ECHO=1
-  eval "$(zoxide init zsh --cmd cd)"
+  eval "$(zoxide init zsh)"
 fi
