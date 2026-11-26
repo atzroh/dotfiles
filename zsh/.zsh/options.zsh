@@ -1,17 +1,27 @@
-# Shell options: keybindings, history, globbing
+# Shell options: keybindings, history, globbing, directories, input
 
 # Keybindings
-# Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
 # History configuration for Zsh
 setopt histignorealldups
 setopt sharehistory
+setopt histignorespace
+setopt extendedhistory
+setopt histreduceblanks
 
-# Keep 10000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=10000
-SAVEHIST=10000
+# Keep 100000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=100000
+SAVEHIST=100000
 HISTFILE=~/.zsh_history
 
 # Globbing
 setopt globdots # include hidden files in globbing
+
+# Directories
+setopt autocd
+setopt autopushd
+setopt pushdignoredups
+
+# Input
+setopt interactivecomments

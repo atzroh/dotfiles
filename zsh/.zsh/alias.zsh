@@ -1,11 +1,7 @@
 # Aliases; loaded last so they never affect other modules
 
-# colorize grep output (ls is aliased to eza below)
-if [[ -x /usr/bin/dircolors ]]; then
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
+# grep alias
+alias grep='grep --color=auto'
 
 # eza alias
 alias ls='eza --icons --group-directories-first --color=auto'
@@ -15,7 +11,7 @@ alias ll='eza -alh --icons --group-directories-first --color=auto --time-style=l
 alias cat='batcat --paging=never'
 
 # cd alias
-alias ...='../../'
+alias ...='cd ../../'
 alias ..='cd ../'
 alias ~='cd ~/'
 
