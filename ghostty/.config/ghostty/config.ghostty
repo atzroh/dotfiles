@@ -6,14 +6,22 @@ theme = Catppuccin Mocha
 # --- Behavior ---
 mouse-hide-while-typing = true
 shell-integration-features = no-cursor
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = notify
 
 # --- Window ---
 window-padding-balance = true
+window-decoration = client
 maximize = true
+gtk-titlebar-style = tabs
 
 # --- Keybindings ---
 # Alt and plain Ctrl are left to Neovim and the shell.
 # Other pane/tab keys use the defaults (ghostty +list-keybinds --default)
+
+# Split pane (same as default)
+keybind = ctrl+shift+o=new_split:right
+keybind = ctrl+shift+e=new_split:down
 
 # Pane navigation (pairs with <C-hjkl> in Neovim)
 keybind = ctrl+shift+h=goto_split:left
@@ -23,3 +31,28 @@ keybind = ctrl+shift+l=goto_split:right
 
 # Close pane (closes the tab when it is the last pane)
 keybind = ctrl+shift+w=close_surface
+
+# New tab (same as default)
+keybind = ctrl+shift+t=new_tab
+
+# Tab navigation (same as default)
+keybind = ctrl+shift+arrow_left=previous_tab
+keybind = ctrl+shift+arrow_right=next_tab
+
+# Scroll by line
+keybind = ctrl+shift+arrow_up=scroll_page_lines:-1
+keybind = ctrl+shift+arrow_down=scroll_page_lines:1
+
+# Fullscreen and split zoom (same as default)
+keybind = ctrl+enter=toggle_fullscreen
+keybind = ctrl+shift+enter=toggle_split_zoom
+
+# Copy, paste and search (same as default)
+keybind = ctrl+shift+c=copy_to_clipboard:mixed
+keybind = ctrl+shift+v=paste_from_clipboard
+keybind = ctrl+shift+f=start_search
+
+# Config, command palette and inspector (same as default)
+keybind = ctrl+shift+,=reload_config
+keybind = ctrl+shift+p=toggle_command_palette
+keybind = ctrl+shift+i=inspector:toggle
